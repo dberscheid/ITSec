@@ -34,7 +34,7 @@ d.berscheid@outlook.com}
 \begin{abstract}
 
 %Unterscheidung zwischen abstract und introduction!? was kommt wo rein? 
-This paper deals with Coria (Connetivity Risk Analyzer), a framework developed by Dr. Fabian and collegues to analyze multiple indicators explaining the risk of connections in a network. In addition to this already existing framework we aim to improve the ETL process by adding a automation to its functionality. We furthermore investigate characteristics of nodes and edges of networks on the level of autonomous systems.
+This paper deals with Coria (Connetivity Risk Analyzer), a framework developed by Dr. Fabian and collegues to analyze multiple indicators explaining the risk of connections in a network like the internet. In addition to this already existing framework we aim to improve the ETL process by adding a automation to its functionality. We furthermore investigate characteristics of nodes and edges of the internet on the level of autonomous systems.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -43,13 +43,17 @@ Coria, Risk Analyzer, ETL, Automation, AS, Autonomous System
 
 Nur Notiz:
 Structure: \\
-Introduction \\
-Evolution of Coria (starting point, status quo, objectives) (maybe part of introduction) \\
 Literature \\
 Methodology \\
+\\
+
+
+Introduction \\
+Evolution of Coria (starting point, status quo, objectives) (maybe part of introduction) \\
+
 Theory: AS\\
 Theory: ETL\\
-Data: describe the data used for analysis
+Data: describe the data used for analysis 
 Results: Caida Analysis
 Results: ETL Automation
 Conclusion /Evaluationn /Outlook
@@ -58,18 +62,26 @@ Conclusion /Evaluationn /Outlook
 
 
 \section{Introduction}
-The CORIA framework is a project on which multiple developers already contributed to, in order to create a platform, which is able to analyze and visualize connectivity risks of graph structured data. Within this paper and project we would like to further contribute and improve specific aspects of CORIA. In the following we present investigate literature regarding network risk analysis especially on AS level. We investigate characteristics of these networks through some descriptive statistical methods and take a look at the time development of networks and its components. Then we present one approach for a automated ETL process, which shall improve and simplify the usage of Coria and ensure most recent data being available for analysis. \\
+
+The internet presents one of the most important networks for today‘s world. Consequently major financial and economical systems rely on its functionality and availability. In times of non-functioning of the internet, serious consequences for businesses and economies are the cosequence. There are many reasons for such a scenario, such as threats caused by nature, i.e. hurricanes or earthquakes, or deliberate hacking attacks trying to remove nodes from the network.  
+In 2016 for example the Dyn cyberattack, which involved multiple distributed denial-of-service attacks (DDos attacks) was the reason for large unavailability of internet platforms and services in North America and Europe. It is known as the larges DDoS attack on record.
+%https://en.wikipedia.org/wiki/Internet_outage
+
+900 000 users were infected by another attack in 2016 against the German company Deutsche Telekom, targeting their routers and causing internet connectivity problems. 
+
+%eine quelle für financial loss of downtime#
+According to a study conducted by Ponemon Institute in 2016, the average cost of a data center outage has increased from \$ 505,502 in 2010 to \$ 740,357 in 2016 - meaning an increase of 38\%. 
+
+%https://www.vertivco.com/globalassets/documents/reports/2016-cost-of-data-center-outages-11-11_51190_1.pdf
+
+The implication on the importance of the internet becomes very clear, which gives high incentives to analyze the riskyness of networks, like the internet. Coria's mission is exactely that: to help analyze connectivity risks. 
+
+
+The CORIA framework is a project on which multiple developers already contributed to, in order to create a platform, which is able to analyze and visualize connectivity risks of graph data. Within this paper and project we would like to further contribute and improve specific aspects of CORIA. In the following we present related work regarding network risk analysis especially on AS level. We investigate characteristics of these networks through some descriptive statistical methods and take a look at the time development of networks and its components. Then we present an approach for an automated ETL process, which shall improve and simplify the usage of Coria and ensure most recent data being available for analysis. \\
 
 
 
-The internet presents one of the most important networks for today‘s world. Consequently major financial and economical systems rely on its functionality and availability. In times of non-functioning of the internet, serious consequences for businesses and economies are the cosequence. There are many reasons for such a scenario, such as threats caused by nature, i.e. hurricanes or earthquakes, or deliberate hacking attacks trying to remove nodes from the network. 
-A study from... shows that.... \\
 
-Size of giant component refers to single largest component in the whole network
-Elimination of 8\% of nodes in the network: giant component equals zero
-
-
-The implication on the importance of the internet becomes very clear which gives high incentives to analyze the riskyness of networks, like the internet. Coria's mission is exactely that: to help analyze connectivity risks. 
 
 
 
@@ -124,8 +136,7 @@ deploying the framework on a permanent uni server (dependent on the confirmation
 \subsection{Status Quo}
 Status Quo Coria: \\
 
-Status Quo Literature:
-In the following, we have picked literature and some first research papers that are relevant for our objectives. Note that this list is not complete yet and will be adjusted during the work process.
+
 
 
 \begin{figure}[htbp]
@@ -150,12 +161,24 @@ Another challenge is that the alternation rate of the internet graph is very fas
 
 \section{Literature}
 
+Literature about AS Data and Internet Topology: \\
+\begin{itemize}
+
+
+\item blabla
+
+Literature about ETL Process and its automation: \\
+
+\end{itemize}
+
 \section{Methodology}
 
 \section{Theory: Autonomous Systems}
 
 Autonomous Systems (AS) represents one level of internet topology
 A set of routers under a single administration
+
+define: AS rank, customer cone, relation ships, etc. \\
 
 
 Fokussing on connectivity risks on AS-level 
@@ -194,13 +217,20 @@ Load: load into target database
 \label{fig}
 \end{figure}
 
+\section{Data}
+As a data source for this work, we exclusively focus on Caida. Caida is an appreviation and stands for Center for Applied Internet Data Analysis. Located in the San Diego, CA in the United States, the center studies networks, its infrastructure up to a large scale. For their investigation on theoretical and pracrtical aspects of the internet they monitor, collect and provide network data. 
+
+Regarding the data granularity our primary focus lies on AS level data. Within this domain, we investigate five (?) data sets. AS-Rank offers a data base giving information about specific Autonomous Systems, like its rank, relationship to other ASes or customer cone (http://as-rank.caida.org/about) . AS Classification representa a dataset including information on the business types of Autonomous Systems. Trough machine-learning inference, Caida is able to offer this knowledge (http://www.caida.org/data/as-classification/). A dataset named Pv4 Routed 24 AS Links Dataset is used in detail to investigate the topology on the internet, its structure regarding flows of traffic, and ratios of sending and receivin autonomous systems %(http://www.caida.org/data/active/ipv4_routed_topology_aslinks_dataset.xml). 
+We investigate the dataset AS Relationships in order to find out about Provider to Customer relationships as well as Peer to Peer relationships.  Lastly, we take into account geographic information of the Autonomous Systems to draw conlclusions on regions with high imapact on the internet network and less involved ones (http://www.caida.org/data/as-relationships-geo/)
+
+
+For the purpose of investigating the characteristics of Ases itself and their network, we analyzed recent data of December 2017.  As part of our time series analysis, we used data from 2007 until 2017. 
+
+
 \section{Results}
 
 \section{Caida - Data Analysis}
-Regarding data sources our primary focus lies on AS level data, coming from caida.org. The existing CORIA framework is already capable of using data from different data sources. As one of our goals is to automate the import of data, we focus on Caida as a source.
-
-For the purpose of investigating the characteristics of Ases itself and their network, we analyzed one recent data set of December 2017.
-First analytical aspect is the type of autonomous system. Caida distinguished here between three types: The first type are ASes that provide internets access or function as a transit. They make out 42.2\% of all nodes in the network. Second type are ASes providing content hosting and distribution systems, like Dropbox or Google, with only 4,5\% of all overall nodes. Third category are enterprises meaning organizations, universities or companies that are mostly users. They account for 53.3\%. Insights we are gaining from this aspect is that most of the nodes are representing users of the internet, which makes intuetively sense. More interesting is the large amount of transits and access points needed to provide the respective infrastructure. This hints to the internet's high complexity. 
+First aspect of the data analysis process is the type of autonomous system. Caida distinguished here between three types: The first type are ASes that provide internets access or function as a transit. They make out 42.2\% of all nodes in the network. Second type are ASes providing content hosting and distribution systems, like Dropbox or Google, with only 4,5\% of all overall nodes. Third category are enterprises meaning organizations, universities or companies that are mostly users. They account for 53.3\%. Insights we are gaining from this aspect is that most of the nodes are representing users of the internet, which makes intuetively sense. More interesting is the large amount of transits and access points needed to provide the respective infrastructure. This hints to the internet's high complexity. 
 
 
 \begin{figure}[htbp]
