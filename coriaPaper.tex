@@ -84,53 +84,11 @@ The implication on the importance of the internet becomes very clear, which give
 \subsection{Evolution of Coria}
 The Coria project started in ... with the scope of a (master) thesis by Mathias Ehlert (reference). With the objective of building a webframwork that is capable of analyzing connectivity risks of networks, Coria 1.0 was developed. Through the access of large amount of network data, either publically available or individually provided, Coria was able to calculate a variety of metrics, such as  
 centrality measures or node degree measures, which then form a unified risk score for respective connectivity risks of respective nodes. In addition, Coria offered a framework to investigate networks visually through graph visualisations. 
- The webapplication Coria 1.0 was written in python and ruby. It used NetworkX für its metrics and redis for database purposes. After Coria 1.5 presented a improved performance and the use of Graphtool instead of NetworkX für its metrics, Tom Kober developed Coria 2.0 - now using Neo4j to store and manage data. This version furthermore consisted of a native architecture of graph storage and processing. Coria 3.0 by Sebastian Gross benefits from a modular based improvements. 
+ The webapplication Coria 1.0 was written in python and ruby. It used NetworkX für its metrics and redis for database purposes. After Coria 1.5 presented a improved performance and the use of Graphtool instead of NetworkX für its metrics, Tom Kober developed Coria 2.0 - now using Neo4j to store and manage data. This version furthermore consisted of a native architecture of graph storage and processing. Coria 3.0 by Sebastian Gross benefits from a modular based improvements. It offers different levels of granularity of networks that can be investigated. Figure 1 shows parts of the Coria dashboard and figure 2 presents an example of a graph visualisation. Version 3 allows usage of all features via one interface. Due to the modular approach, there is a clear separation of ETL process, graph analysis and exports. Amongst its functionality is the usage of different data formats and the ability to calculate different metrics. The framework supports simultaneous execution and calculation of different metrics. Much attention was paid to a development without strong dependencies to specific technologies.
    
 ... \\ 
-Analyzes connectivity risks for networks or organizations 
-Distinguishes multiple metrics like Node Degree, etc.
-Calculates aggregated risk value
-Based on network graphs
-Offers different levels of granularity\\
 
-Previous Versions of CORIA
-Status quo CORIA framework	
-newest version CORIAv3
-purpose: Analysis of connectivity risk and visualization 
-functions and features:
-Usability
-all features are usable via one interface 
-clear separation of ETL process, graph analysis and export
-usability of different data formats
-calculation of different metrics 
-Performance	
-Simultaneous execution / calculation of different metrics
-Development
-modular structure
-development without strong dependencies to specific technologies
-Software framework:
-ETL: still manually; no automation on a regular basis
-storage: MySQL, Database general? 
-backend: Java, Python,  Apache TomCat etc...
-client: ...
-Future Potential
-automation of the import process
-using different degrees of granularity
-usage of historical data and analysis of timely development 
-improvement of technical features like NoSQL, Hadoop, etc for easier implementation of new databases in CORIAv3
-compatibility with more data sources
-Concrete Objectives
-focus on AS level data
-Emphasis on flawless usage of respective Caida data sets
-Automated downloads and imports on a regular basis
-Analysis of historical data development
-deploying the framework on a permanent uni server (dependent on the confirmation for the university’s server) 
-
-
-
-
-\subsection{Objective}
-The CORIA framework is a project on which multiple developers already contributed to, in order to create a platform, which is able to analyze and visualize connectivity risks of graph data. Within this paper and project we would like to further contribute and improve specific aspects of CORIA. In the following we present related work regarding network risk analysis especially on AS level. We investigate characteristics of these networks through some descriptive statistical methods and take a look at the time development of networks and its components. Then we present an approach for an automated ETL process, which shall improve and simplify the usage of Coria and ensure most recent data being available for analysis. \\
+ 
 
 
 
@@ -142,6 +100,9 @@ The CORIA framework is a project on which multiple developers already contribute
 \label{fig}
 \end{figure}
 
+
+
+
 \begin{figure}[htbp]
 \centerline{\includegraphics[scale=0.2]{Graphics/nodePresentaion.PNG}}
 \caption{Graph Presentation of Nodes in a Network}
@@ -149,11 +110,11 @@ The CORIA framework is a project on which multiple developers already contribute
 \end{figure}
 
 
-(old?)
-Objective of our Work:
-The idea is to develop systems which have the possibility to load a wide range of datasets and transform them into one standardized format which can be handled by CoRiA.
-The challenge is how the large amount of different data can be transferred to make them comparable.
-Another challenge is that the alternation rate of the internet graph is very fast. Millions of systems go online and others disappear day after day. So, the ETL systems have to deal with this situation as well and need to be able to load permanently new data sets.
+
+\subsection{Objective}
+The CORIA framework is a project on which multiple developers already contributed to, in order to create a platform, which is able to analyze and visualize connectivity risks of graph data. Within this paper and project we would like to further contribute and improve specific aspects of CORIA. In the following we present related work regarding network risk analysis especially on AS level. We investigate characteristics of these networks through some descriptive statistical methods and take a look at the time development of networks and its components. Then we present an approach for an automated ETL process, which shall improve and simplify the usage of Coria and ensure most recent data being available for analysis. Herby we focus on AS-level data. Our emphasis lies on flawless usage of datasets coming from Caida that can downloaded and imported automatically on a regular basis \\
+
+
 
 \section{Theoretical Background}
 \subsection{Autonomous Systems}
@@ -186,6 +147,8 @@ Fokussing on connectivity risks on AS-level
 
 
 \subsection{ETL Process}
+
+Carls part, blablabal \\ 
 
 Extraction: from data source(s), varying data formats
 Transform: convert different data into proper format, that is storable
