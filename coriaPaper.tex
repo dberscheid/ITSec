@@ -31,6 +31,28 @@ d.berscheid@outlook.com}
 
 \maketitle
 
+1. Introduction \\
+1A.  Motivation \\
+1B.  Evolution of Coria \\
+1C.  Objectives \\
+
+2. Theoretical Background \\
+2A. Autonomous Systems \\
+2B. ETL \\
+
+3 Data \& (Framework) \\
+3A. Caida \\
+3B  (Coria - ETL) \\
+
+4 Results \& Implementation \\
+4A Data Analysis (Crossectional Data) \\
+4B Data Analysis (Time Series) \\
+4C ETL Process  \\
+
+5 Conclusion \\
+5A Summary \\
+5B Limitations and Further Work \\
+
 \begin{abstract}
 
 %Unterscheidung zwischen abstract und introduction!? was kommt wo rein? 
@@ -41,56 +63,30 @@ This paper deals with Coria (Connetivity Risk Analyzer), a framework developed b
 Coria, Risk Analyzer, ETL, Automation, AS, Autonomous System
 \end{IEEEkeywords}
 
-Nur Notiz:
-Structure: \\
-Literature \\
-Methodology \\
-\\
-
-
-Introduction \\
-Evolution of Coria (starting point, status quo, objectives) (maybe part of introduction) \\
-
-Theory: AS\\
-Theory: ETL\\
-Data: describe the data used for analysis 
-Results: Caida Analysis
-Results: ETL Automation
-Conclusion /Evaluationn /Outlook
-
-
-
 
 \section{Introduction}
-
+\subsection{Motivation}
 The internet presents one of the most important networks for today‘s world. Consequently major financial and economical systems rely on its functionality and availability. In times of non-functioning of the internet, serious consequences for businesses and economies are the cosequence. There are many reasons for such a scenario, such as threats caused by nature, i.e. hurricanes or earthquakes, or deliberate hacking attacks trying to remove nodes from the network.  
 In 2016 for example the Dyn cyberattack, which involved multiple distributed denial-of-service attacks (DDos attacks) was the reason for large unavailability of internet platforms and services in North America and Europe. It is known as the larges DDoS attack on record.
 %https://en.wikipedia.org/wiki/Internet_outage
 
-900 000 users were infected by another attack in 2016 against the German company Deutsche Telekom, targeting their routers and causing internet connectivity problems. 
+900 000 users were infected by another attack in 2016 against the German company Deutsche Telekom, targeting routers and causing internet connectivity problems. 
 
 %eine quelle für financial loss of downtime#
-According to a study conducted by Ponemon Institute in 2016, the average cost of a data center outage has increased from \$ 505,502 in 2010 to \$ 740,357 in 2016 - meaning an increase of 38\%. 
+According to a study conducted by Ponemon Institute in 2016, the average cost of a data center outage has increased from \$ 505,502 in 2010 to \$ 740,357 in 2016.
 
 %https://www.vertivco.com/globalassets/documents/reports/2016-cost-of-data-center-outages-11-11_51190_1.pdf
 
 The implication on the importance of the internet becomes very clear, which gives high incentives to analyze the riskyness of networks, like the internet. Coria's mission is exactely that: to help analyze connectivity risks. 
 
 
-The CORIA framework is a project on which multiple developers already contributed to, in order to create a platform, which is able to analyze and visualize connectivity risks of graph data. Within this paper and project we would like to further contribute and improve specific aspects of CORIA. In the following we present related work regarding network risk analysis especially on AS level. We investigate characteristics of these networks through some descriptive statistical methods and take a look at the time development of networks and its components. Then we present an approach for an automated ETL process, which shall improve and simplify the usage of Coria and ensure most recent data being available for analysis. \\
 
-
-
-
-
-
-
-
-
-
-\section{Evolution of Coria}
-\subsection{Starting Point}
-
+\subsection{Evolution of Coria}
+The Coria project started in ... with the scope of a (master) thesis by Mathias Ehlert (reference). With the objective of building a webframwork that is capable of analyzing connectivity risks of networks, Coria 1.0 was developed. Through the access of large amount of network data, either publically available or individually provided, Coria was able to calculate a variety of metrics, such as  
+centrality measures or node degree measures, which then form a unified risk score for respective connectivity risks of respective nodes. In addition, Coria offered a framework to investigate networks visually through graph visualisations. 
+ The webapplication Coria 1.0 was written in python and ruby. It used NetworkX für its metrics and redis for database purposes. After Coria 1.5 presented a improved performance and the use of Graphtool instead of NetworkX für its metrics, Tom Kober developed Coria 2.0 - now using Neo4j to store and manage data. This version furthermore consisted of a native architecture of graph storage and processing. Coria 3.0 by Sebastian Gross benefits from a modular based improvements. 
+   
+... \\ 
 Analyzes connectivity risks for networks or organizations 
 Distinguishes multiple metrics like Node Degree, etc.
 Calculates aggregated risk value
@@ -133,8 +129,9 @@ deploying the framework on a permanent uni server (dependent on the confirmation
 
 
 
-\subsection{Status Quo}
-Status Quo Coria: \\
+\subsection{Objective}
+The CORIA framework is a project on which multiple developers already contributed to, in order to create a platform, which is able to analyze and visualize connectivity risks of graph data. Within this paper and project we would like to further contribute and improve specific aspects of CORIA. In the following we present related work regarding network risk analysis especially on AS level. We investigate characteristics of these networks through some descriptive statistical methods and take a look at the time development of networks and its components. Then we present an approach for an automated ETL process, which shall improve and simplify the usage of Coria and ensure most recent data being available for analysis. \\
+
 
 
 
@@ -152,28 +149,14 @@ Status Quo Coria: \\
 \end{figure}
 
 
-\subsection{Objectives}
 (old?)
 Objective of our Work:
 The idea is to develop systems which have the possibility to load a wide range of datasets and transform them into one standardized format which can be handled by CoRiA.
 The challenge is how the large amount of different data can be transferred to make them comparable.
 Another challenge is that the alternation rate of the internet graph is very fast. Millions of systems go online and others disappear day after day. So, the ETL systems have to deal with this situation as well and need to be able to load permanently new data sets.
 
-\section{Literature}
-
-Literature about AS Data and Internet Topology: \\
-\begin{itemize}
-
-
-\item blabla
-
-Literature about ETL Process and its automation: \\
-
-\end{itemize}
-
-\section{Methodology}
-
-\section{Theory: Autonomous Systems}
+\section{Theoretical Background}
+\subsection{Autonomous Systems}
 
 Autonomous Systems (AS) represents one level of internet topology
 A set of routers under a single administration
@@ -202,7 +185,7 @@ Fokussing on connectivity risks on AS-level
 
 
 
-\section{Theory: ETL Process}
+\subsection{ETL Process}
 
 Extraction: from data source(s), varying data formats
 Transform: convert different data into proper format, that is storable
@@ -229,7 +212,7 @@ For the purpose of investigating the characteristics of Ases itself and their ne
 
 \section{Results}
 
-\section{Caida - Data Analysis}
+\subsection{Data Analysis}
 First aspect of the data analysis process is the type of autonomous system. Caida distinguished here between three types: The first type are ASes that provide internets access or function as a transit. They make out 42.2\% of all nodes in the network. Second type are ASes providing content hosting and distribution systems, like Dropbox or Google, with only 4,5\% of all overall nodes. Third category are enterprises meaning organizations, universities or companies that are mostly users. They account for 53.3\%. Insights we are gaining from this aspect is that most of the nodes are representing users of the internet, which makes intuetively sense. More interesting is the large amount of transits and access points needed to provide the respective infrastructure. This hints to the internet's high complexity. 
 
 
@@ -287,7 +270,7 @@ With respect to Appendix ..... (other time series graph) you can see a simultane
 \end{figure}
 
 
-\section{Development of an automated ETL Process}
+\subsection{Development of an automated ETL Process}
 
 Carls part blablablabalbal
 
@@ -307,8 +290,8 @@ Carls part blablablabalbal
 
 
 \section{Conclusion} %für eine Formulierung entscheiden
-\section{Evaluation and Outlook}
-
+\subsection{Summary}
+\subsection{Limitations and Further Work}
 Evaluation: \\
 Validation of latest data files
 
@@ -326,12 +309,6 @@ Outlook:\\
 Apply automated ETL process to further data sources
 Run Coria on a server (longtime evaluation)
 Documentation
-
-
-
-
-
-
 
 
 \begin{thebibliography}{00}
