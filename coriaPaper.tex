@@ -5,6 +5,8 @@
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{algorithmic}
 \usepackage{graphicx}
+  \usepackage[utf8]{inputenc}
+
 \usepackage{textcomp}
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
@@ -33,7 +35,7 @@ d.berscheid@outlook.com}
 
 1. Introduction \\
 1A.  Motivation \\
-1B.  Evolution of Coria \\
+1B.  Evolution of CORIA \\
 1C.  Objectives \\
 
 2. Theoretical Background \\
@@ -42,7 +44,7 @@ d.berscheid@outlook.com}
 
 3 Data \& (Framework) \\
 3A. Caida \\
-3B  (Coria - ETL) \\
+3B  (CORIA - ETL) \\
 
 4 Results \& Implementation \\
 4A Data Analysis (Crossectional Data) \\
@@ -56,11 +58,11 @@ d.berscheid@outlook.com}
 \begin{abstract}
 
 %Unterscheidung zwischen abstract und introduction!? was kommt wo rein? 
-This paper deals with Coria (Connetivity Risk Analyzer), a framework developed by Dr. Fabian and collegues to analyze multiple indicators explaining the risk of connections in a network like the internet. In addition to this already existing framework we aim to improve the ETL process by adding a automation to its functionality. We furthermore investigate characteristics of nodes and edges of the internet on the level of autonomous systems.
+This paper deals with CORIA (Connetivity Risk Analyzer), a framework developed by Dr. Fabian and collegues to analyze multiple indicators explaining the risk of connections in a network like the internet. In addition to this already existing framework we aim to improve the ETL process by adding a automation to its functionality. We furthermore investigate characteristics of nodes and edges of the internet on the level of autonomous systems.
 \end{abstract}
 
 \begin{IEEEkeywords}
-Coria, Risk Analyzer, ETL, Automation, AS, Autonomous System
+CORIA, Risk Analyzer, ETL, Automation, AS, Autonomous System
 \end{IEEEkeywords}
 
 
@@ -77,14 +79,14 @@ According to a study conducted by Ponemon Institute in 2016, the average cost of
 
 %https://www.vertivco.com/globalassets/documents/reports/2016-cost-of-data-center-outages-11-11_51190_1.pdf
 
-The implication on the importance of the internet becomes very clear, which gives high incentives to analyze the riskyness of networks, like the internet. Coria's mission is exactely that: to help analyze connectivity risks. 
+The implication on the importance of the internet becomes very clear, which gives high incentives to analyze the riskyness of networks, like the internet. CORIA's mission is exactely that: to help analyze connectivity risks. 
 
 
 
-\subsection{Evolution of Coria}
-The Coria project started in ... with the scope of a (master) thesis by Mathias Ehlert (reference). With the objective of building a webframwork that is capable of analyzing connectivity risks of networks, Coria 1.0 was developed. Through the access of large amount of network data, either publically available or individually provided, Coria was able to calculate a variety of metrics, such as  
-centrality measures or node degree measures, which then form a unified risk score for respective connectivity risks of respective nodes. In addition, Coria offered a framework to investigate networks visually through graph visualisations. 
- The webapplication Coria 1.0 was written in python and ruby. It used NetworkX für its metrics and redis for database purposes. After Coria 1.5 presented a improved performance and the use of Graphtool instead of NetworkX für its metrics, Tom Kober developed Coria 2.0 - now using Neo4j to store and manage data. This version furthermore consisted of a native architecture of graph storage and processing. Coria 3.0 by Sebastian Gross benefits from a modular based improvements. It offers different levels of granularity of networks that can be investigated. Figure 1 shows parts of the Coria dashboard and figure 2 presents an example of a graph visualisation. Version 3 allows usage of all features via one interface. Due to the modular approach, there is a clear separation of ETL process, graph analysis and exports. Amongst its functionality is the usage of different data formats and the ability to calculate different metrics. The framework supports simultaneous execution and calculation of different metrics. Much attention was paid to a development without strong dependencies to specific technologies.
+\subsection{Evolution of CORIA}
+The CORIA project started in ... with the scope of a (master) thesis by Mathias Ehlert (reference). With the objective of building a webframwork that is capable of analyzing connectivity risks of networks, CORIA 1.0 was developed. Through the access of large amount of network data, either publically available or individually provided, CORIA was able to calculate a variety of metrics, such as  
+centrality measures or node degree measures, which then form a unified risk score for respective connectivity risks of respective nodes. In addition, CORIA offered a framework to investigate networks visually through graph visualisations. 
+ The webapplication CORIA 1.0 was written in python and ruby. It used NetworkX für its metrics and redis for database purposes. After CORIA 1.5 presented a improved performance and the use of Graphtool instead of NetworkX für its metrics, Tom Kober developed CORIA 2.0 - now using Neo4j to store and manage data. This version furthermore consisted of a native architecture of graph storage and processing. CORIA 3.0 by Sebastian Gross benefits from a modular based improvements. It offers different levels of granularity of networks that can be investigated. Figure 1 shows parts of the CORIA dashboard and figure 2 presents an example of a graph visualisation. Version 3 allows usage of all features via one interface. Due to the modular approach, there is a clear separation of ETL process, graph analysis and exports. Amongst its functionality is the usage of different data formats and the ability to calculate different metrics. The framework supports simultaneous execution and calculation of different metrics. Much attention was paid to a development without strong dependencies to specific technologies.
    
 ... \\ 
 
@@ -95,8 +97,8 @@ centrality measures or node degree measures, which then form a unified risk scor
 
 
 \begin{figure}[htbp]
-\centerline{\includegraphics[scale=0.4]{Graphics/coriaExtract.PNG}}
-\caption{Extract of Coria Dashboard}
+\centerline{\includegraphics[scale=0.4]{Graphics/CORIAExtract.PNG}}
+\caption{Extract of CORIA Dashboard}
 \label{fig}
 \end{figure}
 
@@ -112,20 +114,21 @@ centrality measures or node degree measures, which then form a unified risk scor
 
 
 \subsection{Objective}
-The CORIA framework is a project on which multiple developers already contributed to, in order to create a platform, which is able to analyze and visualize connectivity risks of graph data. Within this paper and project we would like to further contribute and improve specific aspects of CORIA. In the following we present related work regarding network risk analysis especially on AS level. We investigate characteristics of these networks through some descriptive statistical methods and take a look at the time development of networks and its components. Then we present an approach for an automated ETL process, which shall improve and simplify the usage of Coria and ensure most recent data being available for analysis. Herby we focus on AS-level data. Our emphasis lies on flawless usage of datasets coming from Caida that can downloaded and imported automatically on a regular basis \\
+The CORIA framework is a project on which multiple developers already contributed to, in order to create a platform, which is able to analyze and visualize connectivity risks of graph data. Within this paper and project we would like to further contribute and improve specific aspects of CORIA. In the following we present related work regarding network risk analysis especially on AS level. We investigate characteristics of these networks through some descriptive statistical methods and take a look at the time development of networks and its components. Then we present an approach for an automated ETL process, which shall improve and simplify the usage of CORIA and ensure most recent data being available for analysis. Herby we focus on AS-level data. Our emphasis lies on flawless usage of datasets coming from Caida that can be downloaded and imported automatically on a regular basis \\
 
 
 
 \section{Theoretical Background}
 \subsection{Autonomous Systems}
 
-Autonomous Systems (AS) represents one level of internet topology
-A set of routers under a single administration
+CORIA is capable of working with data on many levels of granularity. As Figure 3 models it, on the lowest level of the internet topology are Internet Protocol network interfaces (IPs). Multiple Ips can access the internet through one router (R). Then, on the next level, Autonomous Systems (AS) represent a set of routers under a single administration. The top of this hierarchy is formed by Internet Service Providers (ISP), with selfdescribing funcionality. Note that this represents a simplified model of internet topology, i.e. not specifying Points of Presence. (references) In the scope of this paper the level of Autonomous Systems is our main object of concern. Two types of relationships between ASes and ISPs are of interest in that regard: Provider-to-Customer (P2C) and Peer-to-Peer (P2P). Figure 4 provides an example of an AS and its characteristics. Here Kabel Deutschland, a German network operator, represents an AS. Its customer cone specifies  ``a set of ASes it can reach using customer links''. As it is two in this case, there are only two nodes reached through customer links, meaning Kabel Deutschland itself and its provider Vodafone.  
+%https://www.caida.org/~amogh/papers/asrank-IMC13.pdf
+AS rank defines the importance of a node in its global routing system, often using customer cone information as a measure. 
+%http://as-rank.caida.org/about#goal
+AS degree refers to the number of neighbors that a node has in a graph - here 20.  \\
 
-define: AS rank, customer cone, relation ships, etc. \\
 
-
-Fokussing on connectivity risks on AS-level 
+Fokussing on connectivity risks on AS-level \\
 
 
 
@@ -133,13 +136,13 @@ Fokussing on connectivity risks on AS-level
 
 
 \begin{figure}[htbp]
-\centerline{\includegraphics[scale=0.25]{Graphics/hierarchy.PNG}}
+\centerline{\includegraphics[scale=0.23]{Graphics/hierarchy.PNG}}
 \caption{Hierarchy of the Internet}
 \label{fig}
 \end{figure}
 
 \begin{figure}[htbp]
-\centerline{\includegraphics[scale=0.15]{Graphics/asExample.PNG}}
+\centerline{\includegraphics[scale=0.21]{Graphics/asExample.PNG}}
 \caption{Example of an AS and its characteristics (Source: Caida)}
 \label{fig}
 \end{figure}
@@ -198,7 +201,7 @@ We furthermore built a graphs describing the distributional characteristics of a
 
 Simultaneousely, we drew the distribution of incomming connections per Autonomous System (Appendix ...) and received a similar result. With approximately 250.000 nodes, receiving traffic, only very few nodes are receiving traffic from a high number of nodes. The top ... ranked nodes are receiving ... \% of the overall trafic in this network. 
 
-An important finding regarding connectivity risks of the network is, how vulnerable this network is. An attack targeting the most active and most influential nodes in the network, achieving a non-functioning of those quickly leads to wide shot-downs of the network.  This again underscores the demand for Coria - a tool to analyze connectivity risks. 
+An important finding regarding connectivity risks of the network is, how vulnerable this network is. An attack targeting the most active and most influential nodes in the network, achieving a non-functioning of those quickly leads to wide shot-downs of the network.  This again underscores the demand for CORIA - a tool to analyze connectivity risks. 
 
 
 \begin{figure}[htbp]
@@ -247,14 +250,26 @@ Carls part blablablabalbal
 
 \begin{figure}[htbp]
 \centerline{\includegraphics[scale=0.4]{Graphics/ETL2.PNG}}
-\caption{ETL Process in the Coria framework}
+\caption{ETL Process in the CORIA framework}
 \label{fig}
 \end{figure}
 
 
 \section{Conclusion} %für eine Formulierung entscheiden
 \subsection{Summary}
+
+The webapplication CORIA allows the analysis of connectivity risks of various network graphs. Through visualisations and a unified risk score it offers comprehensive results. Fokussing on the level of Autonomous Systems, our data analysis revealed a power-law distribution when it comes to the influence of ASes within the internet network - a few highly important nodes and many less important ones. Moreover the geographical investigation of its locations showed the high concentration and flow of traffic of ASes in highly developed economies, with only sparse density in less developed economies. With regard to the trend of the internet network, we exhibited a linearly growing trend of AS nodes until 2015, when the size of the network stayed constant until today.
+
+Regarding the software-development aspect, we developed an ETL tool in Python that provides automation of the validation of latest data files, copying respective files, and transforming them into csv format.  (haben wir noch mehr gemacht?)
+
+ 
+
 \subsection{Limitations and Further Work}
+
+Limitations: Data collection processs: \\
+
+
+
 Evaluation: \\
 Validation of latest data files
 
@@ -262,19 +277,34 @@ Copy of current data files
 
 Transformion data to csv
 
-Import data into the Coria MySQL database
+Import data into the CORIA MySQL database
 
-Import scripts to the Coria framework (Python -> Java)
+Import scripts to the CORIA framework (Python -> Java)
 
 Data aggregation over time
 
 Outlook:\\
 Apply automated ETL process to further data sources
-Run Coria on a server (longtime evaluation)
+Run CORIA on a server (longtime evaluation)
 Documentation
 
 
 \begin{thebibliography}{00}
+
+%B. Fabian, G. Tilch, “Analyzing the Global-Scale Internet Graph at Different Topology Levels: Data Collection and Integration“.
+%D. Kiene-Maksimivic, E. Zinovyeva, J. Park, “CORIA 2.0: Augmenting a Universal Framework for Connectivity Risk Analysis”, 2017.
+%J. Dümig, “Modelling of an Extraction Transformation Loading (ETL) system for the connectivity risk analyzing framework CoRiA“, 2016.
+%M. Luckie et al., “AS Relationships, Customer Cones, and Validation”, Internet Measurement Conference, 2013.
+%M. Oehlers, B. Fabian, ”Graph Metrics for Internet Robustness: A Survey”, ACM Comput. Surv. 1, 1, Article 1, 2018.
+%S.Gross, “Development of a modular software framework for the analysis of network connectivity risks based on network graphs”, 2017.
+%T. Kober, “Business Intelligence in der Telekommunikation : Konzeption und Umsetzung einer Graphendatenbank mittels Neo4j“, 2016.
+
+%CAIDA UCSD, CAIDA AS Relationships Dataset, http://www.caida.org/data/as-relationships, Access on 28.01.18.
+%CAIDA UCSD, CAIDA AS Classification Dataset, http://www.caida.org/data/as-classification, Access on 28.01.18.
+%CAIDA UCSD, CAIDA AS IPV4 AS Links Dataset, http://www.caida.org/data/active/ipv4_routed_topology_aslinks_dataset.xml, Access on 28.01.18.
+%CAIDA UCSD, CAIDA AS Rank Dataset, http://as-rank.caida.org/, Access on 28.01.18.
+%CAIDA UCSD, CAIDA AS Relationship Geo Dataset, http://www.caida.org/data/as-relationships-geo/, Access on 28.01.18.
+
 
 
 \bibitem{b1}still old!noch die aus der Präsi einfügen'! G. Eason, B. Noble, and I. N. Sneddon, ``On certain integrals of Lipschitz-Hankel type involving products of Bessel functions,'' Phil. Trans. Roy. Soc. London, vol. A247, pp. 529--551, April 1955.
@@ -286,6 +316,7 @@ Documentation
 \bibitem{b7} M. Young, The Technical Writer's Handbook. Mill Valley, CA: University Science, 1989.
 \end{thebibliography}
 
+\pagebreak
 
 \appendix
 
