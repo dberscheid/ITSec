@@ -153,9 +153,9 @@ Load: load into target database
 \end{figure}
 
 \section{Data}
-As a data source for this work, we exclusively focus on Caida. Caida is an appreviation and stands for Center for Applied Internet Data Analysis. Located in the San Diego, CA in the United States, the center studies networks, its infrastructure up to a large scale. For their investigation on theoretical and pracrtical aspects of the internet they monitor, collect and provide network data \cite{Caida}. 
+As a data source for this work, we exclusively focus on Caida. Caida is an appreviation and stands for Center for Applied Internet Data Analysis. Located in the San Diego, CA in the United States, the center studies networks, its infrastructure up to a large scale. For their investigation on theoretical and practical aspects of the internet they monitor, collect and provide network data \cite{Caida}. 
 
-Regarding the data granularity our primary focus lies on AS level data. Within this domain, we investigate five (?) data sets. AS-Rank offers a data base giving information about specific Autonomous Systems, like its rank, relationship to other ASes or customer cone  \cite{Rank} . AS Classification represents a dataset including information on the business types of Autonomous Systems \cite{Classification}. Trough machine-learning inference, Caida is able to offer this knowledge  \cite{CaidaInference}(http://www.caida.org/data/as-classification/). A dataset named Pv4 Routed 24 AS Links Dataset is used in detail to investigate the topology on the internet, its structure regarding flows of traffic, and ratios of sending and receivin autonomous systems  \cite{CaidaData}%(http://www.caida.org/data/active/ipv4_routed_topology_aslinks_dataset.xml). 
+Regarding the data granularity our primary focus lies on AS level data. Within this domain, we investigate five (?) data sets. AS-Rank offers a data base giving information about specific Autonomous Systems, like its rank, relationship to other ASes or customer cone  \cite{Rank} . AS Classification represents a dataset including information on the business types of Autonomous Systems \cite{Classification}. Trough machine-learning inference, Caida is able to offer this knowledge  \cite{Classification}. A dataset named Pv4 Routed 24 AS Links Dataset is used in detail to investigate the topology on the internet, its structure regarding flows of traffic, and ratios of sending and receivin autonomous systems  \cite{CaidaData}%(http://www.caida.org/data/active/ipv4_routed_topology_aslinks_dataset.xml). 
 We investigate the dataset AS Relationships in order to find out about Provider to Customer relationships as well as Peer to Peer relationships \cite{CaidaRelationships}.  Lastly, we take into account geographic information of the Autonomous Systems to draw conlclusions on regions with high imapact on the internet network and less involved ones  \cite{CaidaGeo}(http://www.caida.org/data/as-relationships-geo/)
 
 
@@ -250,13 +250,19 @@ Regarding the software-development aspect, we developed an ETL tool in Python th
 
 \subsection{Limitations and Further Work}
 
-Limitations: Data collection processs: \\
+ 
+One limitation of this work is caused by our data source Caida. The data that we used, i.e. types of Autonomous Systems or their relationship was partly gathered through statistical inference. Its machine learning classifier provided a positive predicted value of 70\% \cite{Classification}, which still leaves misslassified observations within the data and limits our results to some extent. Nevertheless Caida is a serious and trusted source, which is why we chose it in the first place. \\ 
+
+other limitations\\
+
+
 
 Further work that can follow could be to apply the automated ETL process to further data sources, than only Caida. Also, deploying the the CORIA framework on a server would be a neccessary improvement. (CARL? Was hat es mit diesem Punkt auf sich? Läuft es nicht schon auf einem Server?) For improvements of internal development activities the creation of an extensive code and installation documentation is helpful.
 
 
 
 \begin{thebibliography}{00}
+%aus unserer Präsi:
 
 %B. Fabian, G. Tilch, “Analyzing the Global-Scale Internet Graph at Different Topology Levels: Data Collection and Integration“.
 %D. Kiene-Maksimivic, E. Zinovyeva, J. Park, “CORIA 2.0: Augmenting a Universal Framework for Connectivity Risk Analysis”, 2017.
@@ -282,16 +288,16 @@ Further work that can follow could be to apply the automated ETL process to furt
 \bibitem{ASH}
 
 \bibitem{Cone}M. Luckie et al., "AS Relationships, Customer Cones, and Validation", Internet Measurement Conference (IMC), Oct 2013, pp. 243--256.
-
+\bibitem{Caida}Caida, [Online] Available: https://www.caida.org/home.
  
-\bibitem{CaidaInference}
+\bibitem{CaidaInference} 
 \bibitem{CaidaData}
 \bibitem{powerLaw} Yaneer Bar-Yam. ``Concepts: Power Law," New England Complex Systems Institute, August 2015.
 \bibitem{CaidaRelationships}X. Dimitropoulos, G. Riley, ``Modeling Autonomous System Relationships,'' Principles of Advanced and Distributed Simulation (PADS), May 2006, pp. 143--149.
 \bibitem{RelInference}X. Dimitropoulos et al., ``Revealing the Autonomous System Taxonomy: The Machine Learning Approach," Passive and Active Network Measurement Workshop (PAM), Mar 2006.
 \bibitem{CaidaRel2}X. Dimitropoulos et al., "Classifying the Types of Autonomous Systems in the Internet", SIGCOMM, Aug 2005.
 \bibitem{ResearchGeo}
-\bibitem{CaidaDataCollection}
+
 \bibitem{Classification}Caida., ``AS Classification,'' [Online]. Available: http://www.caida.org/data/as-
 classification.
 \bibitem{IPv4Data}Caida., ``IPv4 Routed /24 AS Links Dataset,'' [Online]. Available: http://www.caida.org/data/active/ipv4\_routed\_topology\_aslinks\_dataset.xml.
@@ -304,7 +310,6 @@ classification.
 \bibitem{BA}T.Kober, ``Business Intelligence in der Telekommunikation: Konzeption und Umsetzung einer Graphendatenbank mittels Neo4j,'' December 2016.
 
 %mehr Quellen von Prof Fabian:
-
 \bibitem{geoVul}A. Baumann, B. Fabian. ``Towards Measuring the Geographic and Political Resilience of the Internet,'' International Journal of Networking and Virtual Organisations, 13(4):365–384, 2013.
 
 %Damien Magoni. Tearing Down the Internet. IEEE Journal of Selected Areas in Communications, 21(6):949–960, September 2006.
@@ -328,14 +333,14 @@ classification.
 
 
 abstand\\
-
-\bibitem{b1}still old!noch die aus der Präsi einfügen'! G. Eason, B. Noble, and I. N. Sneddon, ``On certain integrals of Lipschitz-Hankel type involving products of Bessel functions,'' Phil. Trans. Roy. Soc. London, vol. A247, pp. 529--551, April 1955.
-\bibitem{b2} J. Clerk Maxwell, A Treatise on Electricity and Magnetism, 3rd ed., vol. 2. Oxford: Clarendon, 1892, pp.68--73.
-\bibitem{b3} I. S. Jacobs and C. P. Bean, ``Fine particles, thin films and exchange anisotropy,'' in Magnetism, vol. III, G. T. Rado and H. Suhl, Eds. New York: Academic, 1963, pp. 271--350.
-\bibitem{b4} K. Elissa, ``Title of paper if known,'' unpublished.
-\bibitem{b5} R. Nicole, ``Title of paper with only first word capitalized,'' J. Name Stand. Abbrev., in press.
-\bibitem{b6} Y. Yorozu, M. Hirano, K. Oka, and Y. Tagawa, ``Electron spectroscopy studies on magneto-optical media and plastic substrate interface,'' IEEE Transl. J. Magn. Japan, vol. 2, pp. 740--741, August 1987 [Digests 9th Annual Conf. Magnetics Japan, p. 301, 1982].
-\bibitem{b7} M. Young, The Technical Writer's Handbook. Mill Valley, CA: University Science, 1989.
+%die quellen sind nur als Formatvorlage gedacht:
+%\bibitem{b1}still old!noch die aus der Präsi einfügen'! G. Eason, B. Noble, and I. N. Sneddon, ``On certain integrals of Lipschitz-Hankel type involving products of Bessel functions,'' Phil. Trans. Roy. Soc. London, vol. A247, pp. 529--551, April 1955.
+%\bibitem{b2} J. Clerk Maxwell, A Treatise on Electricity and Magnetism, 3rd ed., vol. 2. Oxford: Clarendon, 1892, pp.68--73.
+%\bibitem{b3} I. S. Jacobs and C. P. Bean, ``Fine particles, thin films and exchange anisotropy,'' in Magnetism, vol. III, G. T. Rado and H. Suhl, Eds. New York: Academic, 1963, pp. 271--350.
+%\bibitem{b4} K. Elissa, ``Title of paper if known,'' unpublished.
+%\bibitem{b5} R. Nicole, ``Title of paper with only first word capitalized,'' J. Name Stand. Abbrev., in press.
+%\bibitem{b6} Y. Yorozu, M. Hirano, K. Oka, and Y. Tagawa, ``Electron spectroscopy studies on magneto-optical media and plastic substrate interface,'' IEEE Transl. J. Magn. Japan, vol. 2, pp. 740--741, August 1987 [Digests 9th Annual Conf. Magnetics Japan, p. 301, 1982].
+%\bibitem{b7} M. Young, The Technical Writer's Handbook. Mill Valley, CA: University Science, 1989.
 \end{thebibliography}
 
 \pagebreak
