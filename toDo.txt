@@ -5,12 +5,10 @@ to do:
 - Python Code in Repository legen (C)
 - aggregierte Funktion (C)
 - Future Work / Outlook 
-
-- Section Data: (D)
-	Begründung warum immer Daten/Team1 benutzt:
-	stellt ein Sample dar. die teams sammeln daten unabhängig voneinander und sollen zu gleichen ergebnissen kommen -> prüft die validität 
+ 
 
 - Quellen, Fomalitäten alle richtig? (D)
+	kursiv, quotes, 
 
 
 
@@ -20,3 +18,6 @@ Done:
 - Histogram Uploads in R produzieren (D)
 - Präsentation hochgeladen
 - freigelassene Stellen ausfüllen (D)
+- Section Data: (D)
+	Begründung warum immer Daten/Team1 benutzt:
+	

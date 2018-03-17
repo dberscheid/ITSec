@@ -227,8 +227,8 @@ Load: load into target database
 \section{Data}
 As a data source for this work, we exclusively focus on Caida. Caida is an appreviation and stands for Center for Applied Internet Data Analysis. Located in San Diego, CA in the United States, the center studies networks and its infrastructure up to a large scale. For their investigation on theoretical and practical aspects of the internet they monitor, collect and provide network data \cite{Caida}. 
 
-Regarding the data granularity our primary focus lies on AS level data. Within this domain, we investigate five (?) datasets. AS-Rank offers a data base giving information about specific Autonomous Systems, like its rank, relationship to other ASes or customer cone  \cite{Rank} . AS Classification represents a dataset including information on the business types of Autonomous Systems \cite{Classification}. Trough machine-learning inference, Caida is able to offer this knowledge  \cite{Classification}. A dataset named Pv4 Routed 24 AS Links Dataset is used in detail to investigate the topology on the internet, its structure regarding streams of traffic, and ratios of sending and receiving autonomous systems  \cite{IPv4Data}. 
-We investigate the dataset AS Relationships in order to find out about Provider to Customer relationships as well as Peer to Peer relationships \cite{CaidaRelationshipsData}.  Lastly, we take into account geographic information of the Autonomous Systems to draw conlclusions on regions with high imapact on the internet network and less involved ones  \cite{CaidaGeoData}. 
+Regarding the data granularity our primary focus lies on AS level data. Within this domain, we investigate five type of datasets. \textit{AS-Rank} offers a data base giving information about specific Autonomous Systems, like its rank, relationship to other ASes or customer cone  \cite{Rank} . \textit{AS Classification} represents a dataset including information on the business types of Autonomous Systems \cite{Classification}. Through machine-learning inference, Caida is able to offer this knowledge  \cite{Classification}. A large collection of datasets named \textit{Pv4 Routed 24 AS Links} is used in detail to investigate the topology on the internet, its structure regarding streams of traffic, and ratios of sending and receiving autonomous systems  \cite{IPv4Data}. This collection of data forms the center of our investigation. From 2007 to 2018 data is collected, by three \textit{teams}. Caida uses independent teams to collect data in order to offer a way to validate the data and its data inference. The teams probe every routed /24 in the IPv4 address space.
+We investigate the dataset \textit{AS Relationships} in order to find out about Provider to Customer relationships as well as Peer to Peer relationships \cite{CaidaRelationshipsData}.  Lastly, we take into account geographic information of the Autonomous Systems to draw conlclusions on regions with high imapact on the internet network and less involved ones  \cite{CaidaGeoData}. 
 
 
 For the purpose of investigating the characteristics of Ases itself and their network, we analyzed recent data of December 2017.  As for the time series analysis, we used data from 2007 until 2017. \\
@@ -341,7 +341,7 @@ Coria already provides modules that can upload data into a MySQL or Redis databa
 \label{fig}
 \end{figure}
 
-\subsection{ETL Process in CORIAv3}
+
 
 \begin{figure}[htbp]
 \centerline{\includegraphics[scale=0.4]{Graphics/ETL2.PNG}}
@@ -381,7 +381,7 @@ Regarding the software-development aspect, we developed an ETL tool in Python th
 \subsection{Limitations and Further Work}
 
  
-One limitation of this work is caused by our data source Caida. The data that we used, i.e. types of Autonomous Systems or their relationship was partly gathered through statistical inference. Its machine learning classifier provided a positive predicted value of 70\% \cite{Classification}, which still leaves misslassified observations within the data and limits our results to some extent. Nevertheless Caida is a serious and trusted source, which is why we chose it in the first place. \\ 
+One limitation of this work is caused by our data source Caida. The data that we used, i.e. types of Autonomous Systems or their relationship was partly gathered through statistical inference. Its machine learning classifier provided a positive predicted value of 70\% \cite{Classification}, which still leaves misslassified observations within the data and limits our results to some extent. Nevertheless Caida is a serious and trusted source, which is why we chose it in the first place. To our best knowledge, there is no superior data souce available.  \\ 
 
 other limitations\\
 
