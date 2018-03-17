@@ -295,7 +295,7 @@ With respect to Appendix .....  you can see a simultaneous development for the a
 
 
 \subsection{ETL Process in CORIAv3}
-The seminar paper is based on the framework of Sebastian Gross\cite{carl3}. At the current state CORIAv3 does not include any automated ETL process for any source. The extraction part is handled manually by downloading the desired files and, if neccessary, unzipping the text-formatted file that for instance can be an edge list. \linebreak
+The seminar paper is based on the framework of Sebastian Gross\cite{carl3}. At the current state CORIA does not include any automated ETL process for any source. The extraction part is handled manually by downloading the desired files and, if neccessary, unzipping the text-formatted file that for instance can be an edge list. \linebreak
 
 
 The user can now upload the file using the CORIA web interface. This must be done with the upload module (\url{http://localhost:8080/coria/#!/datasets/upload}).
@@ -304,7 +304,7 @@ Users must be able to adjust or transform data into the demanded format. The cur
 
 
 After manually preprocessing the dataset, the web framework allows the user to upload the edge list and then analyze and apply metrics to the data.
-Coriav3 already provides modules that can upload data into a MySQL or Redis database. Unexperienced users do not need to be familiar with database management systems.
+Coria already provides modules that can upload data into a MySQL or Redis database. Unexperienced users do not need to be familiar with database management systems.
 
 
 
@@ -319,11 +319,24 @@ Coriav3 already provides modules that can upload data into a MySQL or Redis data
 \label{fig}
 \end{figure}
 
+\subsection{ETL Process in CORIAv3}
+
 \begin{figure}[htbp]
 \centerline{\includegraphics[scale=0.4]{Graphics/ETL2.PNG}}
-\caption{ETL Process in the CORIA framework}
-\label{fig}
+\caption{ETL Process in the Coria framework}
+\label{fig:1}
 \end{figure}
+
+In figure \ref{fig:1} the automated ETL process from Caida's data is illustrated. The framework is written in Python 2.7 %Python Software Foundation. Python Language Reference, version 2.7. Available at http://www.python.org
+
+In general:Tthe server periodically queries for new data sets on the Cadia data server. If there are not new data uploaded on the Caida server the query will happen the next period. 
+For the case new data are provided every new file will be downloaded. After downloading a new file, it will be transformed into an edgelist and ,finally, uploaded to Coria's database.
+\linebreak
+\linebreak
+*For Caida data a daily iteration of the queries is sufficient as uploads are made every week on average - But as we can see from figure(upload histogram 2016 - 2018) a vast variation on the upload data and amount of files 
+
+In detail:
+
 
 
 \section{Conclusion}
