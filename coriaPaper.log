@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.2.28)  17 MAR 2018 14:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.2.28)  17 MAR 2018 18:33
 entering extended mode
 **C:/Users/Carlimero/Documents/GitHub/ITSec/coriaPaper.tex
 (C:/Users/Carlimero/Documents/GitHub/ITSec/coriaPaper.tex
@@ -760,9 +760,6 @@ LaTeX Warning: Label `fig' multiply defined.
 
 LaTeX Warning: Label `fig' multiply defined.
 
-
-LaTeX Warning: Label `fig' multiply defined.
-
 )
 \openout1 = `coriaPaper.aux'.
 
@@ -866,17 +863,17 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 45.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 1389) in paragraph at lines 75--77
+Underfull \hbox (badness 1389) in paragraph at lines 77--79
 []\OT1/ptm/b/it/10 Index Terms\OT1/ptm/b/n/10 ---CORIA, Con-nec-tiv-ity Risk An
 -a-lyzer,
  []
 
-LaTeX Font Info:    Try loading font information for TS1+ptm on input line 83.
+LaTeX Font Info:    Try loading font information for TS1+ptm on input line 85.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ts1ptm.fd"
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
 
-LaTeX Warning: Citation `Coria1.5' on page 1 undefined on input line 90.
+LaTeX Warning: Citation `Coria1.5' on page 1 undefined on input line 92.
 
 [1{C:/Users/Carlimero/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
@@ -885,97 +882,97 @@ LaTeX Warning: Citation `Coria1.5' on page 1 undefined on input line 90.
 <Graphics/CORIAExtract.PNG, id=9, 718.48425pt x 292.09125pt>
 File: Graphics/CORIAExtract.PNG Graphic file (type png)
 <use Graphics/CORIAExtract.PNG>
-Package pdftex.def Info: Graphics/CORIAExtract.PNG  used on input line 93.
+Package pdftex.def Info: Graphics/CORIAExtract.PNG  used on input line 95.
 (pdftex.def)             Requested size: 287.38861pt x 116.83441pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 100--101
+Underfull \hbox (badness 10000) in paragraph at lines 102--103
 
  []
 
 <Graphics/nodePresentaion.PNG, id=11, 447.47176pt x 465.53925pt>
 File: Graphics/nodePresentaion.PNG Graphic file (type png)
 <use Graphics/nodePresentaion.PNG>
-Package pdftex.def Info: Graphics/nodePresentaion.PNG  used on input line 105.
+Package pdftex.def Info: Graphics/nodePresentaion.PNG  used on input line 107.
 (pdftex.def)             Requested size: 89.49275pt x 93.10619pt.
 
-Underfull \hbox (badness 3333) in paragraph at lines 113--114
+Underfull \hbox (badness 3333) in paragraph at lines 115--116
 \OT1/ptm/m/n/11 the ro-bust-ness of net-works and char-ac-ter-is-tics of
  []
 
 
-Underfull \hbox (badness 1430) in paragraph at lines 113--114
+Underfull \hbox (badness 1430) in paragraph at lines 115--116
 \OT1/ptm/m/n/11 Au-tonomous Sys-tems. We in-ves-ti-gate char-ac-ter-is-tics
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 113--114
+Underfull \hbox (badness 10000) in paragraph at lines 115--116
 
  []
 
 <Graphics/hierarchy.PNG, id=12, 1032.85875pt x 376.40625pt>
 File: Graphics/hierarchy.PNG Graphic file (type png)
 <use Graphics/hierarchy.PNG>
-Package pdftex.def Info: Graphics/hierarchy.PNG  used on input line 123.
+Package pdftex.def Info: Graphics/hierarchy.PNG  used on input line 125.
 (pdftex.def)             Requested size: 268.53694pt x 97.86331pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 129--130
+Underfull \hbox (badness 10000) in paragraph at lines 131--132
 
  []
 
 <Graphics/asExample.PNG, id=13, 1118.9805pt x 404.10976pt>
 File: Graphics/asExample.PNG Graphic file (type png)
 <use Graphics/asExample.PNG>
-Package pdftex.def Info: Graphics/asExample.PNG  used on input line 139.
+Package pdftex.def Info: Graphics/asExample.PNG  used on input line 141.
 (pdftex.def)             Requested size: 234.99284pt x 84.86554pt.
 [2 <./Graphics/CORIAExtract.PNG> <./Graphics/nodePresentaion.PNG> <./Graphics/h
 ierarchy.PNG>]
-Underfull \hbox (badness 10000) in paragraph at lines 148--151
+Underfull \hbox (badness 10000) in paragraph at lines 150--153
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 155--157
+Underfull \hbox (badness 10000) in paragraph at lines 157--159
 []\OT1/ptm/m/n/11 The data ware-hous-ing con-cept of \OT1/ptm/m/it/11 Ex-trac-t
 ion,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 155--157
+Underfull \hbox (badness 10000) in paragraph at lines 157--159
 \OT1/ptm/m/it/11 Trans-for-ma-tion, Load-ing \OT1/ptm/m/n/11 (ETL) be-came a
  []
 
 
-Underfull \hbox (badness 2856) in paragraph at lines 155--157
+Underfull \hbox (badness 2856) in paragraph at lines 157--159
 \OT1/ptm/m/n/11 stan-dard for com-pa-nies in the 1970s. Back then
  []
 
 
-Underfull \hbox (badness 3690) in paragraph at lines 155--157
+Underfull \hbox (badness 3690) in paragraph at lines 157--159
 \OT1/ptm/m/n/11 or-ga-ni-za-tions be-gan to in-te-grate in-for-ma-tion from
  []
 
 
-Underfull \hbox (badness 6173) in paragraph at lines 155--157
+Underfull \hbox (badness 6173) in paragraph at lines 157--159
 \OT1/ptm/m/n/11 dif-fer-ent sources into their own databases [20].
  []
 
 
-Underfull \hbox (badness 3568) in paragraph at lines 155--157
+Underfull \hbox (badness 3568) in paragraph at lines 157--159
 \OT1/ptm/m/n/11 The in-te-gra-tion pro-cess states the ad-van-tage that
  []
 
 
-Underfull \hbox (badness 3942) in paragraph at lines 155--157
+Underfull \hbox (badness 3942) in paragraph at lines 157--159
 \OT1/ptm/m/n/11 sta-ble, flex-i-ble, pro-vides im-proved main-tance and
  []
 
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 158.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 160.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1pcr.fd"
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
 LaTeX Font Info:    Font shape `OT1/pcr/bx/n' in size <11> not available
-(Font)              Font shape `OT1/pcr/b/n' tried instead on input line 159.
+(Font)              Font shape `OT1/pcr/b/n' tried instead on input line 161.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -983,327 +980,274 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 <Graphics/ETL_general.png, id=26, 857.2025pt x 279.0425pt>
 File: Graphics/ETL_general.png Graphic file (type png)
 <use Graphics/ETL_general.png>
-Package pdftex.def Info: Graphics/ETL_general.png  used on input line 174.
+Package pdftex.def Info: Graphics/ETL_general.png  used on input line 176.
 (pdftex.def)             Requested size: 231.44777pt x 75.34247pt.
 <Graphics/ETLTheory.PNG, id=27, 758.835pt x 213.1965pt>
 File: Graphics/ETLTheory.PNG Graphic file (type png)
 <use Graphics/ETLTheory.PNG>
-Package pdftex.def Info: Graphics/ETLTheory.PNG  used on input line 215.
+Package pdftex.def Info: Graphics/ETLTheory.PNG  used on input line 217.
 (pdftex.def)             Requested size: 227.65225pt x 63.95943pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 234--235
+Underfull \hbox (badness 10000) in paragraph at lines 236--237
 
  []
 
 <Graphics/typeofAS.PNG, id=28, 643.80525pt x 428.19975pt>
 File: Graphics/typeofAS.PNG Graphic file (type png)
 <use Graphics/typeofAS.PNG>
-Package pdftex.def Info: Graphics/typeofAS.PNG  used on input line 245.
+Package pdftex.def Info: Graphics/typeofAS.PNG  used on input line 247.
 (pdftex.def)             Requested size: 257.51753pt x 171.27686pt.
-<Graphics/relationspeerandprovider.png, id=29, 401.5pt x 401.5pt>
+[4 <./Graphics/ETL_general.png> <./Graphics/ETLTheory.PNG> <./Graphics/typeofAS
+.PNG>]
+<Graphics/relationspeerandprovider.png, id=34, 401.5pt x 401.5pt>
 File: Graphics/relationspeerandprovider.png Graphic file (type png)
 <use Graphics/relationspeerandprovider.png>
 Package pdftex.def Info: Graphics/relationspeerandprovider.png  used on input l
-ine 253.
+ine 255.
 (pdftex.def)             Requested size: 180.67332pt x 180.67332pt.
-[4 <./Graphics/ETL_general.png> <./Graphics/ETLTheory.PNG> <./Graphics/typeofAS
-.PNG>]
 <Graphics/AsFromDistribution.png, id=35, 451.6875pt x 501.875pt>
 File: Graphics/AsFromDistribution.png Graphic file (type png)
 <use Graphics/AsFromDistribution.png>
-Package pdftex.def Info: Graphics/AsFromDistribution.png  used on input line 26
-7.
+Package pdftex.def Info: Graphics/AsFromDistribution.png  used on input line 29
+1.
 (pdftex.def)             Requested size: 180.67178pt x 200.74643pt.
 
-Underfull \hbox (badness 3009) in paragraph at lines 274--276
+Underfull \hbox (badness 3009) in paragraph at lines 298--300
 []\OT1/ptm/m/n/11 Next, we an-a-lyzed the ge-o-graphic lo-ca-tions of
  []
 
 
-Underfull \hbox (badness 2261) in paragraph at lines 274--276
+Underfull \hbox (badness 2261) in paragraph at lines 298--300
 \OT1/ptm/m/n/11 punkte ohne verbindung hin-weisen?) These re-sults
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 274--276
+Underfull \hbox (badness 10000) in paragraph at lines 298--300
 
  []
 
-<Graphics/connectedASes.png, id=36, 1204.5pt x 803.0pt>
-File: Graphics/connectedASes.png Graphic file (type png)
-<use Graphics/connectedASes.png>
-Package pdftex.def Info: Graphics/connectedASes.png  used on input line 280.
-(pdftex.def)             Requested size: 240.89574pt x 160.59715pt.
 [5 <./Graphics/relationspeerandprovider.png> <./Graphics/AsFromDistribution.png
 >]
+<Graphics/connectedASes.png, id=41, 1204.5pt x 803.0pt>
+File: Graphics/connectedASes.png Graphic file (type png)
+<use Graphics/connectedASes.png>
+Package pdftex.def Info: Graphics/connectedASes.png  used on input line 304.
+(pdftex.def)             Requested size: 240.89574pt x 160.59715pt.
 <Graphics/ASFromAll.png, id=42, 602.25pt x 401.5pt>
 File: Graphics/ASFromAll.png Graphic file (type png)
 <use Graphics/ASFromAll.png>
-Package pdftex.def Info: Graphics/ASFromAll.png  used on input line 291.
+Package pdftex.def Info: Graphics/ASFromAll.png  used on input line 315.
 (pdftex.def)             Requested size: 240.89572pt x 160.59715pt.
 
-Underfull \hbox (badness 1584) in paragraph at lines 298--299
+Underfull \hbox (badness 1584) in paragraph at lines 322--323
 \OT1/ptm/m/n/11 the de-sired files and, if nec-ces-sary, un-zip-ping the
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 298--299
+Underfull \hbox (badness 10000) in paragraph at lines 322--323
 
  []
 
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 301.
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 325.
 
-Underfull \hbox (badness 4467) in paragraph at lines 301--304
+Underfull \hbox (badness 4467) in paragraph at lines 325--328
 \OT1/ptm/m/n/11 mod-ule ($http : / / localhost : 8080 / coria / # ! /datasets /
  upload$).
  []
 
 
-Underfull \hbox (badness 3098) in paragraph at lines 301--304
+Underfull \hbox (badness 3098) in paragraph at lines 325--328
 \OT1/ptm/m/n/11 The up-load mod-ule it-self al-ready pro-vides Caida
  []
 
 
-Underfull \hbox (badness 2865) in paragraph at lines 301--304
+Underfull \hbox (badness 2865) in paragraph at lines 325--328
 \OT1/ptm/m/n/11 spe-cific up-load func-tions that can han-dle Caida's
  []
 
 
-Underfull \hbox (badness 2057) in paragraph at lines 301--304
+Underfull \hbox (badness 2057) in paragraph at lines 325--328
 \OT1/ptm/m/n/11 sources. At the mo-ment Co-ria only ac-cepts edge
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 301--304
+Underfull \hbox (badness 10000) in paragraph at lines 325--328
 
  []
 
 <Graphics/ETL1.PNG, id=43, 729.32475pt x 208.98074pt>
 File: Graphics/ETL1.PNG Graphic file (type png)
 <use Graphics/ETL1.PNG>
-Package pdftex.def Info: Graphics/ETL1.PNG  used on input line 317.
+Package pdftex.def Info: Graphics/ETL1.PNG  used on input line 341.
 (pdftex.def)             Requested size: 211.49875pt x 60.60286pt.
 <Graphics/ETL2.PNG, id=44, 608.87476pt x 272.81924pt>
 File: Graphics/ETL2.PNG Graphic file (type png)
 <use Graphics/ETL2.PNG>
-Package pdftex.def Info: Graphics/ETL2.PNG  used on input line 325.
+Package pdftex.def Info: Graphics/ETL2.PNG  used on input line 349.
 (pdftex.def)             Requested size: 243.54558pt x 109.12576pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 332--337
+Underfull \hbox (badness 10000) in paragraph at lines 356--361
 
  []
 
 [6 <./Graphics/connectedASes.png> <./Graphics/ASFromAll.png> <./Graphics/ETL1.P
-NG> <./Graphics/ETL2.PNG>]
-LaTeX Font Info:    Font shape `OT1/pcr/m/it' in size <11> not available
-(Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 341.
-
-Overfull \hbox (355.39897pt too wide) in paragraph at lines 365--367
-[][] 
- []
-
-
-Underfull \vbox (badness 1910) has occurred while \output is active []
-
-
-Overfull \hbox (5.59882pt too wide) in paragraph at lines 375--376
-[][] 
- []
-
-
-Overfull \hbox (5.39879pt too wide) in paragraph at lines 377--378
-[][][][] 
- []
-
-
-Overfull \hbox (18.59877pt too wide) in paragraph at lines 378--379
-[][][][] 
- []
-
-
-Overfull \hbox (25.39879pt too wide) in paragraph at lines 378--379
-[][] 
- []
-
-
-Overfull \hbox (78.1985pt too wide) in paragraph at lines 381--382
-[][] 
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [7]
-Overfull \hbox (282.79907pt too wide) in paragraph at lines 392--393
-[][] 
- []
-
-
-Overfull \hbox (38.59941pt too wide) in paragraph at lines 393--394
-[][] 
- []
-
-
-Overfull \hbox (282.79907pt too wide) in paragraph at lines 394--396
-[][] 
- []
-
-<Graphics/uploadFrequency.png, id=57, 501.875pt x 301.125pt>
+NG>]
+<Graphics/uploadFrequency.png, id=51, 501.875pt x 301.125pt>
 File: Graphics/uploadFrequency.png Graphic file (type png)
 <use Graphics/uploadFrequency.png>
-Package pdftex.def Info: Graphics/uploadFrequency.png  used on input line 403.
+Package pdftex.def Info: Graphics/uploadFrequency.png  used on input line 378.
 (pdftex.def)             Requested size: 250.93687pt x 150.56212pt.
 
-Underfull \hbox (badness 3579) in paragraph at lines 422--423
+Underfull \hbox (badness 3579) in paragraph at lines 397--398
 \OT1/ptm/m/n/11 gath-ered through sta-tis-ti-cal in-fer-ence. Its ma-chine
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 422--423
+Underfull \hbox (badness 10000) in paragraph at lines 397--398
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 424--425
+Underfull \hbox (badness 10000) in paragraph at lines 399--400
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 436--437
+[7 <./Graphics/ETL2.PNG> <./Graphics/uploadFrequency.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 411--412
 []\OT1/ptm/m/n/9 E.Auchard. (2016, Nov.)Deutsche Telekom at-tack part
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 436--437
+Underfull \hbox (badness 10000) in paragraph at lines 411--412
 \OT1/ptm/m/n/9 of global cam-paign on routers, [On-line]. Avail-able:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 436--437
+Underfull \hbox (badness 10000) in paragraph at lines 411--412
 \OT1/ptm/m/n/9 https://www.reuters.com/article/us-deutsche-telekom-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 436--437
+Underfull \hbox (badness 10000) in paragraph at lines 411--412
 \OT1/ptm/m/n/9 outages/deutsche-telekom-attack-part-of-global-campaign-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 440--441
+Underfull \hbox (badness 10000) in paragraph at lines 415--416
 []\OT1/ptm/m/n/9 By EWEN MACASKILL and GABRIEL DANCE
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 440--441
+Underfull \hbox (badness 10000) in paragraph at lines 415--416
 \OT1/ptm/m/n/9 Pro-duced by FEILD-ING CAGE and GREG
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 440--441
+Underfull \hbox (badness 10000) in paragraph at lines 415--416
 \OT1/ptm/m/n/9 CHEN Pub-lished on Novem-ber 1, 2013. Avail-able:
  []
 
 
-Overfull \hbox (23.44347pt too wide) in paragraph at lines 440--441
+Overfull \hbox (23.44347pt too wide) in paragraph at lines 415--416
 \OT1/ptm/m/n/9 https://www.theguardian.com/world/interactive/2013/nov/01/snowde
 n-
  []
 
-[8 <./Graphics/uploadFrequency.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 441--442
+
+Underfull \hbox (badness 10000) in paragraph at lines 416--417
 []\OT1/ptm/m/n/9 R.Barton, ``Chi-nese cy-ber-at-tack hits Canada's
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 441--442
+Underfull \hbox (badness 10000) in paragraph at lines 416--417
 \OT1/ptm/m/n/9 Na-tional Re-search Coun-cil,'' CBC News. Avail-able:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 441--442
+Underfull \hbox (badness 10000) in paragraph at lines 416--417
 \OT1/ptm/m/n/9 http://www.cbc.ca/news/politics/chinese-cyberattack-hits-
  []
 
 
-Underfull \hbox (badness 2443) in paragraph at lines 442--443
+Underfull \hbox (badness 2443) in paragraph at lines 417--418
 []\OT1/ptm/m/n/9 A.Kharpal, ``North Ko-rea government-backed hack-ers are
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 442--443
+Underfull \hbox (badness 10000) in paragraph at lines 417--418
 \OT1/ptm/m/n/9 CNBC, Avail-able: https://www.cnbc.com/2018/01/17/north-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 442--443
+Underfull \hbox (badness 10000) in paragraph at lines 417--418
 \OT1/ptm/m/n/9 korea-hackers-linked-to-cryptocurrency-cyberattack-on-south-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 454--455
+Underfull \hbox (badness 10000) in paragraph at lines 429--430
 []\OT1/ptm/m/n/9 Caida., ``AS Rank,'' [On-line]. Avail-able: http://as-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 473--475
+Underfull \hbox (badness 10000) in paragraph at lines 448--450
 []\OT1/ptm/m/n/9 Caida., ``AS Clas-si-fi-ca-tion,'' [On-line]. Avail-able:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 475--476
+Underfull \hbox (badness 10000) in paragraph at lines 450--451
 []\OT1/ptm/m/n/9 Caida., ``IPv4 Routed /24 AS
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 475--476
+Underfull \hbox (badness 10000) in paragraph at lines 450--451
 \OT1/ptm/m/n/9 Links Dataset,'' [On-line]. Avail-able:
  []
 
 
-Overfull \hbox (45.36688pt too wide) in paragraph at lines 475--476
+Overfull \hbox (45.36688pt too wide) in paragraph at lines 450--451
 \OT1/ptm/m/n/9 http://www.caida.org/data/active/ipv4[]routed[]topology[]aslinks
 []dataset.xml. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 476--477
+Underfull \hbox (badness 10000) in paragraph at lines 451--452
 []\OT1/ptm/m/n/9 Caida., ``AS Re-la-tion-ships,'' [On-line].
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 511--512
+Underfull \hbox (badness 10000) in paragraph at lines 486--487
 []\OT1/ptm/m/n/9 butunclebob(n.d.). Re-trived from $http : / / butunclebob . co
 m /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 537--546
+Underfull \hbox (badness 10000) in paragraph at lines 512--521
 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [9]
-** WARNING: Ignoring useless \section in Appendix (line 564).
-<Graphics/AsToDistribution.png, id=65, 451.6875pt x 501.875pt>
+ [8]
+** WARNING: Ignoring useless \section in Appendix (line 539).
+<Graphics/AsToDistribution.png, id=61, 451.6875pt x 501.875pt>
 File: Graphics/AsToDistribution.png Graphic file (type png)
 <use Graphics/AsToDistribution.png>
-Package pdftex.def Info: Graphics/AsToDistribution.png  used on input line 568.
+Package pdftex.def Info: Graphics/AsToDistribution.png  used on input line 543.
 
 (pdftex.def)             Requested size: 180.67178pt x 200.74643pt.
-** WARNING: Ignoring useless \section in Appendix (line 575).
-<Graphics/ASesNurPunkte.png, id=66, 1204.5pt x 803.0pt>
+** WARNING: Ignoring useless \section in Appendix (line 550).
+<Graphics/ASesNurPunkte.png, id=62, 1204.5pt x 803.0pt>
 File: Graphics/ASesNurPunkte.png Graphic file (type png)
 <use Graphics/ASesNurPunkte.png>
-Package pdftex.def Info: Graphics/ASesNurPunkte.png  used on input line 577.
+Package pdftex.def Info: Graphics/ASesNurPunkte.png  used on input line 552.
 (pdftex.def)             Requested size: 240.89574pt x 160.59715pt.
-<Graphics/ASToAll.png, id=67, 602.25pt x 401.5pt>
+<Graphics/ASToAll.png, id=63, 602.25pt x 401.5pt>
 File: Graphics/ASToAll.png Graphic file (type png)
 <use Graphics/ASToAll.png>
-Package pdftex.def Info: Graphics/ASToAll.png  used on input line 586.
+Package pdftex.def Info: Graphics/ASToAll.png  used on input line 561.
 (pdftex.def)             Requested size: 240.89572pt x 160.59715pt.
-** WARNING: Ignoring useless \section in Appendix (line 594).
+** WARNING: Ignoring useless \section in Appendix (line 569).
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -1315,8 +1259,8 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[10 <./Graphics/AsToDistribution.png> <./Graphics/ASesNurPunkte.png> <./Graphic
-s/ASToAll.png>] (coriaPaper.aux)
+[9 <./Graphics/AsToDistribution.png> <./Graphics/ASesNurPunkte.png> <./Graphics
+/ASToAll.png>] (coriaPaper.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -1325,23 +1269,22 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 6344 strings out of 493303
- 88733 string characters out of 3138844
- 323121 words of memory out of 3000000
- 9767 multiletter control sequences out of 15000+200000
- 43047 words of font info for 98 fonts, out of 3000000 for 9000
+ 6299 strings out of 493303
+ 88231 string characters out of 3138844
+ 187129 words of memory out of 3000000
+ 9724 multiletter control sequences out of 15000+200000
+ 42430 words of font info for 96 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,7n,40p,1791b,1588s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,7n,40p,1791b,1207s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/Mi
 KTeX 2.9/fonts/type1/urw/courier/ucrb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/
-type1/urw/courier/ucrr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/couri
-er/ucrro8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C
-:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/
-MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/
-type1/urw/times/utmri8a.pfb>
-Output written on coriaPaper.pdf (10 pages, 1217373 bytes).
+type1/urw/courier/ucrr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times
+/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/
+Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiK
+TeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on coriaPaper.pdf (9 pages, 1199671 bytes).
 PDF statistics:
- 98 PDF objects out of 1000 (max. 8388607)
+ 91 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  86 words of extra memory for PDF output out of 10000 (max. 10000000)
 

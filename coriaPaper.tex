@@ -43,6 +43,8 @@ d.berscheid@outlook.com}
 }
 
 \maketitle
+\thispagestyle{plain}
+\pagestyle{plain}
 
 %1. Introduction \\
 %1A.  Motivation \\
@@ -360,12 +362,13 @@ For the case new data are provided every new file will be downloaded. After down
 *at the End tell for the case of 1st time implementation and time on server
 In detail:
 
-Ensuring that the automated ETL process and all of its function trigger every day, we created a function \it{timer.py}?REF. The timer program is meant to operate permanently after Coria webservice and the MySQL database are functioning.
-An 24 hour interval is deemed to be adequate as Caida's data file provides AS link snapshot of one day. Besides that Caida teams upload their data unsystematically: As we can observe in figure \ref{figure Histogram of uplaod} there at some days with more than 20 uploaded files(data days). As well long there are periods in summer and around new years eve with none or a few uploads that can be assumed as holidays.
+Ensuring that the automated ETL process and all of its function trigger every day, we created a function \textit{timer.py}?REF. The timer program is meant to operate permanently after Coria webservice and the MySQL database are functioning.
+An 24 hour interval is deemed to be adequate as Caida\textsc{\char13}s data file provides AS link snapshot of one day. Besides that Caida teams upload their data unsystematically: As one can observe in the histogram \ref{fig:UploadOverTime} there are some days with more than 20 uploaded files (data days). As well one can identify periods in summer and around new years eve with none or a few uploads that can be assumed as holidays.
 For other sources or data sets the interval can be customized by changing the sleep timer values of seconds.
 
-The timer program also makes use of \{syntax errors and exceptions} %ref https://docs.python.org/2.7/tutorial/errors.html#exceptions
-From our coding experience infinite Python loops could create unsystematiclly errors.
+The timer program also makes use of \textit{syntax errors and exceptions} %ref https://docs.python.org/2.7/tutorial/errors.html#exceptions
+From our coding experience with infinite Python loops chance are high creating unsystematically errors: Network errors, problems in the operating system on the destination or source server or other faults can break up the automated ETL process.
+Thatswhy the timer function makes the \textit{continue}-operator in combination exception handling: If one of the functions creates an error, it can be assured that one day later the ETL porcess will be triggered again without having any person restarting the process or bug fixing.
 
 
 
@@ -374,7 +377,7 @@ From our coding experience infinite Python loops could create unsystematiclly er
 \begin{figure}[htbp]
 \centerline{\includegraphics[scale=0.5]{Graphics/uploadFrequency.png}}
 \caption{Data Uploads by Caida over time}
-\label{fig}
+\label{fig:UploadOverTime}
 \end{figure}
 
 
