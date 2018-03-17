@@ -6,13 +6,23 @@
 \usepackage{algorithmic}
 \usepackage{graphicx}
   \usepackage[utf8]{inputenc}
-
+\usepackage{listings}
+\usepackage{textcomp}
+\usepackage{url}
 
 \usepackage{textcomp}
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
 
+
+\lstset{  	language=Python,
+			basicstyle=\ttfamily,
+			  columns=fullflexible,
+			  frame=single,
+			  breaklines=true}
+			  
+			  
 \title{Connectivity Risk Analyzer: Development of an automated ETL Processs and investigation of AS-Level data\
 {\footnotesize \textsuperscript{}}
 \thanks{}
@@ -137,22 +147,67 @@ AS degree refers to the number of neighbors that a node has in a graph - here 20
 \subsection{Internet Robustness}
 The internet is assabled based on the hierarchy as shown in figure 3. Much research has already been conducted on the robustness of the internet. 
 Baumann and Fabian (\cite{howRobust}) state the following. While the internet is resistant with respect to random failures of nodes, a targeted atttack such as a degree attack can have a serious impact. The latter stands for an attack that focuses on the successive deletion of nodes with the highest node degree. They also pointed out that a targeted removal of only ten percent of the nodes of the network can lead to more than 32 000 disjoint components. Further research suggests that due to its evolution the internet network  is ``robust yet fragile''\cite{RYF}, meaning that random failures of nodes leave the network unaffected, whereas it is vulnerable to targeted attacks on its key components. Acoordingly, the internet is often reffered to as ``scale-free'' with a ``hub-like'' core structure, which leads to the described characteristics \cite{RYF}. Faloutsos et al. \cite{powerlawCitation} state in their research that the internet network is following a so called power-law distribution. Power-laws describe skewed distributions of graph properties, such as node degree. It can be used for estimating further characteristics of networks or an analysis of robustness. Note though that they base their research on data from November 1997 and December 1998. J. Ruiz and G. Barnett also make statement about the imbalancedness of the internet \cite{owningInternet}. Their results indicate that the United States is the most central nation in the network, with American corporations accounting for almost 40\% of international links between nodes. Moreover they state that there exists a center of the network consisting of 16 companies, each causing more than 1\% of international internet connections.  
-Research of \cite{geoResearch} in 2002 modeled the internet's large scale topology - amongst others the geographic locations of routers. In that regard, they published the geographic locations of routers and found a major concentration in North America and Europe and muss less activity on other, less developed continents.   
+Research of \cite{geoResearch} in 2002 modeled the internet's large scale topology - amongst others the geographic locations of routers. In that regard, they published the geographic locations of routers and found a major concentration in North America and Europe and muss less activity on other, less developed continents.\\ 
  
 
 
 \subsection{ETL Process}
+The data warehousing concept of \textit{Extraction, Transformation, Loading} (ETL) became a standard for companies in the 1970s. Back then organizations began to integrate information from different sources into their own databases \cite{carl1}.\break The integration process states the advantage that disparate sources and hereby diverse formation of the data can be brought into a unified database. With an adjustable ETL process one is able to adapt to and import new datasources without 
+changing the essential main system or framework. This segregation of data import and processing makes the whole system more stable, flexible, provides improved maintance and makes it easier for developers to change and extend functionalities. %Quelle 
+
+\begin{lstlisting}
+import networkx as nx
+
+G=nx.complete_graph(20)
+nx.write_edgelist(G, "test3.edgelist", delimiter="\t", data=False)
+H=nx.complete_graph(100)
+nx.write_edgelist(G, "test2.edgelist", delimiter="\t", data=False)
+
+quit()
+\end{lstlisting}
+
+\break
+\break
+\break
+
+\begin{figure}[htbp]
+\centerline{\includegraphics[scale=0.27]{Graphics/ETL_general.png}}
+\caption{Visualization of a general ETL process}
+\label{fig1_ct}
+\end{figure}
 
 
-Carls part, blablabal \\ 
+A general ETL workflow is presented in figure \ref{fig1_ct}.  
+\iffalse
 
-2-3 paper über ETL theory? \\
+extraction:
+- different souces, format, files, interfaces (ftp, api, js-call)
+-import to server
 
+Transformation:
+- eradicate differences, calculations, analysis, create unified dataformat
+
+Load:
+- upload to database,
+- p.ex. organization: different departements different insights -> combined T+L ->to fulfill orgas compliance or segragation of duty need to know principles - relevance in data security and information governance.
+
+#####
+The current caida etl process will be presented in ref X
+and our contribution is described in ref Y
+
+
+
+
+
+
+Carls part, blablabalhalohaloo \\ 
 
 Extraction: from data source(s), varying data formats
 Transform: convert different data into proper format, that is storable
+
 Load: load into target database
 
+\fi
 
 
 
@@ -161,6 +216,9 @@ Load: load into target database
 \caption{Theoretical ETL Process}
 \label{fig}
 \end{figure}
+
+
+
 
 \subsection{Data Science, BI, Software Engineering, Design Science Research} 
 
@@ -236,9 +294,22 @@ With respect to Appendix .....  you can see a simultaneous development for the a
 \end{figure}
 
 
-\subsection{Development of an automated ETL Process}
+\subsection{ETL Process in CORIAv3}
+The seminar paper is based on the framework of Sebastian Gross\cite{carl3}. At the current state CORIAv3 does not include any automated ETL process for any source. The extraction part is handled manually by downloading the desired files and, if neccessary, unzipping the text-formatted file that for instance can be an edge list. \linebreak
 
-Carls part blablablabalbal
+
+The user can now upload the file using the CORIA web interface. This must be done with the upload module (\url{http://localhost:8080/coria/#!/datasets/upload}).
+The upload module itself already provides Caida specific upload functions that can handle Caida's file format\cite{carl3}. As well a "Standard tab seperated Importer" allows users to upload edge lists from other sources. At the moment Coria only accepts edge lists of undirected unweightes graphs.
+Users must be able to adjust or transform data into the demanded format. The current transformation part in the framework consists in transformation that has to be done by the user.\linebreak
+
+
+After manually preprocessing the dataset, the web framework allows the user to upload the edge list and then analyze and apply metrics to the data.
+Coriav3 already provides modules that can upload data into a MySQL or Redis database. Unexperienced users do not need to be familiar with database management systems.
+
+
+
+
+
 
 
 
@@ -312,6 +383,11 @@ Communication. November 2014. 21:1, 38-57, DOI:
 10.1080/13216597.2014.976583
 \bibitem{geoResearch}S. Yook, H. Jeong, A. Barabasi, ``Modeling the Internet's Large-Scale Topology, '' Proceedings of the National Academy of Sciences of the 
 United States of America, November 2002.
+
+\bibitem{carl1}SAS Institute GmbH (n.d.). Retrieved from \url{https://www.sas.com/en_us/insights/data-management/what-is-etl.html}
+
+
+
 \bibitem{Caida}Caida, [Online] Available: https://www.caida.org/home.
 \bibitem{Classification}Caida., ``AS Classification,'' [Online]. Available: http://www.caida.org/data/as-
 classification.
@@ -350,6 +426,11 @@ classification.
 \bibitem{graphMetrics}M. Oehlers, B. Fabian, ``Graph Metrics for Internet Robustness: A Survey,'' ACM Comput. Surv. 1,1, Article 1, January 2018.
 \bibitem{BAETL}J.Dümig, ``Modelling of an Extraction Transformation Loading (ETL) system for the connectivity risk analyzing framework CoRiA, December 2016.
 \bibitem{BA}T.Kober, ``Business Intelligence in der Telekommunikation: Konzeption und Umsetzung einer Graphendatenbank mittels Neo4j,'' December 2016.
+
+\bibitem{carl2}butunclebob(n.d.). Retrived from \url{http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod}
+
+\bibitem{carl3} S. Gross "Development of a modular software framework for the analysis of network
+connectivity risks based on network graphs" (Bachelor thesis), 2017
 
 %mehr Quellen von Prof Fabian:
 \bibitem{geoVul}A. Baumann, B. Fabian. ``Towards Measuring the Geographic and Political Resilience of the Internet,'' International Journal of Networking and Virtual Organisations, 13(4):365–384, 2013.
