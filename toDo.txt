@@ -1,10 +1,23 @@
 to do:
 
-- Histogram Uploads in R produzieren (D)
-- R Code hübsch machen (D)
+-
 - Python Code hübsch machen (C)
+- Python Code in Repository legen (C)
 - aggregierte Funktion (C)
 - Future Work / Outlook 
+ 
+
+- Quellen, Fomalitäten alle richtig? (D)
+	kursiv, quotes, 
 
 
-- Quellen, Fomalitäten alle richtig?
+
+Done:
+
+- R Code hübsch machen (D)
+- Histogram Uploads in R produzieren (D)
+- Präsentation hochgeladen
+- freigelassene Stellen ausfüllen (D)
+- Section Data: (D)
+	Begründung warum immer Daten/Team1 benutzt:
+	

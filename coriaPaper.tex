@@ -227,8 +227,8 @@ Load: load into target database
 \section{Data}
 As a data source for this work, we exclusively focus on Caida. Caida is an appreviation and stands for Center for Applied Internet Data Analysis. Located in San Diego, CA in the United States, the center studies networks and its infrastructure up to a large scale. For their investigation on theoretical and practical aspects of the internet they monitor, collect and provide network data \cite{Caida}. 
 
-Regarding the data granularity our primary focus lies on AS level data. Within this domain, we investigate five (?) datasets. AS-Rank offers a data base giving information about specific Autonomous Systems, like its rank, relationship to other ASes or customer cone  \cite{Rank} . AS Classification represents a dataset including information on the business types of Autonomous Systems \cite{Classification}. Trough machine-learning inference, Caida is able to offer this knowledge  \cite{Classification}. A dataset named Pv4 Routed 24 AS Links Dataset is used in detail to investigate the topology on the internet, its structure regarding streams of traffic, and ratios of sending and receiving autonomous systems  \cite{IPv4Data}. 
-We investigate the dataset AS Relationships in order to find out about Provider to Customer relationships as well as Peer to Peer relationships \cite{CaidaRelationshipsData}.  Lastly, we take into account geographic information of the Autonomous Systems to draw conlclusions on regions with high imapact on the internet network and less involved ones  \cite{CaidaGeoData}. 
+Regarding the data granularity our primary focus lies on AS level data. Within this domain, we investigate five type of datasets. \textit{AS-Rank} offers a data base giving information about specific Autonomous Systems, like its rank, relationship to other ASes or customer cone  \cite{Rank} . \textit{AS Classification} represents a dataset including information on the business types of Autonomous Systems \cite{Classification}. Through machine-learning inference, Caida is able to offer this knowledge  \cite{Classification}. A large collection of datasets named \textit{Pv4 Routed 24 AS Links} is used in detail to investigate the topology on the internet, its structure regarding streams of traffic, and ratios of sending and receiving autonomous systems  \cite{IPv4Data}. This collection of data forms the center of our investigation. From 2007 to 2018 data is collected, by three \textit{teams}. Caida uses independent teams to collect data in order to offer a way to validate the data and its data inference. The teams probe every routed /24 in the IPv4 address space.
+We investigate the dataset \textit{AS Relationships} in order to find out about Provider to Customer relationships as well as Peer to Peer relationships \cite{CaidaRelationshipsData}.  Lastly, we take into account geographic information of the Autonomous Systems to draw conlclusions on regions with high imapact on the internet network and less involved ones  \cite{CaidaGeoData}. 
 
 
 For the purpose of investigating the characteristics of Ases itself and their network, we analyzed recent data of December 2017.  As for the time series analysis, we used data from 2007 until 2017. \\
@@ -256,9 +256,31 @@ As depicted in the theoretical part, autonomous systems have relationships. We t
 \end{figure}
 
 
-We furthermore built graphs describing the distributional characteristics of autonomous systems. Figure 8 shows the distribution of autonomous systems and how many outgoing connections the single nodes have. Approximately 5.500 sending nodes are containted within that data set. We ranked them on the x-axis. With the number of connections an AS is sending to on the y-axis, we obtrain a very left centered distribution. A very small number of nodes in the network are sending traffic to a high number of other nodes. It follows, what is called a power-law distribution  \cite{powerlawCitation}. Take the first 30 (?): ... These top ranked 30 nodes send ... \% of overall trafic of the whole network. Note that when we make statements of the whole network, we only refer to the data at hand as the whole network. That is the data collected by CAIDA. Information on CAIDA's data collection process can be found in \cite{CaidaDataCollection} . 
+We furthermore built graphs describing the distributional characteristics of autonomous systems. Figure 8 shows the distribution of autonomous systems and how many outgoing connections the single nodes have. Approximately 5.500 sending nodes are containted within that data set. We ranked them on the x-axis. With the number of connections an AS is sending to on the y-axis, we obtrain a very left centered distribution. A very small number of nodes in the network are sending traffic to a high number of other nodes. It follows, what is called a power-law distribution  \cite{powerlawCitation}. Calculating the quantiles of the distribution, the top 10 percent of highest ranked nodes (ranked by the number of different outgoing connections) send to almost exactely 50\% of overall trafic of the whole network. The top five percent are responsible for 36\% of all outgoing traffic and the top one percent even accounts for approximately 17\%. Note that when we make statements of the whole network, we only refer to the data at hand as the whole network. That is the data collected by CAIDA. Information on CAIDA's data collection process can be found in \cite{CaidaDataCollection} . 
 
-Simultaneousely, we drew the distribution of incomming connections per Autonomous System (Appendix ...) and received a similar result. With approximately 250.000 nodes, receiving traffic, only very few nodes are receiving traffic from a high number of nodes, again following the properties of a power-law distribution. The top ... ranked nodes are receiving ... \% of the overall trafic in this network. 
+%> sum(sumAsTo$count[1:4900]) / sum(sumAsTo$count)
+%[1] 0.5059264
+%> sum(sumAsTo$count[1:2450]) / sum(sumAsTo$count)
+%[1] 0.3608107
+%> sum(sumAsTo$count[1:490]) / sum(sumAsTo$count)
+%[1] 0.1678801
+
+Simultaneousely, we drew the distribution of incomming connections per Autonomous System (Appendix ...) and received a similar result. With approximately 250.000 nodes, receiving traffic, only very few nodes are receiving traffic from a high number of nodes, again following the properties of a power-law distribution. The top ten percent of highest ranked nodes, are receiving approximately 52\% of the overall trafic in this network. The top five percent make up 36\% and the top one percent even 17\% of overall trafic. The quantiles are almost identical to those of the previous distribution. 
+
+%top 1 percent
+%> sum(sumAsTo$count[1:520]) / sum(sumAsTo$count)
+%[1] 0.1724906
+
+
+%top 5 percent
+%2500 / 52055  = 0.05
+%> sum(sumAsTo$count[1:2500]) / sum(sumAsTo$count)
+%[1] 0.3646528
+ 
+
+% 10 percent
+%> sum(sumAsTo$count[1:5200]) / sum(sumAsTo$count)
+%[1] 0.5174527
 
 An important finding regarding connectivity risks of the network is, how vulnerable this network is. An attack targeting the most active and most influential nodes in the network, achieving a non-functioning of those quickly leads to wide shot-downs of the network. Previous introduced results by \cite{powerlawCitation} and \cite{owningInternet} can therefore be supported.  This again underscores the demand for CORIA - a tool to analyze connectivity risks. 
 
@@ -319,7 +341,7 @@ Coria already provides modules that can upload data into a MySQL or Redis databa
 \label{fig}
 \end{figure}
 
-\subsection{ETL Process in CORIAv3}
+
 
 \begin{figure}[htbp]
 \centerline{\includegraphics[scale=0.4]{Graphics/ETL2.PNG}}
@@ -351,7 +373,7 @@ From our coding experience infinite Python loops could create unsystematiclly er
 
 \begin{figure}[htbp]
 \centerline{\includegraphics[scale=0.5]{Graphics/uploadFrequency.png}}
-\caption{ETL Process in the CORIA framework}
+\caption{Data Uploads by Caida over time}
 \label{fig}
 \end{figure}
 
@@ -369,7 +391,7 @@ Regarding the software-development aspect, we developed an ETL tool in Python th
 \subsection{Limitations and Further Work}
 
  
-One limitation of this work is caused by our data source Caida. The data that we used, i.e. types of Autonomous Systems or their relationship was partly gathered through statistical inference. Its machine learning classifier provided a positive predicted value of 70\% \cite{Classification}, which still leaves misslassified observations within the data and limits our results to some extent. Nevertheless Caida is a serious and trusted source, which is why we chose it in the first place. \\ 
+One limitation of this work is caused by our data source Caida. The data that we used, i.e. types of Autonomous Systems or their relationship was partly gathered through statistical inference. Its machine learning classifier provided a positive predicted value of 70\% \cite{Classification}, which still leaves misslassified observations within the data and limits our results to some extent. Nevertheless Caida is a serious and trusted source, which is why we chose it in the first place. To our best knowledge, there is no superior data souce available.  \\ 
 
 other limitations\\
 
