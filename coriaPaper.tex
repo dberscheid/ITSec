@@ -335,7 +335,17 @@ For the case new data are provided every new file will be downloaded. After down
 \linebreak
 *For Caida data a daily iteration of the queries is sufficient as uploads are made every week on average - But as we can see from figure(upload histogram 2016 - 2018) a vast variation on the upload data and amount of files 
 
+*at the End tell for the case of 1st time implementation and time on server
 In detail:
+
+Ensuring that the automated ETL process and all of its function trigger every day, we created a function \it{timer.py}?REF. The timer program is meant to operate permanently after Coria webservice and the MySQL database are functioning.
+An 24 hour interval is deemed to be adequate as Caida's data file provides AS link snapshot of one day. Besides that Caida teams upload their data unsystematically: As we can observe in figure \ref{figure Histogram of uplaod} there at some days with more than 20 uploaded files(data days). As well long there are periods in summer and around new years eve with none or a few uploads that can be assumed as holidays.
+For other sources or data sets the interval can be customized by changing the sleep timer values of seconds.
+
+The timer program also makes use of \{syntax errors and exceptions} %ref https://docs.python.org/2.7/tutorial/errors.html#exceptions
+From our coding experience infinite Python loops could create unsystematiclly errors.
+
+
 
 
 

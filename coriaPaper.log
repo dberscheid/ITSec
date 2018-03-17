@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.2.28)  17 MAR 2018 14:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.2.28)  17 MAR 2018 14:50
 entering extended mode
 **C:/Users/Carlimero/Documents/GitHub/ITSec/coriaPaper.tex
 (C:/Users/Carlimero/Documents/GitHub/ITSec/coriaPaper.tex
@@ -760,6 +760,9 @@ LaTeX Warning: Label `fig' multiply defined.
 
 LaTeX Warning: Label `fig' multiply defined.
 
+
+LaTeX Warning: Label `fig' multiply defined.
+
 )
 \openout1 = `coriaPaper.aux'.
 
@@ -1092,156 +1095,215 @@ Underfull \hbox (badness 10000) in paragraph at lines 332--337
 
 [6 <./Graphics/connectedASes.png> <./Graphics/ASFromAll.png> <./Graphics/ETL1.P
 NG> <./Graphics/ETL2.PNG>]
-Underfull \hbox (badness 3579) in paragraph at lines 354--355
+LaTeX Font Info:    Font shape `OT1/pcr/m/it' in size <11> not available
+(Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 341.
+
+Overfull \hbox (355.39897pt too wide) in paragraph at lines 365--367
+[][] 
+ []
+
+
+Underfull \vbox (badness 1910) has occurred while \output is active []
+
+
+Overfull \hbox (5.59882pt too wide) in paragraph at lines 375--376
+[][] 
+ []
+
+
+Overfull \hbox (5.39879pt too wide) in paragraph at lines 377--378
+[][][][] 
+ []
+
+
+Overfull \hbox (18.59877pt too wide) in paragraph at lines 378--379
+[][][][] 
+ []
+
+
+Overfull \hbox (25.39879pt too wide) in paragraph at lines 378--379
+[][] 
+ []
+
+
+Overfull \hbox (78.1985pt too wide) in paragraph at lines 381--382
+[][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [7]
+Overfull \hbox (282.79907pt too wide) in paragraph at lines 392--393
+[][] 
+ []
+
+
+Overfull \hbox (38.59941pt too wide) in paragraph at lines 393--394
+[][] 
+ []
+
+
+Overfull \hbox (282.79907pt too wide) in paragraph at lines 394--396
+[][] 
+ []
+
+<Graphics/uploadFrequency.png, id=57, 501.875pt x 301.125pt>
+File: Graphics/uploadFrequency.png Graphic file (type png)
+<use Graphics/uploadFrequency.png>
+Package pdftex.def Info: Graphics/uploadFrequency.png  used on input line 403.
+(pdftex.def)             Requested size: 250.93687pt x 150.56212pt.
+
+Underfull \hbox (badness 3579) in paragraph at lines 422--423
 \OT1/ptm/m/n/11 gath-ered through sta-tis-ti-cal in-fer-ence. Its ma-chine
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 354--355
+Underfull \hbox (badness 10000) in paragraph at lines 422--423
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 356--357
+Underfull \hbox (badness 10000) in paragraph at lines 424--425
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 368--369
+Underfull \hbox (badness 10000) in paragraph at lines 436--437
 []\OT1/ptm/m/n/9 E.Auchard. (2016, Nov.)Deutsche Telekom at-tack part
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 368--369
+Underfull \hbox (badness 10000) in paragraph at lines 436--437
 \OT1/ptm/m/n/9 of global cam-paign on routers, [On-line]. Avail-able:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 368--369
+Underfull \hbox (badness 10000) in paragraph at lines 436--437
 \OT1/ptm/m/n/9 https://www.reuters.com/article/us-deutsche-telekom-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 368--369
+Underfull \hbox (badness 10000) in paragraph at lines 436--437
 \OT1/ptm/m/n/9 outages/deutsche-telekom-attack-part-of-global-campaign-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 372--373
+Underfull \hbox (badness 10000) in paragraph at lines 440--441
 []\OT1/ptm/m/n/9 By EWEN MACASKILL and GABRIEL DANCE
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 372--373
+Underfull \hbox (badness 10000) in paragraph at lines 440--441
 \OT1/ptm/m/n/9 Pro-duced by FEILD-ING CAGE and GREG
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 372--373
+Underfull \hbox (badness 10000) in paragraph at lines 440--441
 \OT1/ptm/m/n/9 CHEN Pub-lished on Novem-ber 1, 2013. Avail-able:
  []
 
 
-Overfull \hbox (23.44347pt too wide) in paragraph at lines 372--373
+Overfull \hbox (23.44347pt too wide) in paragraph at lines 440--441
 \OT1/ptm/m/n/9 https://www.theguardian.com/world/interactive/2013/nov/01/snowde
 n-
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 373--374
+[8 <./Graphics/uploadFrequency.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 441--442
 []\OT1/ptm/m/n/9 R.Barton, ``Chi-nese cy-ber-at-tack hits Canada's
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 373--374
+Underfull \hbox (badness 10000) in paragraph at lines 441--442
 \OT1/ptm/m/n/9 Na-tional Re-search Coun-cil,'' CBC News. Avail-able:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 373--374
+Underfull \hbox (badness 10000) in paragraph at lines 441--442
 \OT1/ptm/m/n/9 http://www.cbc.ca/news/politics/chinese-cyberattack-hits-
  []
 
 
-Underfull \hbox (badness 2443) in paragraph at lines 374--375
+Underfull \hbox (badness 2443) in paragraph at lines 442--443
 []\OT1/ptm/m/n/9 A.Kharpal, ``North Ko-rea government-backed hack-ers are
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 374--375
+Underfull \hbox (badness 10000) in paragraph at lines 442--443
 \OT1/ptm/m/n/9 CNBC, Avail-able: https://www.cnbc.com/2018/01/17/north-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 374--375
+Underfull \hbox (badness 10000) in paragraph at lines 442--443
 \OT1/ptm/m/n/9 korea-hackers-linked-to-cryptocurrency-cyberattack-on-south-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 386--387
+Underfull \hbox (badness 10000) in paragraph at lines 454--455
 []\OT1/ptm/m/n/9 Caida., ``AS Rank,'' [On-line]. Avail-able: http://as-
  []
 
-[7]
-Underfull \hbox (badness 10000) in paragraph at lines 405--407
+
+Underfull \hbox (badness 10000) in paragraph at lines 473--475
 []\OT1/ptm/m/n/9 Caida., ``AS Clas-si-fi-ca-tion,'' [On-line]. Avail-able:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 407--408
+Underfull \hbox (badness 10000) in paragraph at lines 475--476
 []\OT1/ptm/m/n/9 Caida., ``IPv4 Routed /24 AS
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 407--408
+Underfull \hbox (badness 10000) in paragraph at lines 475--476
 \OT1/ptm/m/n/9 Links Dataset,'' [On-line]. Avail-able:
  []
 
 
-Overfull \hbox (45.36688pt too wide) in paragraph at lines 407--408
+Overfull \hbox (45.36688pt too wide) in paragraph at lines 475--476
 \OT1/ptm/m/n/9 http://www.caida.org/data/active/ipv4[]routed[]topology[]aslinks
 []dataset.xml. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 408--409
+Underfull \hbox (badness 10000) in paragraph at lines 476--477
 []\OT1/ptm/m/n/9 Caida., ``AS Re-la-tion-ships,'' [On-line].
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 443--444
+Underfull \hbox (badness 10000) in paragraph at lines 511--512
 []\OT1/ptm/m/n/9 butunclebob(n.d.). Re-trived from $http : / / butunclebob . co
 m /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 469--478
+Underfull \hbox (badness 10000) in paragraph at lines 537--546
 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-** WARNING: Ignoring useless \section in Appendix (line 496).
-<Graphics/AsToDistribution.png, id=56, 451.6875pt x 501.875pt>
+ [9]
+** WARNING: Ignoring useless \section in Appendix (line 564).
+<Graphics/AsToDistribution.png, id=65, 451.6875pt x 501.875pt>
 File: Graphics/AsToDistribution.png Graphic file (type png)
 <use Graphics/AsToDistribution.png>
-Package pdftex.def Info: Graphics/AsToDistribution.png  used on input line 500.
+Package pdftex.def Info: Graphics/AsToDistribution.png  used on input line 568.
 
 (pdftex.def)             Requested size: 180.67178pt x 200.74643pt.
-** WARNING: Ignoring useless \section in Appendix (line 507).
-<Graphics/ASesNurPunkte.png, id=57, 1204.5pt x 803.0pt>
+** WARNING: Ignoring useless \section in Appendix (line 575).
+<Graphics/ASesNurPunkte.png, id=66, 1204.5pt x 803.0pt>
 File: Graphics/ASesNurPunkte.png Graphic file (type png)
 <use Graphics/ASesNurPunkte.png>
-Package pdftex.def Info: Graphics/ASesNurPunkte.png  used on input line 509.
+Package pdftex.def Info: Graphics/ASesNurPunkte.png  used on input line 577.
 (pdftex.def)             Requested size: 240.89574pt x 160.59715pt.
-<Graphics/ASToAll.png, id=58, 602.25pt x 401.5pt>
+<Graphics/ASToAll.png, id=67, 602.25pt x 401.5pt>
 File: Graphics/ASToAll.png Graphic file (type png)
 <use Graphics/ASToAll.png>
-Package pdftex.def Info: Graphics/ASToAll.png  used on input line 518.
+Package pdftex.def Info: Graphics/ASToAll.png  used on input line 586.
 (pdftex.def)             Requested size: 240.89572pt x 160.59715pt.
-** WARNING: Ignoring useless \section in Appendix (line 526).
+** WARNING: Ignoring useless \section in Appendix (line 594).
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -1253,9 +1315,8 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[8 <./Graphics/AsToDistribution.png> <./Graphics/ASesNurPunkte.png>] [9
-
- <./Graphics/ASToAll.png>] (coriaPaper.aux)
+[10 <./Graphics/AsToDistribution.png> <./Graphics/ASesNurPunkte.png> <./Graphic
+s/ASToAll.png>] (coriaPaper.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -1264,22 +1325,23 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 6293 strings out of 493303
- 88061 string characters out of 3138844
- 187120 words of memory out of 3000000
- 9719 multiletter control sequences out of 15000+200000
- 42430 words of font info for 96 fonts, out of 3000000 for 9000
+ 6344 strings out of 493303
+ 88733 string characters out of 3138844
+ 323121 words of memory out of 3000000
+ 9767 multiletter control sequences out of 15000+200000
+ 43047 words of font info for 98 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,7n,40p,1791b,1207s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,7n,40p,1791b,1588s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/Mi
 KTeX 2.9/fonts/type1/urw/courier/ucrb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/
-type1/urw/courier/ucrr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times
-/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/
-Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiK
-TeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on coriaPaper.pdf (9 pages, 1194316 bytes).
+type1/urw/courier/ucrr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/couri
+er/ucrro8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C
+:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/
+MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/
+type1/urw/times/utmri8a.pfb>
+Output written on coriaPaper.pdf (10 pages, 1217373 bytes).
 PDF statistics:
- 89 PDF objects out of 1000 (max. 8388607)
+ 98 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 81 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 86 words of extra memory for PDF output out of 10000 (max. 10000000)
 
