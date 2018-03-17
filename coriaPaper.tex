@@ -77,7 +77,7 @@ In 2016 for example the Dyn cyberattack, which involved multiple distributed den
 \subsection{Evolution of CORIA}
 The CORIA project started with the scope of a (master) thesis by Mathias Ehlert \cite{Ehlert}. With the objective of building a webframwork that is capable of analyzing connectivity risks of networks, CORIA 1.0 was developed. Through the access of large amount of network data, either publically available or individually provided, CORIA was able to calculate a variety of metrics, such as  
 centrality measures or node degree measures, which then form a unified risk score for respective connectivity risks of respective nodes. In addition, CORIA offered a framework to investigate networks visually through graph visualisations. 
- The webapplication CORIA 1.0 was written in python and ruby. It used NetworkX for its metrics and redis for database purposes\cite{Coria1}. After CORIA 1.5 presented a improved performance and the use of Graphtool instead of NetworkX for its metrics, Tom Kober developed CORIA 2.0 - now using Neo4j to store and manage data\cite{Coria1.5}. This version furthermore consisted of a native architecture of graph storage and processing\cite{Coria2}. CORIA 3.0 by Sebastian Gross benefits from modular based improvements. It offers different levels of granularity of networks that can be investigated.
+ The webapplication CORIA 1.0 was written in python and ruby. It used NetworkX for its metrics and redis for database purposes. After CORIA 1.5 presented a improved performance and the use of Graphtool instead of NetworkX for its metrics, Tom Kober developed CORIA 2.0 - now using Neo4j to store and manage data\cite{Coria1.5}. This version furthermore consisted of a native architecture of graph storage and processing\cite{Coria2}. CORIA 3.0 by Sebastian Gross benefits from modular based improvements. It offers different levels of granularity of networks that can be investigated.
 
  \begin{figure}[htbp]
 \centerline{\includegraphics[scale=0.4]{Graphics/CORIAExtract.PNG}}
@@ -169,8 +169,8 @@ Load: load into target database
 \section{Data}
 As a data source for this work, we exclusively focus on Caida. Caida is an appreviation and stands for Center for Applied Internet Data Analysis. Located in San Diego, CA in the United States, the center studies networks and its infrastructure up to a large scale. For their investigation on theoretical and practical aspects of the internet they monitor, collect and provide network data \cite{Caida}. 
 
-Regarding the data granularity our primary focus lies on AS level data. Within this domain, we investigate five (?) datasets. AS-Rank offers a data base giving information about specific Autonomous Systems, like its rank, relationship to other ASes or customer cone  \cite{Rank} . AS Classification represents a dataset including information on the business types of Autonomous Systems \cite{Classification}. Trough machine-learning inference, Caida is able to offer this knowledge  \cite{Classification}. A dataset named Pv4 Routed 24 AS Links Dataset is used in detail to investigate the topology on the internet, its structure regarding streams of traffic, and ratios of sending and receiving autonomous systems  \cite{CaidaData}. %(http://www.caida.org/data/active/ipv4_routed_topology_aslinks_dataset.xml). 
-We investigate the dataset AS Relationships in order to find out about Provider to Customer relationships as well as Peer to Peer relationships \cite{CaidaRelationships}.  Lastly, we take into account geographic information of the Autonomous Systems to draw conlclusions on regions with high imapact on the internet network and less involved ones  \cite{CaidaGeoData}. 
+Regarding the data granularity our primary focus lies on AS level data. Within this domain, we investigate five (?) datasets. AS-Rank offers a data base giving information about specific Autonomous Systems, like its rank, relationship to other ASes or customer cone  \cite{Rank} . AS Classification represents a dataset including information on the business types of Autonomous Systems \cite{Classification}. Trough machine-learning inference, Caida is able to offer this knowledge  \cite{Classification}. A dataset named Pv4 Routed 24 AS Links Dataset is used in detail to investigate the topology on the internet, its structure regarding streams of traffic, and ratios of sending and receiving autonomous systems  \cite{IPv4Data}. 
+We investigate the dataset AS Relationships in order to find out about Provider to Customer relationships as well as Peer to Peer relationships \cite{CaidaRelationshipsData}.  Lastly, we take into account geographic information of the Autonomous Systems to draw conlclusions on regions with high imapact on the internet network and less involved ones  \cite{CaidaGeoData}. 
 
 
 For the purpose of investigating the characteristics of Ases itself and their network, we analyzed recent data of December 2017.  As for the time series analysis, we used data from 2007 until 2017. \\
@@ -224,7 +224,7 @@ These results confirm the research from 2002 by \cite{geoResearch} and lead to t
 \label{fig}
 \end{figure}
 
-In addition to the analysis of a single point in time, we investigated the timely development of the network. Figure 10 shows the number of traffic-sending autonomous systems from the beginning of 2007 until the end of 2017. Within these 10 years, there is a clear upward trend. In 2015 this upward trend vanishes and and reaches a constant level of approximately 5.500 sending AS nodes within the network. (Note the consistency of results with respect to  the `Distribution of number of sending ASes` in the appendix) Striking in that graph are the multiple outliers appearing throught the time series. A qualitative research about exeptional events happening on these dates that might have been the reason for a downtime of multiple nodes did not lead to reasonable results. As a consequence, we assume the outliers to be caused by monitoring and data collection problems of CAIDA \cite{datacollectionCaida}
+In addition to the analysis of a single point in time, we investigated the timely development of the network. Figure 10 shows the number of traffic-sending autonomous systems from the beginning of 2007 until the end of 2017. Within these 10 years, there is a clear upward trend. In 2015 this upward trend vanishes and and reaches a constant level of approximately 5.500 sending AS nodes within the network. (Note the consistency of results with respect to  the `Distribution of number of sending ASes` in the appendix) Striking in that graph are the multiple outliers appearing throught the time series. A qualitative research about exeptional events happening on these dates that might have been the reason for a downtime of multiple nodes did not lead to reasonable results. As a consequence, we assume the outliers to be caused by monitoring and data collection problems of CAIDA \cite{CaidaDataCollection}
 
 With respect to Appendix .....  you can see a simultaneous development for the amount of nodes, receiving traffic - on a level of approx. 250.000 nodes of course. 
 
@@ -278,6 +278,49 @@ Further work that can follow could be to apply the automated ETL process to furt
 
 
 \begin{thebibliography}{00}
+
+
+\bibitem{dyn}K. York. (2016, Oct.) Dyn’s Statement on the 10/21/2016 DNS DDoS Attack, [Online]. Available: https://dyn.com/blog/dyn-statement-on-10212016-ddos-attack/
+\bibitem{DT}E.Auchard. (2016, Nov.)Deutsche Telekom attack part of global campaign on routers, [Online]. Available: https://www.reuters.com/article/us-deutsche-telekom-outages/deutsche-telekom-attack-part-of-global-campaign-on-routers-idUSKBN13O0X4
+\bibitem{Ponemon}Ponemon Institute LLC, ``Cost of Data Center Outages,'' Data Center Performance Benchmark Series, 2016 %https://www.vertivco.com/globalassets/documents/reports/2016-cost-of-data-center-outages-11-11_51190_1.pdf
+
+
+\bibitem{cyberSponsors} By EWEN MACASKILL and GABRIEL DANCE Produced by FEILDING CAGE and GREG CHEN Published on November 1, 2013. Available: https://www.theguardian.com/world/interactive/2013/nov/01/snowden-nsa-files-surveillance-revelations-decoded.
+\bibitem{cyberSponsors2}R.Barton, ``Chinese cyberattack hits Canada's National Research Council,'' CBC News. Available: http://www.cbc.ca/news/politics/chinese-cyberattack-hits-canada-s-national-research-council-1.2721241
+\bibitem{cyberSponsors3}A.Kharpal, ``North Korea government-backed hackers are trying to steal cryptocurrency from South Korean users,'' CNBC, Available: https://www.cnbc.com/2018/01/17/north-korea-hackers-linked-to-cryptocurrency-cyberattack-on-south-korea.html
+
+
+
+\bibitem{Coria}B. Fabian et al., `` CORIA – Analyzing Internet Connectivity Risks Using Network Graphs,'' IEEE International Conference on Communications Paris (IEEE ICC 2017), May 2017. 10.1109/ICC.2017.7996828. 
+\bibitem{Ehlert}M. C. Ehlert, "A Software Framework for Analyzing Connectivity Risk of Graph Data," Master of Science, Humboldt-Universität zu Berlin, 2014. 
+%\bibitem{Coria1} fehlt noch
+%\bibitem{Coria1.5} fehlt noch 
+\bibitem{Coria2} D.Kiene-Maksimovic, E. Zinovyeva, J. Park, ``CORIA 2.0: Augmenting a Universal Framework for Connectivity Risk Analysis,'' Jahr???
+\bibitem{Coria3}S.Gross, ``Entwicklung eines modularen Frameworks für die Analyse von Verbindungsrisiken von Netzwerken basierend auf Netzwerkgraphen,'' November 2017.
+\bibitem{CoriaPaper}
+\bibitem{ASH}
+ \bibitem{Rank}Caida., ``AS Rank,'' [Online]. Available: http://as-rank.caida.org/.
+\bibitem{Cone}M. Luckie et al., "AS Relationships, Customer Cones, and Validation", Internet Measurement Conference (IMC), Oct 2013, pp. 243--256.
+\bibitem{howRobust}Baumann, A., Fabian, B. 2015. “How Robust is the Internet? – Insights
+from Graph Analysis,” in Proceedings of the 9th International
+Conference on Risks and Security of Internet and Systems (CRiSIS
+2014), Trento, Italy, Springer, LNCS 8924, pp. 247-254.
+\bibitem{RYF}Albert, R. Jeong, H. and Barabasi, A.-L. (2000) Nature 406, 378–382.
+ \bibitem{powerlawCitation}M. Faloutsos, P. Faloutsos, and C. Faloutsos, “On power-law relationships of the Internet topology,” Proc. of ACM SIGCOMM ’99, Cambridge, MA, Aug. 1999, pp. 251–262.
+\bibitem{owningInternet}J. Ruiz, G. Barnett, ``Who owns the international Internet networks?,'' The Journal of International
+Communication. November 2014. 21:1, 38-57, DOI:
+10.1080/13216597.2014.976583
+\bibitem{geoResearch}S. Yook, H. Jeong, A. Barabasi, ``Modeling the Internet's Large-Scale Topology, '' Proceedings of the National Academy of Sciences of the 
+United States of America, November 2002.
+\bibitem{Caida}Caida, [Online] Available: https://www.caida.org/home.
+\bibitem{Classification}Caida., ``AS Classification,'' [Online]. Available: http://www.caida.org/data/as-
+classification.
+\bibitem{IPv4Data}Caida., ``IPv4 Routed /24 AS Links Dataset,'' [Online]. Available: http://www.caida.org/data/active/ipv4\_routed\_topology\_aslinks\_dataset.xml.
+\bibitem{CaidaRelationshipsData}Caida., ``AS Relationships,'' [Online]. Available:http://www.caida.org/data/as-relationships/.
+\bibitem{CaidaGeoData}Caida., ``AS Relationships -- with geographic annotations,'' [Online]. Available: http://www.caida.org/data/as-relationships-geo/.
+\bibitem{CaidaDataCollection} 
+
+
 %aus unserer Präsi:
 
 %B. Fabian, G. Tilch, “Analyzing the Global-Scale Internet Graph at Different Topology Levels: Data Collection and Integration“.
@@ -288,42 +331,21 @@ Further work that can follow could be to apply the automated ETL process to furt
 %S.Gross, “Development of a modular software framework for the analysis of network connectivity risks based on network graphs”, 2017.
 %T. Kober, “Business Intelligence in der Telekommunikation : Konzeption und Umsetzung einer Graphendatenbank mittels Neo4j“, 2016.
 
+%ende aus unserer präsi
 
-\bibitem{dyn}K. York. (2016, Oct.) Dyn’s Statement on the 10/21/2016 DNS DDoS Attack, [Online]. Available: https://dyn.com/blog/dyn-statement-on-10212016-ddos-attack/
-\bibitem{DT}E.Auchard. (2016, Nov.)Deutsche Telekom attack part of global campaign on routers, [Online]. Available: https://www.reuters.com/article/us-deutsche-telekom-outages/deutsche-telekom-attack-part-of-global-campaign-on-routers-idUSKBN13O0X4
-\bibitem{Ponemon}Ponemon Institute LLC, ``Cost of Data Center Outages,'' Data Center Performance Benchmark Series, 2016 %https://www.vertivco.com/globalassets/documents/reports/2016-cost-of-data-center-outages-11-11_51190_1.pdf
-\bibitem{Coria}B. Fabian et al., `` CORIA – Analyzing Internet Connectivity Risks Using Network Graphs,'' IEEE International Conference on Communications Paris (IEEE ICC 2017), May 2017. 10.1109/ICC.2017.7996828. 
-
-\bibitem{cyberSponsors} By EWEN MACASKILL and GABRIEL DANCE Produced by FEILDING CAGE and GREG CHEN Published on November 1, 2013. Available: https://www.theguardian.com/world/interactive/2013/nov/01/snowden-nsa-files-surveillance-revelations-decoded.
-\bibitem{cyberSponsors2}R.Barton, ``Chinese cyberattack hits Canada's National Research Council,'' CBC News. Available: http://www.cbc.ca/news/politics/chinese-cyberattack-hits-canada-s-national-research-council-1.2721241
-\bibitem{cyberSponsors3}A.Kharpal, ``North Korea government-backed hackers are trying to steal cryptocurrency from South Korean users,'' CNBC, Available: https://www.cnbc.com/2018/01/17/north-korea-hackers-linked-to-cryptocurrency-cyberattack-on-south-korea.html
-
-
-\bibitem{Ehlert}
-\bibitem{Coria1}
-\bibitem{Coria1.5}
-\bibitem{Coria2} D.Kiene-Maksimovic, E. Zinovyeva, J. Park, ``CORIA 2.0: Augmenting a Universal Framework for Connectivity Risk Analysis,'' Jahr???
-\bibitem{Coria3}S.Gross, ``Entwicklung eines modularen Frameworks für die Analyse von Verbindungsrisiken von Netzwerken basierend auf Netzwerkgraphen,'' November 2017.
-\bibitem{CoriaPaper}
-\bibitem{ASH}
-
-\bibitem{Cone}M. Luckie et al., "AS Relationships, Customer Cones, and Validation", Internet Measurement Conference (IMC), Oct 2013, pp. 243--256.
-\bibitem{Caida}Caida, [Online] Available: https://www.caida.org/home.
  
-\bibitem{CaidaInference} 
-\bibitem{CaidaData}
+
 \bibitem{powerLaw} Yaneer Bar-Yam. ``Concepts: Power Law," New England Complex Systems Institute, August 2015.
 \bibitem{CaidaRelationships}X. Dimitropoulos, G. Riley, ``Modeling Autonomous System Relationships,'' Principles of Advanced and Distributed Simulation (PADS), May 2006, pp. 143--149.
 \bibitem{RelInference}X. Dimitropoulos et al., ``Revealing the Autonomous System Taxonomy: The Machine Learning Approach," Passive and Active Network Measurement Workshop (PAM), Mar 2006.
 \bibitem{CaidaRel2}X. Dimitropoulos et al., "Classifying the Types of Autonomous Systems in the Internet", SIGCOMM, Aug 2005.
 \bibitem{ResearchGeo}
 
-\bibitem{Classification}Caida., ``AS Classification,'' [Online]. Available: http://www.caida.org/data/as-
-classification.
-\bibitem{IPv4Data}Caida., ``IPv4 Routed /24 AS Links Dataset,'' [Online]. Available: http://www.caida.org/data/active/ipv4\_routed\_topology\_aslinks\_dataset.xml.
-\bibitem{Rank}Caida., ``AS Rank,'' [Online]. Available: http://as-rank.caida.org/.
-\bibitem{CaidaRelationshipsData}Caida., ``AS Relationships,'' [Online]. Available:http://www.caida.org/data/as-relationships/.
-\bibitem{CaidaGeoData}Caida., ``AS Relationships -- with geographic annotations,'' [Online]. Available: http://www.caida.org/data/as-relationships-geo/.
+
+
+
+
+
 
 \bibitem{graphMetrics}M. Oehlers, B. Fabian, ``Graph Metrics for Internet Robustness: A Survey,'' ACM Comput. Surv. 1,1, Article 1, January 2018.
 \bibitem{BAETL}J.Dümig, ``Modelling of an Extraction Transformation Loading (ETL) system for the connectivity risk analyzing framework CoRiA, December 2016.
@@ -334,7 +356,6 @@ classification.
 
 %Damien Magoni. Tearing Down the Internet. IEEE Journal of Selected Areas in Communications, 21(6):949–960, September 2006.
 
-\bibitem{howRobust} A. Baumann, B. Fabian. ``How Robust is the Internet? – Insights from Graph Analysis,'' Proceedings of the 9th International Conference on Risks and Security of Internet and Systems (CRiSIS 2014), Trento, Italy, LNCS, Vol. 8924. Springer, 2014.
 
 %Martin Huth and Benjamin Fabian. Inferring Business Relationships in the Internet Backbone. International Journal of Networking and Virtual Organisations, 16(4), 2016.
 
@@ -351,7 +372,6 @@ classification.
 
 
 
-
 abstand\\
 %die quellen sind nur als Formatvorlage gedacht:
 %\bibitem{b1}still old!noch die aus der Präsi einfügen'! G. Eason, B. Noble, and I. N. Sneddon, ``On certain integrals of Lipschitz-Hankel type involving products of Bessel functions,'' Phil. Trans. Roy. Soc. London, vol. A247, pp. 529--551, April 1955.
@@ -362,22 +382,18 @@ abstand\\
 %\bibitem{b6} Y. Yorozu, M. Hirano, K. Oka, and Y. Tagawa, ``Electron spectroscopy studies on magneto-optical media and plastic substrate interface,'' IEEE Transl. J. Magn. Japan, vol. 2, pp. 740--741, August 1987 [Digests 9th Annual Conf. Magnetics Japan, p. 301, 1982].
 %\bibitem{b7} M. Young, The Technical Writer's Handbook. Mill Valley, CA: University Science, 1989.
 
-\bibitem{RYF}Albert, R. Jeong, H. and Barabasi, A.-L. (2000) Nature 406, 378–382.
-
 %Barabasi, A., Albert, R.: Emergence of Scaling in Random Networks. Science 286(5439) (1999) 509{512
- 
- \bibitem{powerlawCitation}M. Faloutsos, P. Faloutsos, and C. Faloutsos, “On power-law relationships of the Internet topology,” Proc. of ACM SIGCOMM ’99, Cambridge, MA, Aug. 1999, pp. 251–262.
- 
-\bibitem{geoResearch}S. Yook, H. Jeong, A. Barabasi, ``Modeling the Internet's Large-Scale Topology, '' Proceedings of the National Academy of Sciences of the 
-United States of America, November 2002.
 
-\bibitem{owningInternet}J. Ruiz, G. Barnett, ``Who owns the international Internet networks?,'' The Journal of International
-Communication. November 2014. 21:1, 38-57, DOI:
-10.1080/13216597.2014.976583
+ 
+
 
 \end{thebibliography}
 
+
 \pagebreak
+
+
+
 
 \appendix
 
