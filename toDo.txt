@@ -1,0 +1,10 @@
+to do:
+
+- Histogram Uploads in R produzieren (D)
+- R Code hübsch machen (D)
+- Python Code hübsch machen (C)
+- aggregierte Funktion (C)
+- Future Work / Outlook 
+
+
+- Quellen, Fomalitäten alle richtig?
