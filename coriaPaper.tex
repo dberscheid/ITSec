@@ -357,7 +357,7 @@ In general:Tthe server periodically queries for new data sets on the Cadia data 
 For the case new data are provided every new file will be downloaded. After downloading a new file, it will be transformed into an edgelist and ,finally, uploaded to Coria's database.
 \linebreak
 \linebreak
-*For Caida data a daily iteration of the queries is sufficient as uploads are made every week on average - But as we can see from figure(upload histogram 2016 - 2018) a vast variation on the upload data and amount of files 
+ 
 
 *at the End tell for the case of 1st time implementation and time on server
 In detail:
@@ -366,9 +366,36 @@ Ensuring that the automated ETL process and all of its function trigger every da
 An 24 hour interval is deemed to be adequate as Caida\textsc{\char13}s data file provides AS link snapshot of one day. Besides that Caida teams upload their data unsystematically: As one can observe in the histogram \ref{fig:UploadOverTime} there are some days with more than 20 uploaded files (data days). As well one can identify periods in summer and around new years eve with none or a few uploads that can be assumed as holidays.
 For other sources or data sets the interval can be customized by changing the sleep timer values of seconds.
 
+\begin{lstlisting}
+import time,subprocess
+from test import translateTime
+
+Interval = 60*60*24 #24 hours interval
+Interval=2
+a=-4
+while True:
+	time.sleep(Interval)
+	a+=1
+	try:
+		translateTime()
+
+		print 100/a
+		
+
+
+	except:
+		print("Oops!  That was no valid number.  Try again...")
+		continue
+
+\end{lstlisting}
+
 The timer program also makes use of \textit{syntax errors and exceptions} %ref https://docs.python.org/2.7/tutorial/errors.html#exceptions
 From our coding experience with infinite Python loops chance are high creating unsystematically errors: Network errors, problems in the operating system on the destination or source server or other faults can break up the automated ETL process.
 Thatswhy the timer function makes the \textit{continue}-operator in combination exception handling: If one of the functions creates an error, it can be assured that one day later the ETL porcess will be triggered again without having any person restarting the process or bug fixing.
+\linebreak
+\linebreak
+\linebreak
+
 
 
 
