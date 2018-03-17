@@ -19,5 +19,5 @@ Done:
 - Präsentation hochgeladen
 - freigelassene Stellen ausfüllen (D)
 - Section Data: (D)
-	Begründung warum immer Daten/Team1 benutzt:
+	Begründung warum immer Daten/Team1 benutzt
 	
