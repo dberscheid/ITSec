@@ -1,10 +1,15 @@
 to do:
 
-- Histogram Uploads in R produzieren (D)
+
 - R Code hübsch machen (D)
 - Python Code hübsch machen (C)
 - aggregierte Funktion (C)
 - Future Work / Outlook 
-
+- Begründung warum immer Daten/Team1 benutzt:
+	stellt ein Sample dar. die teams sammeln daten unabhängig voneinander und sollen zu gleichen ergebnissen kommen -> prüft die validität 
 
 - Quellen, Fomalitäten alle richtig?
+
+
+Done:
+- Histogram Uploads in R produzieren (D)
