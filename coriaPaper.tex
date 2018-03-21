@@ -13,14 +13,21 @@
 \usepackage{textcomp}
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
-\begin{document}
-
-
+    
+    
+   
 \lstset{  	language=Python,
 			basicstyle=\ttfamily,
 			  columns=fullflexible,
 			  frame=single,
-			  breaklines=true}
+			  breaklines=true,
+			  showstringspaces=false
+  			}
+  			
+  			
+\begin{document}
+
+
 			  
 			  
 \title{Connectivity Risk Analyzer: Development of an automated ETL Processs and investigation of AS-Level data\
@@ -386,7 +393,6 @@ while True:
 	except:
 		print("Oops!  That was no valid number.  Try again...")
 		continue
-
 \end{lstlisting}
 
 The timer program also makes use of \textit{syntax errors and exceptions} %ref https://docs.python.org/2.7/tutorial/errors.html#exceptions
