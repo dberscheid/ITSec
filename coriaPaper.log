@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.2.28)  17 MAR 2018 18:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.2.28)  20 MAR 2018 14:01
 entering extended mode
 **C:/Users/Carlimero/Documents/GitHub/ITSec/coriaPaper.tex
 (C:/Users/Carlimero/Documents/GitHub/ITSec/coriaPaper.tex
@@ -1133,133 +1133,133 @@ Underfull \hbox (badness 10000) in paragraph at lines 392--398
 <Graphics/uploadFrequency.png, id=51, 501.875pt x 301.125pt>
 File: Graphics/uploadFrequency.png Graphic file (type png)
 <use Graphics/uploadFrequency.png>
-Package pdftex.def Info: Graphics/uploadFrequency.png  used on input line 405.
+Package pdftex.def Info: Graphics/uploadFrequency.png  used on input line 420.
 (pdftex.def)             Requested size: 250.93687pt x 150.56212pt.
-[7 <./Graphics/ETL2.PNG> <./Graphics/uploadFrequency.png>]
-Underfull \hbox (badness 3579) in paragraph at lines 424--425
+[7 <./Graphics/ETL2.PNG>]
+Underfull \hbox (badness 3579) in paragraph at lines 439--440
 \OT1/ptm/m/n/11 gath-ered through sta-tis-ti-cal in-fer-ence. Its ma-chine
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 424--425
+Underfull \hbox (badness 10000) in paragraph at lines 439--440
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 426--427
+Underfull \hbox (badness 10000) in paragraph at lines 441--442
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 438--439
+Underfull \hbox (badness 10000) in paragraph at lines 453--454
 []\OT1/ptm/m/n/9 E.Auchard. (2016, Nov.)Deutsche Telekom at-tack part
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 438--439
+Underfull \hbox (badness 10000) in paragraph at lines 453--454
 \OT1/ptm/m/n/9 of global cam-paign on routers, [On-line]. Avail-able:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 438--439
+Underfull \hbox (badness 10000) in paragraph at lines 453--454
 \OT1/ptm/m/n/9 https://www.reuters.com/article/us-deutsche-telekom-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 438--439
+Underfull \hbox (badness 10000) in paragraph at lines 453--454
 \OT1/ptm/m/n/9 outages/deutsche-telekom-attack-part-of-global-campaign-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 442--443
+Underfull \hbox (badness 10000) in paragraph at lines 457--458
 []\OT1/ptm/m/n/9 By EWEN MACASKILL and GABRIEL DANCE
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 442--443
+Underfull \hbox (badness 10000) in paragraph at lines 457--458
 \OT1/ptm/m/n/9 Pro-duced by FEILD-ING CAGE and GREG
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 442--443
+Underfull \hbox (badness 10000) in paragraph at lines 457--458
 \OT1/ptm/m/n/9 CHEN Pub-lished on Novem-ber 1, 2013. Avail-able:
  []
 
 
-Overfull \hbox (23.44347pt too wide) in paragraph at lines 442--443
+Overfull \hbox (23.44347pt too wide) in paragraph at lines 457--458
 \OT1/ptm/m/n/9 https://www.theguardian.com/world/interactive/2013/nov/01/snowde
 n-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 443--444
+Underfull \hbox (badness 10000) in paragraph at lines 458--459
 []\OT1/ptm/m/n/9 R.Barton, ``Chi-nese cy-ber-at-tack hits Canada's
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 443--444
+Underfull \hbox (badness 10000) in paragraph at lines 458--459
 \OT1/ptm/m/n/9 Na-tional Re-search Coun-cil,'' CBC News. Avail-able:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 443--444
+Underfull \hbox (badness 10000) in paragraph at lines 458--459
 \OT1/ptm/m/n/9 http://www.cbc.ca/news/politics/chinese-cyberattack-hits-
  []
 
 
-Underfull \hbox (badness 2443) in paragraph at lines 444--445
+Underfull \hbox (badness 2443) in paragraph at lines 459--460
 []\OT1/ptm/m/n/9 A.Kharpal, ``North Ko-rea government-backed hack-ers are
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 444--445
+Underfull \hbox (badness 10000) in paragraph at lines 459--460
 \OT1/ptm/m/n/9 CNBC, Avail-able: https://www.cnbc.com/2018/01/17/north-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 444--445
+Underfull \hbox (badness 10000) in paragraph at lines 459--460
 \OT1/ptm/m/n/9 korea-hackers-linked-to-cryptocurrency-cyberattack-on-south-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 456--457
+Underfull \hbox (badness 10000) in paragraph at lines 471--472
 []\OT1/ptm/m/n/9 Caida., ``AS Rank,'' [On-line]. Avail-able: http://as-
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 475--477
+[8 <./Graphics/uploadFrequency.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 490--492
 []\OT1/ptm/m/n/9 Caida., ``AS Clas-si-fi-ca-tion,'' [On-line]. Avail-able:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 477--478
+Underfull \hbox (badness 10000) in paragraph at lines 492--493
 []\OT1/ptm/m/n/9 Caida., ``IPv4 Routed /24 AS
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 477--478
+Underfull \hbox (badness 10000) in paragraph at lines 492--493
 \OT1/ptm/m/n/9 Links Dataset,'' [On-line]. Avail-able:
  []
 
 
-Overfull \hbox (45.36688pt too wide) in paragraph at lines 477--478
+Overfull \hbox (45.36688pt too wide) in paragraph at lines 492--493
 \OT1/ptm/m/n/9 http://www.caida.org/data/active/ipv4[]routed[]topology[]aslinks
 []dataset.xml. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 478--479
+Underfull \hbox (badness 10000) in paragraph at lines 493--494
 []\OT1/ptm/m/n/9 Caida., ``AS Re-la-tion-ships,'' [On-line].
  []
 
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 513--514
+
+Underfull \hbox (badness 10000) in paragraph at lines 528--529
 []\OT1/ptm/m/n/9 butunclebob(n.d.). Re-trived from $http : / / butunclebob . co
 m /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 539--548
+Underfull \hbox (badness 10000) in paragraph at lines 554--563
 
  []
 
@@ -1267,25 +1267,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 539--548
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-** WARNING: Ignoring useless \section in Appendix (line 566).
+** WARNING: Ignoring useless \section in Appendix (line 581).
 <Graphics/AsToDistribution.png, id=62, 451.6875pt x 501.875pt>
 File: Graphics/AsToDistribution.png Graphic file (type png)
 <use Graphics/AsToDistribution.png>
-Package pdftex.def Info: Graphics/AsToDistribution.png  used on input line 570.
+Package pdftex.def Info: Graphics/AsToDistribution.png  used on input line 585.
 
 (pdftex.def)             Requested size: 180.67178pt x 200.74643pt.
-** WARNING: Ignoring useless \section in Appendix (line 577).
+** WARNING: Ignoring useless \section in Appendix (line 592).
 <Graphics/ASesNurPunkte.png, id=63, 1204.5pt x 803.0pt>
 File: Graphics/ASesNurPunkte.png Graphic file (type png)
 <use Graphics/ASesNurPunkte.png>
-Package pdftex.def Info: Graphics/ASesNurPunkte.png  used on input line 579.
+Package pdftex.def Info: Graphics/ASesNurPunkte.png  used on input line 594.
 (pdftex.def)             Requested size: 240.89574pt x 160.59715pt.
 <Graphics/ASToAll.png, id=64, 602.25pt x 401.5pt>
 File: Graphics/ASToAll.png Graphic file (type png)
 <use Graphics/ASToAll.png>
-Package pdftex.def Info: Graphics/ASToAll.png  used on input line 588.
+Package pdftex.def Info: Graphics/ASToAll.png  used on input line 603.
 (pdftex.def)             Requested size: 240.89572pt x 160.59715pt.
-** WARNING: Ignoring useless \section in Appendix (line 596).
+** WARNING: Ignoring useless \section in Appendix (line 611).
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -1308,10 +1308,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 6311 strings out of 493303
- 88364 string characters out of 3138844
- 198130 words of memory out of 3000000
- 9734 multiletter control sequences out of 15000+200000
+ 6324 strings out of 493303
+ 88517 string characters out of 3138844
+ 230130 words of memory out of 3000000
+ 9747 multiletter control sequences out of 15000+200000
  43047 words of font info for 98 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,7n,40p,1791b,1504s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1322,7 +1322,7 @@ er/ucrro8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C
 :/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/
 MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/
 type1/urw/times/utmri8a.pfb>
-Output written on coriaPaper.pdf (10 pages, 1212851 bytes).
+Output written on coriaPaper.pdf (10 pages, 1217667 bytes).
 PDF statistics:
  98 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

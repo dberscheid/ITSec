@@ -396,6 +396,23 @@ Thatswhy the timer function makes the \textit{continue}-operator in combination 
 \linebreak
 \linebreak
 
+\begin{lstlisting}
+import urllib2,urllib, io, gzip, os, time, lxml.html
+from CsvCreate import CsvCreate # file: CsvCreate.py
+from  Csv2CoriaDB import Csv2CoriaDB
+import time,lxml.html
+
+#currentyear needed because of folder structure in Caida
+CurrentYear = time.strftime("%Y")
+print CurrentYear
+
+YearBefore = int(CurrentYear)-1
+#Initial upload of all Caida data sets:
+#YearBefore= 2007
+
+yearBefore = 2018
+\end{lstlisting}
+
 
 
 
