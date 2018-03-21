@@ -6,7 +6,7 @@
 \usepackage{algorithmic}
 \usepackage{graphicx}
   \usepackage[utf8]{inputenc}
-\usepackage{listings}
+\usepackage{listings,multicol}
 \usepackage{textcomp}
 \usepackage{url}
 %carltest Push
@@ -364,6 +364,12 @@ In general:Tthe server periodically queries for new data sets on the Cadia data 
 For the case new data are provided every new file will be downloaded. After downloading a new file, it will be transformed into an edgelist and ,finally, uploaded to Coria's database.
 \linebreak
 \linebreak
+
+\begin{figure}[htbp]
+\centerline{\includegraphics[scale=0.5]{Graphics/uploadFrequency.png}}
+\caption{Data Uploads by Caida over time}
+\label{fig:UploadOverTime}
+\end{figure}
  
 
 *at the End tell for the case of 1st time implementation and time on server
@@ -397,12 +403,13 @@ while True:
 
 The timer program also makes use of \textit{syntax errors and exceptions} %ref https://docs.python.org/2.7/tutorial/errors.html#exceptions
 From our coding experience with infinite Python loops chance are high creating unsystematically errors: Network errors, problems in the operating system on the destination or source server or other faults can break up the automated ETL process.
-Thatswhy the timer function makes the \textit{continue}-operator in combination exception handling: If one of the functions creates an error, it can be assured that one day later the ETL porcess will be triggered again without having any person restarting the process or bug fixing.
+Thatswhy the timer function contains the \textit{continue}-operator in combination exception handling: If one of the functions creates an error, it can be assured that one day later the ETL porcess will be triggered again without having any person restarting the process or bug fixing.
 \linebreak
 \linebreak
 \linebreak
 
 \begin{lstlisting}
+..................
 import urllib2,urllib, io, gzip, os, time, lxml.html
 from CsvCreate import CsvCreate # file: CsvCreate.py
 from  Csv2CoriaDB import Csv2CoriaDB
@@ -417,6 +424,127 @@ YearBefore = int(CurrentYear)-1
 #YearBefore= 2007
 
 yearBefore = 2018
+...........
+\end{lstlisting}
+
+The folder structure of Caida is AS Rank is determined as follows: \textit{\url{http://data.caida.org/datasets/topology/ark/ipv4/as-links/_YEAR_/}}. Thefore the \textit{main} program request the current year and the year before. The year before has to come into consideration for the case of a new year: Files from December can be uploaded from the teams in the next year. For instance the information from 21 December 2017 was uploaded almost 3 weeks later on 10 January 2018.
+
+Next \textit{main.py} establishes connections to to data source in a whlie loop. At the moment (2018) the loop starts with an connection to 2017. After connecting the module \textit{lxml.html} fetches all links of the website and creates a list these.
+
+\begin{lstlisting}
+for j in Liste:
+	j2= j.rsplit('/')[-1]
+	j3= j2.split('.gz')[0]
+
+\end{lstlisting}
+Afterwards a for loop extracts for every link the name of the file for the fact the functions \textit{CsvCreate} and \textit{Csv2CoriaDB} need the file name as input parameter. The file names used in the ETL automation and in Caida data source are consistent.
+
+The following condition searches in every extracted link for the string "cycle-as" because every data file this string.
+Another IF-condition checks if the file already was download. If a file already exists on the Coria server it should also be transformed into an edge list as well as imported into the MySQL database.
+
+For the case a file does not exist, the first step is downloading and saving the original data as unzipped text file. 
+Subsequently the main function will call first the function that transform the data into an edge list, which will then apllied to the database.
+
+The while loop will continue until the last file of the current year is processed.
+\linebreak
+
+
+\begin{lstlisting}[float=*,caption={A wide listing float, single column}]
+
+if "cycle-as" in j:
+	if os.path.isfile("Data/Original/"+j3):
+		print "!!Wurde bereits verarbeitet: " + j3
+	else:
+		print "## Download und Verarbeitung: " + j3
+		response = urllib.urlopen(j)
+		compressed_file = io.BytesIO(response.read())
+		decompressed_file = gzip.GzipFile(fileobj=compressed_file)
+		Filename= "Data/Original/" + j3
+		with open(Filename, 'wb') as outfile:
+			outfile.write(decompressed_file.read())
+			outfile.close()
+		#Create a Csv file from download 
+		CsvCreate(j3)
+		#Upload to Coria databse 
+		Csv2CoriaDB(j3)
+
+	YearBefore+=1 
+
+\end{lstlisting}
+
+
+\textit{CsvCreate} creates an edge list from the original file on the Coria server.
+For example, the original ASrank list 'cycle-aslinks.l7.t1.c000027.20070913.txt'(folder: Data/Original/), containing the data description and additional data, will be converted into the pure edge list '20070913.txt(folder: Data/Csv/)'
+With the Python built in modules \textit{re — Regular expression operations} the program extracts the starting and destination nodes every line beginning with a "D" and adds them to the edge list. 
+The edge list will be saved in the format \textit{YYYYMMDD.csv}
+% ref:https://docs.python.org/2/library/re.html)
+\linebreak
+
+Finally \textit{Csv2CoriaDB} is the last  of the automated data import.
+The initial idea was to directly work with the MySQL database and import the edge list with the Python SQL module, but the Coria framework inserts not only the data set itself, it also inserts entries for every edge, node and attribute, as illustrated in figure \ref{fig:SQL_schema}.
+Thus, we decided writing a script that emulates the process of uploading in the Coria web framework with Selenium REF. Selenium is a language-open software framework for testing and automation in web applications. \break
+
+The automated import process makes use \textit{chromedriver} as Webdriver API, but other browsers such as Mozilla Firefox or Mac Safari can be applied. In our process Chrome has the best performance. It is important that at the initial installation process of the automated ETL framework Google Chrome has to be installed as well as the Chromedriver needs to be added to the environent variables.
+
+Exactly like the csv creator the database import takes the file name as input parameter.
+Afterwards the webdriver requests the coria upload page. The Selenium method 'findelementbyxpath' enables the webdriver to fulfill the requested fields.
+At first Selnium selects the upload method "tab-separated-importer", than it send the name of imported data set, which is always the datein the format \textit{YYYYMMDD}.
+From then on the path of the the file is inserted into the 'Select Dataset File' section. Finally the script simulates an button click on the uplad button:  \url{"driver.find_element_by_xpath('//*[@id="import"]/button').click()"}.
+
+Webdrivers provide provide a great variety on options. Therefore we decided to run the chromedriver "headless" (vgl. Zeile xxx). This ensures that chrome will not open a window. Instead the chromedriver will run in the background and and the chromedriver will not disturb someone that is working on the server.
+At the end of every chromedriver session the webdriver must be closed. If this is not applied the loop will create an great amount of process in the background until the server is overloaded.
+
+
+
+
+\begin{lstlisting}[float=*,caption={A wide listing float, single column}]
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.support.ui import Select,WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+import time,os
+
+chrome_options = Options()  
+chrome_options.add_argument("--headless")  
+
+def Csv2CoriaDB(Filename):
+	Filename= Filename.rsplit('.')[-2]
+	Filename= Filename.split('.txt')[0]
+	#download chromedriver and give Path to chromedriver.exe
+	driver = webdriver.Chrome("C:\Python27\Scripts\chromedriver.exe", chrome_options=chrome_options)
+
+
+	#def CsvUpload:
+	driver.get("http://localhost:8080/coria/#!/datasets/upload")
+	driver.implicitly_wait(5)
+
+	#select "tab-separated-importer"
+	select = driver.find_element_by_xpath('//*[@id="import.providers"]/option[6]').click()
+
+	#send name
+	
+	element = driver.find_element_by_xpath('//*[@id="import.name"]')
+	element.send_keys(Filename)
+
+	#choose dataset
+	path= os.getcwd()
+	file = str(path + "/Data\Csv\\" + Filename + ".csv")
+
+	#file = 'C:\caida\Data_Csv\20180101.csv'
+	#driver.find_element_by_xpath('//*[@id="file"]'').send_keys(os.getcwd("C:\Users\Carlimero\Downloads\datastructrue.txt")')
+	file_input = driver.find_element_by_xpath('//*[@id="file"]')
+	file_input.send_keys(file)
+	time.sleep(5)
+
+	#submit data
+	driver.find_element_by_xpath('//*[@id="import"]/button').click()
+
+	time.sleep(10)
+	driver.quit()
+
+	print(Filename + "uploaded to Coria database")
 \end{lstlisting}
 
 
@@ -424,11 +552,17 @@ yearBefore = 2018
 
 
 
+
 \begin{figure}[htbp]
-\centerline{\includegraphics[scale=0.5]{Graphics/uploadFrequency.png}}
-\caption{Data Uploads by Caida over time}
-\label{fig:UploadOverTime}
+\centerline{\includegraphics[scale=0.33]{Graphics/SQL_schema.PNG}}
+\caption{Relational Database Schema}
+\label{fig:SQL_schema}
 \end{figure}
+
+
+
+
+
 
 
 
