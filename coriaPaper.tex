@@ -16,11 +16,11 @@
     
     
  
-\lstset{  	language=Python,
+\lstset{  	%language=Python,
 			basicstyle=\ttfamily,
 			%basicstyle=\footnotesize,
 			numbers=right,
-			%numberstyle=\tiny,
+			numberstyle=\tiny,
 			%numbersep=2pt,                   % how far the line-numbers are from the code
   			%numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers	
 			%stepnumber=1,
@@ -29,7 +29,7 @@
 			frame=single,
 			%framexleftmargin=15pt
 			breaklines=true,
-			showstringspaces=false
+			%showstringspaces=false
   			}
   			
   			
@@ -387,7 +387,7 @@ Ensuring that the automated ETL process and all of its function trigger every da
 An 24 hour interval is deemed to be adequate as Caida\textsc{\char13}s data file provides AS link snapshot of one day. Besides that Caida teams upload their data unsystematically: As one can observe in the histogram \ref{fig:UploadOverTime} there are some days with more than 20 uploaded files (data days). As well one can identify periods in summer and around new years eve with none or a few uploads that can be assumed as holidays.
 For other sources or data sets the interval can be customized by changing the sleep timer values of seconds.
 
-\begin{lstlisting}
+\begin{lstlisting}[language=Python]
 import time,subprocess
 from test import translateTime
 
@@ -567,9 +567,8 @@ def Csv2CoriaDB(Filename):
 \label{fig:SQL_schema}
 \end{figure}
 
-
-
-
+\subsubsection{Initial ETL Implementation}
+Caida AS ranl data can be tracked back until 2007. Garuanteering that a new Coria Server can also work with historic data \textit{InitialDataSetup.py} is provided. Before running the automated ETL process that continuously checks verifies the presence of newly uplaoded data, it is suggested to run once the initialisation data import. It should be considered that, it takes some hours to compute all historic data. As of today (20th April 2018), 2160 files have to be process and imported into the database. We tested the Initial dat setup took XXX6hoursXXX. We tested the script on a virtual server with Windows 2012 R2 with a Common KVM processor 2,53Ghz and 8 GB R  
 
 
 
