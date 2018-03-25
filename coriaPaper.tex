@@ -380,6 +380,7 @@ One aspect that we are not in control of, is the frequency and regularity of dat
 For other sources or data sets the interval can be customized by changing the sleep timer values of seconds.
 
 
+\begin{lstlisting}[language=Python]
 import time,subprocess
 from test import translateTime
 
@@ -488,6 +489,7 @@ From then on the path of the the file is inserted into the \textit{Select Datase
 Webdrivers provide a great variety on options. Therefore we decided to run the chromedriver \textit{headless} (line 10). This ensures that chrome will not open a window. Instead the chromedriver will run in the background and and the chromedriver will not disturb someone that is working on the server. At the end of every chromedriver session the webdriver must be closed (line 45). If this is not applied the loop will create an great amount of process in the background until the server is overloaded.
 
 
+\begin{lstlisting}[float=*]
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
