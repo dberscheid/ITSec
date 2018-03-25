@@ -387,7 +387,7 @@ One aspect that we are not in control of, is the frequency and regularity of dat
 For other sources or data sets the interval can be customized by changing the sleep timer values of seconds.
 
 
-\begin{lstlisting}[language=Python, caption={Timer Function},captionpos=b, xleftmargin=.08\textwidth, linewidth = 0.9\columnwidth]
+\begin{lstlisting}[language=Python, caption={Timer Function},captionpos=b, xleftmargin=.02\textwidth, linewidth = 0.95\columnwidth]
 import time,subprocess
 from test import translateTime
 
@@ -417,7 +417,7 @@ Therefore the timer function contains the \textit{continue}-operator in combinat
 \linebreak
 
 %carl ? warum punkte am anfang und ende? absicht?
-\begin{lstlisting}[language=Python, caption={...},captionpos=b, xleftmargin=.08\textwidth, linewidth = 0.9\columnwidth]
+\begin{lstlisting}[language=Python, caption={...},captionpos=b, xleftmargin=.02\textwidth, linewidth = 0.95\columnwidth]
 ..................
 import urllib2,urllib, io, gzip, os, time, lxml.html
 from CsvCreate import CsvCreate # file: CsvCreate.py
@@ -436,11 +436,11 @@ yearBefore = 2018
 ...........
 \end{lstlisting}
 
-The folder structure of Caida is AS Rank is determined as follows: \textit{\url{http://data.caida.org/datasets/topology/ark/ipv4/as-links/_YEAR_/}}. Thefore the \textit{main} program requests the current year and the year before. The year before has to come into consideration for the case of a new year: Files from December can be uploaded from the teams in the following year. For instance the information from 21 December 2017 was uploaded almost 3 weeks later on 10 January 2018.
+The folder structure of Caida's AS Rank is determined as follows: \textit{\url{http://data.caida.org/datasets/topology/ark/ipv4/as-links/_YEAR_/}}. Thefore the \textit{main} program requests the current year and the year before. The year before has to come into consideration for the case of a new year: Files from December can be uploaded from the teams in the following year. For instance the information from 21 December 2017 was uploaded almost 3 weeks later on 10 January 2018.
 
-Next, \textit{main.py} establishes connections to the data source in a while loop. As the current year is 2018 the loop starts with an connection to 2017. After connecting the module \textit{lxml.html}, it fetches all the links of the website and creates a list out of these.
+Next, \textit{main.py} establishes connections to the data source in a while loop. As the current year is 2018 the loop starts with a connection to 2017. After connecting the module \textit{lxml.html}, it fetches all the links of the website and creates a list out of these.
 
-\begin{lstlisting}[language=Python, caption={...},captionpos=b, xleftmargin=.08\textwidth, linewidth = 0.9\columnwidth]
+\begin{lstlisting}[language=Python, caption={...},captionpos=b, xleftmargin=.02\textwidth, linewidth = 0.95\columnwidth]
 for j in Liste:
 	j2= j.rsplit('/')[-1]
 	j3= j2.split('.gz')[0]
@@ -454,7 +454,7 @@ Then the main function will call the function that transforms the data into an e
 \linebreak
 
 
-\begin{lstlisting}[float=*, language=Python,caption={A wide listing float, single column},captionpos=b , xleftmargin=.08\textwidth, linewidth = 0.9\textwidth] 
+\begin{lstlisting}[float=*, language=Python,caption={A wide listing float, single column},captionpos=b , xleftmargin=.02\textwidth, linewidth = 0.95\textwidth] 
 
 if "cycle-as" in j:
 	if os.path.isfile("Data/Original/"+j3):
