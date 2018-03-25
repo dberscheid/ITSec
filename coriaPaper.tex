@@ -84,7 +84,7 @@ In 2016 for example the Dyn cyberattack, which involved multiple distributed den
 \subsection{Evolution of Coria}
 The Coria project started in the scope of a master thesis by Mathias Ehlert \cite{Ehlert}. With the objective of building a webframwork that is capable of analyzing connectivity risks of networks, Coria 1.0 was developed. Through the access of large amount of network data, either publically available or individually provided, Coria was able to calculate a variety of metrics, such as  
 centrality measures or node degree measures, which then formed a unified risk score for respective connectivity risks of respective nodes. In addition, Coria offered a framework to investigate networks visually through graph visualisations. \\ \linebreak 
- The webapplication Coria 1.0 was written in Python and Ruby. It used NetworkX for its metrics and redis for database purposes. After Coria 1.5 presented a improved performance and the use of Graphtool instead of NetworkX for its metrics, Tom Kober developed Coria 2.0 - now using Neo4j to store and manage data\cite{Coria1.5}. This version furthermore consisted of a native architecture of graph storage and processing\cite{Coria2}. Coria 3.0 by Sebastian Gross benefits from modular based improvements. It offers different levels of granularity of networks that can be investigated. \linebreak
+ The webapplication Coria 1.0 was written in Python and Ruby. It used NetworkX for its metrics and redis for database purposes. After Coria 1.5 presented a improved performance and the use of Graphtool instead of NetworkX for its metrics, Tom Kober developed Coria 2.0 - now using Neo4j to store and manage data. This version furthermore consisted of a native architecture of graph storage and processing\cite{Coria2}. Coria 3.0 by Sebastian Gross benefits from modular based improvements. It offers different levels of granularity of networks that can be investigated. \linebreak
 
 Fig.1 shows parts of the Coria dashboard and fig. 2 presents an example of a graph visualisation. Version 3 allows usage of all features via one interface. Due to the modular approach, there is a clear separation of \textit{extraction, transformation and loading process} (ETL), graph analysis and exports. Amongst its functionality is the usage of different data formats and the ability to calculate different metrics. The framework supports simultaneous execution and calculation of different metrics. Much attention was paid to a development without strong dependencies to specific technologies\cite{Coria3}. \\ \linebreak
  
@@ -103,7 +103,7 @@ Fig.1 shows parts of the Coria dashboard and fig. 2 presents an example of a gra
 
 
 \subsection{Objective}
-The Coria framework is a project on which multiple developers already contributed to, in order to create a platform, which is able to analyze and visualize connectivity risks of graph data\cite{CoriaPaper}. Within this paper and project we would like to further contribute and improve specific aspects of Coria. In the following we present related work regarding internet topology, the robustness of networks and characteristics of Autonomous Systems. We investigate characteristics of these networks through some descriptive statistical methods and take a look at the development of networks and its components over the last ten years. Furthermore we present an approach for an automated ETL process, which shall improve and simplify the usage of Coria and ensure latest data being available for analysis. Herby we focus on data on the level of Autonomous Systems. Our emphasis lies on flawless usage of datasets coming from the data source Caida that can be downloaded and imported automatically on a regular basis. \\
+The Coria framework is a project on which multiple developers already contributed to, in order to create a platform, which is able to analyze and visualize connectivity risks of graph data\cite{CoriaPaper}. Within this paper and project we would like to further contribute and improve specific aspects of Coria. In the following we present related work regarding internet topology, the robustness of networks and characteristics of Autonomous Systems. We investigate characteristics of these networks through some descriptive statistical methods and take a look at the development of networks and its components over the last ten years. Furthermore we present a prototype of an automated ETL process, which shall improve and simplify the usage of Coria and ensure latest data being available for analysis. Herby we focus on data on the level of Autonomous Systems. Our emphasis lies on flawless usage of datasets coming from the data source Caida that can be downloaded and imported automatically on a regular basis. \\
 
 
 \vspace{0.5cm}
@@ -117,9 +117,9 @@ The Coria framework is a project on which multiple developers already contribute
 \section{Theoretical Background} 
 \subsection{Internet Topology}
 
-The topology of the internet forms a clear hierarchy. As we model it in fig. 3, on the lowest level of the internet topology are Internet Protocol network interfaces (IPs). Multiple Ips can access the internet through one router (R). Then, on the next level, Autonomous Systems (AS) represent a set of routers under a single administration. The top of this hierarchy is formed by Internet Service Providers (ISP). As their name suggests, ISPs provide access to the internet. Note that this represents a simplified and high-level model of internet topology, i.e. not specifying Points of Presence \cite{ASH}. In the scope of this paper the level of Autonomous Systems is our main object of concern. Two types of relationships between ASes and ISPs are of interest in that regard: Provider-to-Customer (P2C) and Peer-to-Peer (P2P). An Autonomous System if it functions as a customer in general has only one provider, whereas it usually has many peers. \\
+The topology of the internet forms a clear hierarchy. As we model it in fig. 3, on the lowest level of the internet topology are Internet Protocol network interfaces (IPs). Multiple Ips can access the internet through one router (R). Then, on the next level, Autonomous Systems (AS) represent a set of routers under a single administration. The top of this hierarchy is formed by Internet Service Providers (ISP). As their name suggests, ISPs provide access to the internet. Note that this represents a simplified and high-level model of internet topology, i.e. not specifying Points of Presence \cite{ASH}. In the scope of this paper the level of Autonomous Systems is our main object of concern. Two types of relationships between ASes and ISPs are of interest in that regard: Provider-to-Customer (P2C) and Peer-to-Peer (P2P). An Autonomous System, if it functions as a customer in general has only one provider, whereas it usually has many peers. 
  
-\vspace{0.5cm}
+
 \begin{figure}[htbp]
 \centerline{\includegraphics[scale=0.26]{Graphics/hierarchy.PNG}}
 \caption{Hierarchy of the Internet}
@@ -131,11 +131,11 @@ The topology of the internet forms a clear hierarchy. As we model it in fig. 3, 
 
 
 
-Figure 4 provides an example of an AS and its characteristics. Here Kabel Deutschland, a German network operator, represents an AS. Its customer cone specifies  ``a set of ASes it can reach using customer links''. As it is two in this case, there are only two nodes reached through customer links, meaning Kabel Deutschland itself and its provider Vodafone\cite{Rank}.  
+Fig. 4 provides an example of an AS and its characteristics. Here Kabel Deutschland, a German network operator, represents an AS. Its customer cone specifies  ``a set of ASes it can reach using customer links''\cite{Rank}. As it is two in this case, there are only two nodes reached through customer links, meaning Kabel Deutschland itself and its provider Vodafone\cite{Rank}.  
 %https://www.caida.org/~amogh/papers/asrank-IMC13.pdf
 AS rank defines the importance of a node in its global routing system, often using customer cone information as a measure \cite{Rank}.
 %http://as-rank.caida.org/about#goal
-AS degree refers to the number of neighbors that a node has in a graph - here 20\cite{Cone}.  \\
+\textit{AS degree} refers to the number of neighbors that a node has in a graph - here 20\cite{Cone}.  \\
 
 \vspace{0.5cm}
 \begin{figure}[htbp]
@@ -596,7 +596,7 @@ Further work that can follow could be to apply the automated ETL process to furt
 \bibitem{Ehlert}M. C. Ehlert, "A Software Framework for Analyzing Connectivity Risk of Graph Data," Master of Science, Humboldt-Universität zu Berlin, 2014. 
 
 %\bibitem{Coria1} fehlt noch
-%\bibitem{Coria1.5} fehlt noch 
+
 
 \bibitem{Coria2} D.Kiene-Maksimovic, E. Zinovyeva, J. Park, ``Coria 2.0: Augmenting a Universal Framework for Connectivity Risk Analysis,'' Jahr???
 
