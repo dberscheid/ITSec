@@ -3,20 +3,21 @@ to do:
 - Quellen, Fomalitäten alle richtig? (D)
 	kursiv, quotes, 
 - auf Zeilen im Code verweisen (D)
+
 - Styleguide und paper vergleichen ob alles passt (D)
 - Passende \linebreak s gewählt? -> Übersichtlichkeit (D)
 
 - alle "carl" stellen entfernt und angeschaut?
 - Coria läuft auf einem Server richtig? (punkt in outlook ändern)
- 	-> noch hervorheben!?
+ 	-> noch hervorheben!? (D)
 
 
 
-- Python Code hübsch machen (C)
-- Python Code in Repository legen (C)
+
+
 - aggregierte Funktion (C)
-- Future Work / Outlook 
- 
+- Future Work / Outlook (C)
+
 
 
 
@@ -30,3 +31,6 @@ Done:
 - Section Data: (D)
 	Begründung warum immer Daten/Team1 benutzt
 	
+
+- Python Code in Repository legen (C)
+- Python Code hübsch machen (C)

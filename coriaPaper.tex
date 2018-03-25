@@ -103,7 +103,7 @@ Fig.1 shows parts of the Coria dashboard and fig. 2 presents an example of a gra
 
 
 \subsection{Objective}
-The Coria framework is a project on which multiple developers already contributed to, in order to create a platform, which is able to analyze and visualize connectivity risks of graph data\cite{CoriaPaper}. Within this paper and project we would like to further contribute and improve specific aspects of Coria. In the following we present related work regarding Internet topology, the robustness of networks and characteristics of Autonomous Systems. We investigate characteristics of these networks through some descriptive statistical methods and take a look at the development of networks and its components over the last ten years. Furthermore we present a prototype of an automated ETL process, which shall improve and simplify the usage of Coria and ensure latest data being available for analysis. Herby we focus on data on the level of Autonomous Systems. Our emphasis lies on flawless usage of datasets coming from the data source Caida that can be downloaded and imported automatically on a regular basis. \\
+The Coria framework is a project on which multiple developers already contributed to, in order to create a platform, which is able to analyze and visualize connectivity risks of graph data\cite{CoriaPaper}. Within this paper and project we would like to further contribute and improve specific aspects of Coria. In the following we present related work regarding Internet topology, the robustness of networks and characteristics of Autonomous Systems. We investigate characteristics of these networks through some descriptive statistical methods and take a look at the development of networks and its components over the last ten years. Furthermore we present a prototype of an automated ETL process, which shall improve and simplify the usage of Coria and ensure latest data being available for analysis. Herby we focus on data on the level of Autonomous Systems. Our emphasis lies on flawless usage of datasets coming from the data source Caida that can be downloaded and imported automatically on a regular basis. In addition we would like to constantly host the latest version of Coria, namely Coria 3 on a server. \\
 
 
 \vspace{0.5cm}
@@ -148,18 +148,18 @@ AS rank defines the importance of a node in its global routing system, often usi
 
 
 \subsection{Internet Robustness}
-The Internet is assambled based on the hierarchy as shown in figure 3. Much research has already been conducted on the robustness of the Internet. 
-Baumann and Fabian \cite{howRobust} state the following. While the Internet is resistant with respect to random failures of nodes, a targeted attack such as a degree attack can have a serious impact. The latter stands for an attack that focuses on the successive deletion of nodes with the highest node degree. It was also pointed out that a targeted removal of only ten percent of the nodes of the network can lead to more than 32 000 disjoint components. Further research suggests that due to its evolution the Internet network  is ``robust yet fragile''\cite{RYF}, meaning that random failures of nodes leave the network unaffected, whereas it is vulnerable to targeted attacks on its key components. Acoordingly, the Internet is often reffered to as ``scale-free'' with a ``hub-like'' core structure, which leads to the described characteristics \cite{RYF}. Faloutsos et al. \cite{powerlawCitation} state in their research that the Internet network is following a so called power-law distribution. Power-laws describe skewed distributions of graph properties, such as node degree or betweenness centrality. It can be used for estimating further characteristics of networks or an analysis of robustness. Note though that they base their research on data from November 1997 and December 1998. J. Ruiz and G. Barnett also make statement about the imbalancedness of the Internet \cite{owningInternet}. Their results indicate that the United States is the most central nation in the network, with American corporations accounting for almost 40\% of international links between nodes. Moreover they state that there exists a center of the network consisting of 16 companies, each causing more than 1\% of international Internet connections. Amongst others are the well known companies like Google, Facebook or Amazon. 
-Research of \cite{geoResearch} in 2002 modeled the Internet's large scale topology - amongst others the geographic locations of routers. In that regard, they published the geographic locations of routers and found a major concentration in North America and Europe and less activity on other, less developed continents.\\ 
+The Internet is assambled based on the hierarchy as shown in figure 3. Much research has already been conducted on the robustness of the Internet. Baumann and Fabian \cite{howRobust} state the following: While the Internet is resistant with respect to random failures of nodes, a targeted attack such as a degree attack can have a serious impact. The latter stands for an attack that focuses on the successive deletion of nodes with the highest node degree. It was also pointed out that a targeted removal of only ten percent of the nodes of the network can lead to more than 32 000 disjoint components. Further research suggests that due to its evolution the Internet network  is ``robust yet fragile''\cite{RYF}, meaning that random failures of nodes leave the network unaffected, whereas it is vulnerable to targeted attacks on its key components. Acoordingly, the Internet is often reffered to as ``scale-free'' with a ``hub-like'' core structure, which leads to the described characteristics \cite{RYF}. \\ Faloutsos et al. \cite{powerlawCitation} state in their research that the Internet network is following a so called power-law distribution. Power-laws describe skewed distributions of graph properties, such as node degree or betweenness centrality. It can be used for estimating further characteristics of networks or an analysis of robustness. Note though that they base their research on data from November 1997 and December 1998. J. Ruiz and G. Barnett also make statement about the imbalancedness of the Internet \cite{owningInternet}. Their results indicate that the United States is the most central nation in the network, with American corporations accounting for almost 40\% of international links between nodes. Moreover they state that there exists a center of the network consisting of 16 companies, each causing more than 1\% of international Internet connections. Amongst others are the well known companies like Google, Facebook or Amazon. \\ \linebreak
+Research of \cite{geoResearch} in 2002 modeled the Internet's large scale topology - amongst others the geographic locations of routers. In that regard, they published the geographic locations of routers and found a major concentration in North America and Europe, which represent western economies that are highly developed in terms of wealth and technological endowments, and less activity on other, less developed continents.\\  \linebreak
  
 
 
 \subsection{ETL Process}
 The data warehousing concept of \textit{Extraction, Transformation, Loading} (ETL) became a standard for companies in the 1970s. Back then organizations began to integrate information from different sources into their own databases \cite{carl1}.\break The integration process states the advantage that disparate sources and hereby diverse formation of the data can be brought into a unified database. With an adjustable ETL process one is able to adapt to and import new datasources without 
-changing the essential main system or framework. This segregation of data import and processing makes the whole system more stable, flexible, provides improved maintance and makes it easier for developers to change and extend functionalities. %Quelle 
+changing the essential main system or framework. This segregation of data import and processing makes the whole system more stable, flexible, provides improved maintance and makes it easier for developers to change and extend functionalities. Fig.6 describes this process on a high level. Starting from various data sources, data is extracted, transformed and loaded into a data warehouse. From there, data cann be drawn from multiple clients. \linebreak %Quelle 
+
 
 \vspace{0.5cm}
-\begin{lstlisting}
+\begin{lstlisting}[ language=Python,caption={A wide listing float, single column},captionpos=b , xleftmargin=.02\textwidth, linewidth = 0.95\linewidth] 
 import networkx as nx
 
 G=nx.complete_graph(20)
@@ -170,20 +170,7 @@ nx.write_edgelist(G, "test2.edgelist", delimiter="\t", data=False)
 quit()
 \end{lstlisting}
 \vspace{0.5cm}
-
-%\break
-%\break
-%\break
-
-\vspace{0.5cm}
-\begin{figure}[htbp]
-\centerline{\includegraphics[scale=0.27]{Graphics/ETL_general.png}}
-\caption{Visualization of a general ETL process}
-\label{fig1_ct}
-\end{figure}
-\vspace{0.5cm}
-
-A general ETL workflow is presented in figure \ref{fig1_ct}.  
+carl? hier wurde noch nicht auf den code eingegangen, richtig?
 
 %\iffalse
 %
