@@ -28,7 +28,7 @@
 			columns=fullflexible,
 			frame=single,
 			%framexleftmargin=15pt
-			breaklines=true,
+			breaklines=true
 			%showstringspaces=false
   			}
   			
@@ -171,6 +171,7 @@ Research of \cite{geoResearch} in 2002 modeled the internet's large scale topolo
 \subsection{ETL Process}
 The data warehousing concept of \textit{Extraction, Transformation, Loading} (ETL) became a standard for companies in the 1970s. Back then organizations began to integrate information from different sources into their own databases \cite{carl1}.\break The integration process states the advantage that disparate sources and hereby diverse formation of the data can be brought into a unified database. With an adjustable ETL process one is able to adapt to and import new datasources without 
 changing the essential main system or framework. This segregation of data import and processing makes the whole system more stable, flexible, provides improved maintance and makes it easier for developers to change and extend functionalities. %Quelle 
+
 
 \begin{lstlisting}
 import networkx as nx
@@ -385,7 +386,8 @@ One aspect that we are not in control of, is the frequency and regularity of dat
 
 For other sources or data sets the interval can be customized by changing the sleep timer values of seconds.
 
-\begin{lstlisting}[language=Python]
+
+\begin{lstlisting}[language=Python, caption={Timer Function},captionpos=b, xleftmargin=.08\textwidth, linewidth = 0.9\columnwidth]
 import time,subprocess
 from test import translateTime
 
@@ -403,16 +405,19 @@ while True:
 	except:
 		print(`Oops! That was no valid number.  Try again...')
 		continue
+
 \end{lstlisting}
 
-The timer program also makes use of \textit{syntax errors and exceptions} %ref https://docs.python.org/2.7/tutorial/errors.html#exceptions
-From our coding experience with infinite Python loops chance are high creating unsystematically errors: Network errors, problems in the operating system on the destination or source server or other faults can break up the automated ETL process.
-Thatswhy the timer function contains the \textit{continue}-operator in combination exception handling: If one of the functions creates an error, it can be assured that one day later the ETL porcess will be triggered again without having any person restarting the process or bug fixing.
-\linebreak
+
+The timer program also makes use of \textit{syntax errors and exceptions} %ref https://docs.python.org/2.7/tutorial/errors.html#exceptions 
+From our coding experience with infinite Python loops chances are high for creating unsystematically errors. Amongst others that can be network errors, problems in the operating system on the destination or source server or other faults that can break up the automated ETL process.
+
+Therefore the timer function contains the \textit{continue}-operator in combination with exception handling: If one of the functions creates an error, it can be assured that one day later the ETL porcess will be triggered again without having any person restarting the process or bug fixing. \linebreak
 \linebreak
 \linebreak
 
-\begin{lstlisting}
+%carl ? warum punkte am anfang und ende? absicht?
+\begin{lstlisting}[language=Python, caption={...},captionpos=b, xleftmargin=.08\textwidth, linewidth = 0.9\columnwidth]
 ..................
 import urllib2,urllib, io, gzip, os, time, lxml.html
 from CsvCreate import CsvCreate # file: CsvCreate.py
@@ -431,29 +436,25 @@ yearBefore = 2018
 ...........
 \end{lstlisting}
 
-The folder structure of Caida is AS Rank is determined as follows: \textit{\url{http://data.caida.org/datasets/topology/ark/ipv4/as-links/_YEAR_/}}. Thefore the \textit{main} program request the current year and the year before. The year before has to come into consideration for the case of a new year: Files from December can be uploaded from the teams in the next year. For instance the information from 21 December 2017 was uploaded almost 3 weeks later on 10 January 2018.
+The folder structure of Caida is AS Rank is determined as follows: \textit{\url{http://data.caida.org/datasets/topology/ark/ipv4/as-links/_YEAR_/}}. Thefore the \textit{main} program requests the current year and the year before. The year before has to come into consideration for the case of a new year: Files from December can be uploaded from the teams in the following year. For instance the information from 21 December 2017 was uploaded almost 3 weeks later on 10 January 2018.
 
-Next \textit{main.py} establishes connections to to data source in a whlie loop. At the moment (2018) the loop starts with an connection to 2017. After connecting the module \textit{lxml.html} fetches all links of the website and creates a list these.
+Next, \textit{main.py} establishes connections to the data source in a while loop. As the current year is 2018 the loop starts with an connection to 2017. After connecting the module \textit{lxml.html}, it fetches all the links of the website and creates a list out of these.
 
-\begin{lstlisting}
+\begin{lstlisting}[language=Python, caption={...},captionpos=b, xleftmargin=.08\textwidth, linewidth = 0.9\columnwidth]
 for j in Liste:
 	j2= j.rsplit('/')[-1]
 	j3= j2.split('.gz')[0]
 
 \end{lstlisting}
-Afterwards a for loop extracts for every link the name of the file for the fact the functions \textit{CsvCreate} and \textit{Csv2CoriaDB} need the file name as input parameter. The file names used in the ETL automation and in Caida data source are consistent.
 
-The following condition searches in every extracted link for the string "cycle-as" because every data file this string.
-Another IF-condition checks if the file already was download. If a file already exists on the Coria server it should also be transformed into an edge list as well as imported into the MySQL database.
 
-For the case a file does not exist, the first step is downloading and saving the original data as unzipped text file. 
-Subsequently the main function will call first the function that transform the data into an edge list, which will then apllied to the database.
 
-The while loop will continue until the last file of the current year is processed.
+Afterwards a for loop extracts for every link the name of the file. This is due to the fact that the functions \textit{CsvCreate} and \textit{Csv2CoriaDB} need the file name as input parameters. The file names used in the ETL automation and in Caida data source are consistent. The following condition searches in every extracted link for the string "cycle-as" because every data file contains this string. Another IF-condition checks wether the file was already download. If a file already exists on the Coria server it should be transformed into an edge list as well as getting imported into the MySQL database. For the case that a file does not exist, the \textit{else}-part of the function is used. First, the data is being downloaded and saved as an unzipped text file. 
+Then the main function will call the function that transforms the data into an edge list, which then will be given to the database. The while loop will continue until the last file of the current year is processed.
 \linebreak
 
 
-\begin{lstlisting}[float=*,caption={A wide listing float, single column}]
+\begin{lstlisting}[float=*, language=Python,caption={A wide listing float, single column},captionpos=b , xleftmargin=.08\textwidth, linewidth = 0.9\textwidth] 
 
 if "cycle-as" in j:
 	if os.path.isfile("Data/Original/"+j3):
@@ -499,9 +500,8 @@ Webdrivers provide provide a great variety on options. Therefore we decided to r
 At the end of every chromedriver session the webdriver must be closed. If this is not applied the loop will create an great amount of process in the background until the server is overloaded.
 
 
+\begin{lstlisting}[float=*, language=Python,caption={A wide listing float, single column},captionpos=b]
 
-
-\begin{lstlisting}[float=*,caption={A wide listing float, single column}]
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
