@@ -334,29 +334,24 @@ With respect to Appendix .....  you can see a simultaneous development for the a
 
 
 \subsection{ETL Process in CORIAv3}
-The seminar paper is based on the framework of Sebastian Gross\cite{carl3}. At the current state CORIA does not include any automated ETL process for any source. The extraction part is handled manually by downloading the desired files and, if neccessary, unzipping the text-formatted file that for instance can be an edge list. \linebreak
 
 
-The user can now upload the file using the CORIA web interface. This must be done with the upload module (\url{http://localhost:8080/coria/#!/datasets/upload}).
-The upload module itself already provides Caida specific upload functions that can handle Caida's file format\cite{carl3}. As well a "Standard tab seperated Importer" allows users to upload edge lists from other sources. At the moment Coria only accepts edge lists of undirected unweightes graphs.
-Users must be able to adjust or transform data into the demanded format. The current transformation part in the framework consists in transformation that has to be done by the user.\linebreak
+
+This paper is based on the framework of Sebastian Gross\cite{Coria3}. At the current state CORIA does not does not provide the functionality of an automated ETL process for any data source. The extraction part is handled manually by downloading the desired files and, if neccessary, unzipping the text-formatted file that for instance can be an edge list. \linebreak
+
+
+The user can now upload the file using the CORIA web interface. This can be done through the upload module, following this link: \url{http://localhost:8080/coria/#!/datasets/upload}. The upload module itself already provides Caida specific upload functions that can handle Caida's file format \cite{Coria3}. Furthermore a "Standard tab seperated Importer" allows users to upload edge lists from other data sources. At the moment Coria only accepts edge lists of undirected and unweighted graphs. Users therefore need to be able to adjust or transform data into the demanded format. The current transformation part in the web framework consists of transformation that has to be done by the user.\linebreak
 
 
 After manually preprocessing the dataset, the web framework allows the user to upload the edge list and then analyze and apply metrics to the data.
-Coria already provides modules that can upload data into a MySQL or Redis database. Unexperienced users do not need to be familiar with database management systems.
+Coria already provides modules that can upload data into a MySQL or Redis database. Unexperienced users do not need to be familiar with database management systems. \linebreak
 
 
-
-
-
-
-
-
-\begin{figure}[htbp]
-\centerline{\includegraphics[scale=0.29]{Graphics/ETL1.PNG}}
-\caption{A Theoretical ETL Process}
-\label{fig}
-\end{figure}
+%\begin{figure}[htbp]
+%\centerline{\includegraphics[scale=0.29]{Graphics/ETL1.PNG}}
+%\caption{A Theoretical ETL Process}
+%\label{fig}
+%\end{figure}
 
 
 
@@ -366,10 +361,9 @@ Coria already provides modules that can upload data into a MySQL or Redis databa
 \label{fig:1}
 \end{figure}
 
-In figure \ref{fig:1} the automated ETL process from Caida's data is illustrated. The framework is written in Python 2.7 %Python Software Foundation. Python Language Reference, version 2.7. Available at http://www.python.org
 
-In general:Tthe server periodically queries for new data sets on the Cadia data server. If there are not new data uploaded on the Caida server the query will happen the next period. 
-For the case new data are provided every new file will be downloaded. After downloading a new file, it will be transformed into an edgelist and ,finally, uploaded to Coria's database.
+Figure \ref{fig:1} visualizes the new developed ETL Process, written in Python 2.7. In general, the server periodically queries for new data sets on the Cadia data server. If there is no new data available on the Caida servers the query will try in the next period again. 
+In case that there is new data available, every new file will be downloaded. After downloading a new file, it will be transformed into an edgelist and then be uploaded to the database of Coria.
 \linebreak
 \linebreak
 
@@ -378,13 +372,17 @@ For the case new data are provided every new file will be downloaded. After down
 \caption{Data Uploads by Caida over time}
 \label{fig:UploadOverTime}
 \end{figure}
+
+%In figure \ref{fig:1} the automated ETL process from Caida's data is illustrated. The framework is written in Python 2.7 %Python Software Foundation. Python Language Reference, version 2.7. Available at http://www.python.org
  
+%carl? was hat es mit dem stern auf sich?
+*at the End tell for the case of 1st time implementation and time on server \\
 
-*at the End tell for the case of 1st time implementation and time on server
-In detail:
 
-Ensuring that the automated ETL process and all of its function trigger every day, we created a function \textit{timer.py}?REF. The timer program is meant to operate permanently after Coria webservice and the MySQL database are functioning.
-An 24 hour interval is deemed to be adequate as Caida\textsc{\char13}s data file provides AS link snapshot of one day. Besides that Caida teams upload their data unsystematically: As one can observe in the histogram \ref{fig:UploadOverTime} there are some days with more than 20 uploaded files (data days). As well one can identify periods in summer and around new years eve with none or a few uploads that can be assumed as holidays.
+To be more specific, we ensured that the automated ETL process and all of its components trigger every day, we created a function \textit{timer.py} \cite{time.py}. The timer program is meant to operate permanently and check wether Coria's webservice and the MySQL database are functioning. An 24 hour interval is deemed to be adequate as Caida\textsc{\char13}s data file provides AS link snapshot of one day. %carls? was ist das für ein character char13...?
+
+One aspect that we are not in control of, is the frequency and regularity of data uploads by Caida. Figure \ref{fig:UploadOverTime} presents a rather unsystematically pattern of uploads. As one can observe in the histogram there are some days with more than 20 uploaded files per day. Then one can identify periods in summer and around new years eve with none or only a few uploads that can be assumed as holidays. Bearing this in mind, an automated ETL Process can only produce an data input as stable as its data source allows it to do so. 
+
 For other sources or data sets the interval can be customized by changing the sleep timer values of seconds.
 
 \begin{lstlisting}[language=Python]
@@ -402,10 +400,8 @@ while True:
 
 		print 100/a
 		
-
-
 	except:
-		print("Oops!  That was no valid number.  Try again...")
+		print(`Oops! That was no valid number.  Try again...')
 		continue
 \end{lstlisting}
 
@@ -676,11 +672,18 @@ classification.
 
 \bibitem{carl2}butunclebob(n.d.). Retrived from \url{http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod}
 
-\bibitem{carl3} S. Gross "Development of a modular software framework for the analysis of network
-connectivity risks based on network graphs" (Bachelor thesis), 2017
+%\bibitem{carl3} S. Gross "Development of a modular software framework for the analysis of network
+%connectivity risks based on network graphs" (Bachelor thesis), 2017
 
 %mehr Quellen von Prof Fabian:
 \bibitem{geoVul}A. Baumann, B. Fabian. ``Towards Measuring the Geographic and Political Resilience of the Internet,'' International Journal of Networking and Virtual Organisations, 13(4):365–384, 2013.
+
+
+\bibitem{time.py}
+
+
+
+
 
 %Damien Magoni. Tearing Down the Internet. IEEE Journal of Selected Areas in Communications, 21(6):949–960, September 2006.
 
