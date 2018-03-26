@@ -154,39 +154,13 @@ Research of \cite{geoResearch} in 2002 modeled the Internet's large scale topolo
 
 
 \subsection{ETL Process}
-The data warehousing concept of \textit{Extraction, Transformation, Loading} (ETL) became a standard for companies in the 1970s. Back then organizations began to integrate information from different sources into their own databases \cite{carl1}.\break The integration process states the advantage that disparate sources and hereby diverse formation of the data can be brought into a unified database. With an adjustable ETL process one is able to adapt to and import new datasources without 
-changing the essential main system or framework. This segregation of data import and processing makes the whole system more stable, flexible, provides improved maintance and makes it easier for developers to change and extend functionalities. Fig.6 describes this process on a high level. Starting from various data sources, data is extracted, transformed and loaded into a data warehouse. From there, data cann be drawn from multiple clients. \linebreak %Quelle 
+The data warehousing concept of \textit{Extraction, Transformation, Loading} (ETL) became a rising standard for companies in the 1970s. Back then organizations began to integrate information from different sources into their own databases \cite{carl1}.\break The integration process states the advantage that disparate sources and hereby diverse formation of data can be brought into a unified database. With an adjustable ETL process one is able to adapt and import new datasources without 
+changing the essential main system or framework. This segregation of data import and processing makes the whole system more stable, flexible, provides improved maintance and makes it easier for developers to change and extend functionalities. Fig.6 describes this process in general. At the beginning data are extracted from various sources. The extraction must be customized to the characteristics of the respective data provider. These can differ in the file and data format as well as in the interface. For instance, common interfaces are protocols such as \textit{http} or \textit{ftp}, source-specific APIs or stream data.
+In the transformation part demanded information are converted into the neccessary database format. As well calculations can be applied, duplicates will be erased, units converted or further algorithms can be applied. 
+The last stage is contained in the upload or import into the data warehouse, from where to information can bendrawn from multiple stakeholder . An important requirement in the loading phase states the efficiency: data must be sent within a short duration. Dependent on the size of data, parallelization or hardware adjustments may help in all three sections. (\url{https://link.springer.com/chapter/10.1007/978-3-642-32584-7_6})
+\linebreak %Quelle 
 
 
-\vspace{0.5cm}
-\begin{lstlisting}[ language=Python,caption={A wide listing float, single column},captionpos=b , xleftmargin=.02\textwidth, linewidth = 0.95\linewidth] 
-import networkx as nx
-
-G=nx.complete_graph(20)
-nx.write_edgelist(G, "test3.edgelist", delimiter="\t", data=False)
-H=nx.complete_graph(100)
-nx.write_edgelist(G, "test2.edgelist", delimiter="\t", data=False)
-
-quit()
-\end{lstlisting}
-\vspace{0.5cm}
-carl? hier wurde noch nicht auf den code eingegangen, richtig?
-
-%\iffalse
-%
-%extraction:
-%- different souces, format, files, interfaces (ftp, api, js-call)
-%-import to server
-%
-%Transformation:
-%- eradicate differences, calculations, analysis, create unified dataformat
-%
-%Load:
-%- upload to database,
-%- p.ex. organization: different departements different insights -> combined T+L ->to fulfill orgas compliance or segragation of duty need to know principles - relevance in data security and information governance.
-%
-%
-%\fi
 
 
 \vspace{0.5cm}
@@ -196,8 +170,6 @@ carl? hier wurde noch nicht auf den code eingegangen, richtig?
 \label{fig}
 \end{figure}
 \vspace{0.5cm}
-
-
 
 
 
@@ -352,25 +324,15 @@ One aspect that we are not in control of, is the frequency and regularity of dat
 For other sources or data sets the interval can be customized by changing the sleep timer values of seconds.
 
 
-\begin{lstlisting}[language=Python]
-import time,subprocess
-from test import translateTime
-
-Interval = 60*60*24 #24 hours interval
-Interval=2
-a=-4
+\begin{lstlisting}[language=Python, caption={}]
+import time, subprocess
 while True:
-	time.sleep(Interval)
-	a+=1
-	try:
-		translateTime()
-
-		print 100/a
+	time.sleep(1)#60*60*24)
+	subprocess.call(["python", "main.py"])
 		
 	except:
-		print(`Oops! That was no valid number.  Try again...')
+		print(`Oops! That was no valid number. Try again')
 		continue
-
 \end{lstlisting}
 
 
@@ -524,7 +486,7 @@ def Csv2CoriaDB(Filename):
 \vspace{0.5cm}
 
 \subsection{Initial ETL Implementation}
-Caida AS rank data can be tracked back until the year 2007. Garuanteering that a new Coria Server can also work with historic data \textit{InitialDataSetup.py} is provided. Before running the automated ETL process that continuously verifies the presence of newly uploaded data, it is suggested to run the initialisation of the data import once. It should be considered that it takes some hours to compute all historic data. As of today (March 2018), 2160 files have to be processed and imported into the database. We tested the initial data setup, which took XXX6hoursXXX, testing the script on a virtual server with Windows 2012 R2 with a Common KVM processor 2,53Ghz and 8 GB R.  
+Caida AS rank data can be tracked back until the year 2007. Garuanteering that a new Coria Server can also work with historic data \textit{InitialDataSetup.py} is provided. Before running the automated ETL process that continuously verifies the presence of newly uploaded data, it is suggested to run the initialisation of the data import once. It should be considered that it takes some hours to compute all historic data. As of today (March 2018), 2160 files have to be processed and imported into the database. We tested the initial data setup, which took a total time of  9:55 hours, testing the script on a virtual server with Windows 2012 R2 with a Common KVM processor 2,53Ghz and 8 GB R.  
 
 
 
