@@ -10,7 +10,7 @@ to do:
 - alle "carl" stellen entfernt und angeschaut?
 - Coria läuft auf einem Server richtig? (punkt in outlook ändern)
  	-> noch hervorheben!? (D)
-
+-Penetrationtest(D+C)
 
 
 

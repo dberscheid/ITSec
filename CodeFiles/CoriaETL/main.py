@@ -8,9 +8,9 @@ CurrentYear = time.strftime("%Y")
 print CurrentYear
 
 YearBefore = int(CurrentYear)-1
-#Initial upload of all Caida data sets:
-#YearBefore= 2007
 YearBefore = 2007
+#Initial upload of all Caida data: set YearBefore= 2007
+
 
 print "\n Bearbeitung Jahr" + str(YearBefore) + "\n"
 

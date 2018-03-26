@@ -8,6 +8,7 @@
   \usepackage[utf8]{inputenc}
 \usepackage{listings,multicol}
 \usepackage{textcomp}
+\usepackage{nameref}
 \usepackage{url}
 %carltest Push
 \usepackage{textcomp}
@@ -30,6 +31,9 @@
 			%framexleftmargin=15pt
 			breaklines=true
 			%showstringspaces=false
+			% captionpos=b,
+			% xleftmargin=.02\textwidth, 
+			% linewidth = 0.95\columnwidth
   			}
   			
   			
@@ -251,7 +255,7 @@ These results confirm the research from 2002 by \cite{geoResearch} and lead to t
 
 \vspace{0.5cm}
 \begin{figure}[htbp]
-\centerline{\includegraphics[scale=0.2]{Graphics/connectedASes.png}}
+\centerline{\includegraphics[width=\columnwidth]{Graphics/connectedASes.png}}
 \caption{Location of ASes and respective Streams of Traffic}
 \label{fig}
 \end{figure}
@@ -269,37 +273,36 @@ With respect to Appendix .....  you can see a simultaneous development for the a
 \end{figure}
 \vspace{0.5cm}
 
+
+
 \subsection{ETL Process in Coriav3}
 
+This paper is based on the framework of Sebastian Gross\cite{Coria3}. At the current state Coria does not does not provide the functionality of an automated ETL process for any data source. 
+The extraction part is handled manually by downloading the desired files and, if neccessary, unzipping the text-formatted file that for instance can be an edge list. \break
 
 
-This paper is based on the framework of Sebastian Gross\cite{Coria3}. At the current state Coria does not does not provide the functionality of an automated ETL process for any data source. The extraction part is handled manually by downloading the desired files and, if neccessary, unzipping the text-formatted file that for instance can be an edge list. \linebreak
+The user can now upload the file using the Coria web interface. This can be done through the upload module, following this link: \url{http://141.20.103.31:8080/Coria/#!/datasets/upload}\footnote{If Coria is implemented on an other system the IP changes}. The upload module itself already provides Caida specific upload functions that can handle Caida's file format \cite{Coria3}. Furthermore a "Standard tab seperated Importer" allows users to import edge lists from other data sources. At this time Coria only accepts and deploys solely undirected and unweighted graphs. Users therefore need to be able to adjust or transform their files into the demanded format. The current transformation part in the web framework consists of adjustments that has to be done by the user.\linebreak
 
+\vspace{0.3cm}
+\begin{figure}[htbp]
+\centerline{\includegraphics[width=\columnwidth]{Graphics/CoriaETL_current.png}}
+\caption{Coriav3: Current ETL Process}
+\label{fig:ETLinCoriav3}
+\end{figure}
+\vspace{0.3cm}
 
-The user can now upload the file using the Coria web interface. This can be done through the upload module, following this link: \url{http://localhost:8080/Coria/#!/datasets/upload}. The upload module itself already provides Caida specific upload functions that can handle Caida's file format \cite{Coria3}. Furthermore a "Standard tab seperated Importer" allows users to upload edge lists from other data sources. At the moment Coria only accepts edge lists of undirected and unweighted graphs. Users therefore need to be able to adjust or transform data into the demanded format. The current transformation part in the web framework consists of transformation that has to be done by the user.\linebreak
 
 
 After manually preprocessing the dataset, the web framework allows the user to upload the edge list and then analyze and apply metrics to the data.
-Coria already provides modules that can upload data into a MySQL or Redis database. Unexperienced users do not need to be familiar with database management systems. \linebreak
+Coria already provides an module that can upload data into a MySQL or Redis database. Unexperienced users do not need to be familiar with database management systems. Regarding the upload, loading in the Coria ETL process is already automated. \break
+As stated before the performance requirements, uploading files parallel is at the moment not possible. Applying a small penetration test using two clients each uploading two files at the same time, Coria was not able to handle any of the four files. The fact may influence the contributed ETL process as it is running in the background and using the same interface(see: ~\nameref{ssec:contribution}).   \linebreak
 
 
-%\begin{figure}[htbp]
-%\centerline{\includegraphics[scale=0.29]{Graphics/ETL1.PNG}}
-%\caption{A Theoretical ETL Process}
-%\label{fig}
-%\end{figure}
 
+\subsection{Contribution: Automated ETL process} \label{ssec:contribution}
 
-\vspace{0.5cm}
-\begin{figure}[htbp]
-\centerline{\includegraphics[scale=0.4]{Graphics/ETL2.PNG}}
-\caption{ETL Process in the Coria framework}
-\label{fig:1}
-\end{figure}
-\vspace{0.5cm}
-
-Figure \ref{fig:1} visualizes the new developed ETL Process, written in Python 2.7. In general, the server periodically queries for new data sets on the Cadia data server. If there is no new data available on the Caida servers the query will try in the next period again. 
-In case that there is new data available, every new file will be downloaded. After downloading a new file, it will be transformed into an edgelist and then be uploaded to the database of Coria.
+Figure \ref{fig:ETLinCoriav3} visualizes the new developed ETL Process, written in Python 2.7. In general, the server periodically queries for new data sets on the Cadia data server. If there are no new data available on the servers the query will try in the next period again. 
+In case that there is new data available, every new file will be downloaded. After fetching a new file, it will be transformed into an edge list and then be uploaded to the Coria database.
 \linebreak
 \linebreak
 
@@ -311,63 +314,44 @@ In case that there is new data available, every new file will be downloaded. Aft
 \end{figure}
 \vspace{0.5cm}
 
-%In figure \ref{fig:1} the automated ETL process from Caida's data is illustrated. The framework is written in Python 2.7 %Python Software Foundation. Python Language Reference, version 2.7. Available at http://www.python.org
- 
-%carl? was hat es mit dem stern auf sich?
-*at the End tell for the case of 1st time implementation and time on server \\
+
+To be more specific, we ensured that the automated ETL process and all of its components trigger every day, we created a function \textit{timer.py} \cite{timer.py}. The timer program is meant to operate permanently and check wether Coria's webservice and the MySQL database are functioning. An 24 hour interval is deemed to be adequate as Caida\textquotesingle s data files provides an snapshot of one day. %carls? was ist das für ein character char13...?
+
+One aspect that we are not in control of, is the frequency and regularity of file uploads by Caida teams. Figure \ref{fig:UploadOverTime} presents a rather unsystematically pattern of uploads. As one can observe in the histogram there are some days with more than 20 uploaded files per day. As well one can also identify periods in summer and around new years eve with none or only a few uploads that can be assumed as holidays. Bearing this in mind, an automated ETL Process can only produce a data input as stable as its data source allows it to do so.
+%@DavBer: Was meint der letzte Satz? 
+For other sources or data sets the interval can be customized by changing the sleep timer in units of seconds (Listing~\ref{lst:timer}: \lstinline{Frequency = 60 * 60 * 24}).\linebreak
 
 
-To be more specific, we ensured that the automated ETL process and all of its components trigger every day, we created a function \textit{timer.py} \cite{time.py}. The timer program is meant to operate permanently and check wether Coria's webservice and the MySQL database are functioning. An 24 hour interval is deemed to be adequate as Caida\textsc{\char13}s data file provides AS link snapshot of one day. %carls? was ist das für ein character char13...?
-
-One aspect that we are not in control of, is the frequency and regularity of data uploads by Caida. Figure \ref{fig:UploadOverTime} presents a rather unsystematically pattern of uploads. As one can observe in the histogram there are some days with more than 20 uploaded files per day. Then one can identify periods in summer and around new years eve with none or only a few uploads that can be assumed as holidays. Bearing this in mind, an automated ETL Process can only produce an data input as stable as its data source allows it to do so. 
-
-For other sources or data sets the interval can be customized by changing the sleep timer values of seconds.
+\lstinputlisting[language=Python, caption={timer.py}, label={lst:timer}, firstline=2, captionpos=b]{CodeFiles/CoriaETL/timer.py}
 
 
-\begin{lstlisting}[language=Python, caption={}]
-import time, subprocess
-while True:
-	time.sleep(1)#60*60*24)
-	subprocess.call(["python", "main.py"])
-		
-	except:
-		print(`Oops! That was no valid number. Try again')
-		continue
-\end{lstlisting}
 
-
-The timer program also makes use of \textit{syntax errors and exceptions} %ref https://docs.python.org/2.7/tutorial/errors.html#exceptions 
+The timer program also makes use of \textit{syntax errors and exceptions} \cite{PythonDocumentation}.
 From our coding experience with infinite Python loops chances are high for creating unsystematically errors. Amongst others that can be network errors, problems in the operating system on the destination or source server or other faults that can break up the automated ETL process.
-
 Therefore the timer function contains the \textit{continue}-operator in combination with exception handling: If one of the functions creates an error, it can be assured that one day later the ETL porcess will be triggered again without having any person restarting the process or bug fixing. \linebreak
+
+\vspace{0.2cm}
+\lstinputlisting[language=Python, caption={main.py}, label={lst:main}, linerange={1-5,8-12},captionpos=b, xleftmargin=.02\textwidth, linewidth = 0.95\columnwidth]{CodeFiles/CoriaETL/main.py}
+\vspace{0.5cm}
+
+%@Davber: Kann man in url Bold texten?
+The folder structure of Caida's AS Rank files is determined as follows: \textit{\url{http://data.caida.org/datasets/topology/ark/ipv4/as-links/_YEAR_/}}. Therefore the \textit{main} program requests the current year and the year before. The year before has to come into consideration for the case of a new year: Files from December are always uploaded from the teams in the following year. For instance the information from 21 December 2017 was uploaded almost 3 weeks later on 10 January 2018.
+
+Next, at the beginning of the while loop \textit{main.py} creates a connection to data source. As the current year is 2018, the loop starts with calling the webpage of 2017:\textit{...datasets/topology/ark/ipv4/as-links/2017/}. After the connection was established, the module \textit{lxml.html} fetches all links of the website and sets a list out of these.
+
+
+\lstinputlisting[language=Python, caption={main.py - Link Extraction}, label={lst:main_linkextract}, firstline=17, lastline=27, captionpos=b]{CodeFiles/CoriaETL/main.py}
+
+
+Afterwards a for loop extracts for every link the name of the file. This is due to the fact that the functions \textit{CsvCreate} and \textit{Csv2CoriaDB} need the file name as input parameters. The file names used in the ETL automation and in Caida data source are consistent. The following condition searches in every extracted link for the string "cycle-as". The following if condition checks wether the file was already downloaded. All file that has been processed are stored in the folder \textit{CoriaETL/Data/Original/}. If a file already exists on the Coria server it should already be transformed into an edge list as well as been imported into the MySQL database. For the case that a file does not exist, the \textit{else}-part of the function be executed. First, the data is being downloaded and saved as an unzipped text file. 
+Then the main program will call the function that transforms the data into an edge list, which then will be given to the database. 
+The while loop \ref{lst:main_linkextract} will continue until the last file of the current year is processed.
 \linebreak
-\linebreak
 
-%carl ? warum punkte am anfang und ende? absicht?
-\begin{lstlisting}[language=Python, caption={...},captionpos=b, xleftmargin=.02\textwidth, linewidth = 0.95\columnwidth]
-import urllib2,urllib, io, gzip, os, time, lxml.html
-from CsvCreate import CsvCreate # file: CsvCreate.py
-from  Csv2CoriaDB import Csv2CoriaDB
-import time,lxml.html
-
-#currentyear needed because of folder structure in Caida
-CurrentYear = time.strftime("%Y")
-print CurrentYear
-
-YearBefore = int(CurrentYear)-1
-#Initial upload of all Caida data sets:
-#YearBefore= 2007
-
-yearBefore = 2018
-
-\end{lstlisting}
-
-The folder structure of Caida's AS Rank is determined as follows: \textit{\url{http://data.caida.org/datasets/topology/ark/ipv4/as-links/_YEAR_/}}. Thefore the \textit{main} program requests the current year and the year before. The year before has to come into consideration for the case of a new year: Files from December can be uploaded from the teams in the following year. For instance the information from 21 December 2017 was uploaded almost 3 weeks later on 10 January 2018.
-
-Next, \textit{main.py} establishes connections to the data source in a while loop. As the current year is 2018 the loop starts with a connection to 2017. After connecting the module \textit{lxml.html}, it fetches all the links of the website and creates a list out of these.
 
 \vspace{0.5cm}
-\begin{lstlisting}[language=Python, caption={...},captionpos=b, xleftmargin=.02\textwidth, linewidth = 0.95\columnwidth]
+
+\begin{lstlisting}[language=Python, caption={main.py - Filename Extraction},captionpos=b, xleftmargin=.02\textwidth, linewidth = 0.95\columnwidth]
 for j in Liste:
 	j2= j.rsplit('/')[-1]
 	j3= j2.split('.gz')[0]
@@ -376,12 +360,9 @@ for j in Liste:
 \vspace{0.5cm}
 
 
-Afterwards a for loop extracts for every link the name of the file. This is due to the fact that the functions \textit{CsvCreate} and \textit{Csv2CoriaDB} need the file name as input parameters. The file names used in the ETL automation and in Caida data source are consistent. The following condition searches in every extracted link for the string "cycle-as" because every data file contains this string. Another IF-condition checks wether the file was already download. If a file already exists on the Coria server it should be transformed into an edge list as well as getting imported into the MySQL database. For the case that a file does not exist, the \textit{else}-part of the function is used. First, the data is being downloaded and saved as an unzipped text file. 
-Then the main function will call the function that transforms the data into an edge list, which then will be given to the database. The while loop will continue until the last file of the current year is processed.
-\linebreak
 
-
-\begin{lstlisting}[float=*, language=Python,caption={A wide listing float, single column},captionpos=b , xleftmargin=.02\textwidth, linewidth = 0.95\textwidth] 
+\begin{lstlisting}[ language=Python,caption={main.py},captionpos=b , float=tp,
+  floatplacement=tbp] 
 
 if "cycle-as" in j:
 	if os.path.isfile("Data/Original/"+j3):
@@ -404,7 +385,7 @@ if "cycle-as" in j:
 
 \end{lstlisting}
 
-
+%%%%morgen weitermachen
 \textit{CsvCreate} creates an edge list from the original file on the Coria server.
 For example, the original ASrank list 'cycle-aslinks.l7.t1.c000027.20070913.txt'(folder: Data/Original/), containing the data description and additional data, will be converted into the pure edge list '20070913.txt(folder: Data/Csv/)' With the Python built-in modules \textit{re — Regular expression operations} the program extracts the starting and destination nodes of every line beginning with a "D" and adds them to the edge list. These cases are referring to \textit{direct} connections between nodes \cite{IPv4Data}. The edge list will be saved in the format \textit{YYYYMMDD.csv}, i.e. \textit{20180216.csv}
 % ref:https://docs.python.org/2/library/re.html)
@@ -566,6 +547,8 @@ United States of America, November 2002.
 \bibitem{Classification}Caida., ``AS Classification,'' [Online]. Available: http://www.caida.org/data/as-
 classification.
 
+\bibitem{PythonDocumentation}Python Software Foundation., ''6. Built-in Exceptions,'' [Online]. Available: http://www.python.org/2.7/library/exceptions.html.
+
 \bibitem{IPv4Data}Caida., ``IPv4 Routed /24 AS Links Dataset,'' [Online]. Available: http://www.caida.org/data/active/ipv4\_routed\_topology\_aslinks\_dataset.xml.
 
 \bibitem{CaidaRelationshipsData}Caida., ``AS Relationships,'' [Online]. Available:http://www.caida.org/data/as-relationships/.
@@ -608,7 +591,7 @@ classification.
 %mehr Quellen von Prof Fabian:
 \bibitem{geoVul}A. Baumann, B. Fabian. ``Towards Measuring the Geographic and Political Resilience of the Internet,'' International Journal of Networking and Virtual Organisations, 13(4):365–384, 2013.
 
-\bibitem{time.py}
+\bibitem{timer.py}
 
 %Damien Magoni. Tearing Down the Internet. IEEE Journal of Selected Areas in Communications, 21(6):949–960, September 2006.
 
