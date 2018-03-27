@@ -10,6 +10,7 @@
 \usepackage{textcomp}
 \usepackage{nameref}
 \usepackage{url}
+
 %carltest Push
 \usepackage{textcomp}
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
@@ -68,7 +69,10 @@ carl.tramburg@gmail.com}
 
 
 \begin{abstract}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 04202fbf83ac509024a153ba5d3a9204f23d8bc4
 Networks are everywhere in todays digital world and cyber attacks are already part of daily news. With ongoing cyber threats the need for IT security rises - and there is no recovery to be expected. Therefore, this paper poses further results of the \textit{Connetivity Risk Analyzer}, Coria, a framework led by Dr. Fabian and collegues to analyze multiple indicators explaining the risk of connections in a network like the Internet - now introducing new features like an automated ETL process.
 
 \end{abstract}
@@ -439,18 +443,14 @@ The web application Coria allows the analysis of connectivity risks of various n
 Regarding the software-development aspect, we developed an ETL tool in Python 2.7 that provides modules for an automated ETL process. Hereby we developed components that are capable of checking for new data, downloading it and providing validation functionalities - without any manual interference. Moreover these files then are being imported into the Coria framework, which enables the possibility of using the lattest data for the analysis of connectivity risks. Besides that, we installed and implemented CoriaV3 on a server. The framework is running stable and all functionalities can be used. \\
  
 \subsection{Limitations and Further Work}
-<<<<<<< HEAD
 One limitation of this work is caused by our data source Caida. The data that we used, i.e. types of Autonomous Systems or their relationship was partly gathered through statistical inference. Its machine learning classifier provided a positive predicted value of 70\% \cite{Classification}, which still leaves misclassified observations within the data and limits our results to some extent. Nevertheless Caida states a serious source for internet infrastructure, which is why we chose it in the first place. To the best of our knowledge, there is no superior data source available.  \\ 
-The short period of developing and testing the automation is not sufficient for evaluating the long term peformance. Does the Python code work for several months or years? As we stated in \ref{ssec:contribution} errors or changes on the servers that had not occured yet, may influence the steadiness.
-=======
-One limitation of this work is caused by our data source Caida. The data that we used, i.e. types of Autonomous Systems or their relationship was partly gathered through statistical inference. Its machine learning classifier provided a positive predicted value of 70\% \cite{Classification} \cite{dataInference}, which still leaves misslassified observations within the data and limits our results to some extent. Nevertheless Caida is a serious and trusted source, which is why we chose it in the first place. To the best of our knowledge, there is no superior data source available.  \\ 
->>>>>>> e8a29f7ff1fde98c33350f5975088afe38706d0c
+The short period of developing and testing the automation is not sufficient for evaluating the long term peformance. Does the Python code work for several months or years? As we stated in \ref{ssec:contribution} errors or changes on the servers that had not occured yet, may influence the steadiness. \\
 
 Further work that can follow could be to apply the automated ETL process to more data sources. For Instance, RIPE Network Coordination Center \cite{RipeNCC} as another source of the internet infrastructure, may be adopted. Apart from network infrastructures, any graph can be applied to Coria: The riskiness of physical traffic data, such as public transportation and vehicles, may improve city infrastructures or predict congestion. Even in social network data Coria may give insights: risk analysis may be applied for influencer detection and customer behavior evaluation.\\
 
 Sebastian Gross build with CoriaV3 the foundation of graph analysis and visualization. Nevertheless, additional tools in the framework might increase demand and improve usability. Features that we found to be helpful are realtime analytics and reporting tools. Caida serves snapshots of one day, but telecommunication companies are in need of control of their infrastructure anytime and, especially, be informed in in cases of failure.
 
-\break
+%\break
 As well the contributed programs can go further: An important point, is a missing graphical interfaces. The aspect of user convenience might deter them from working with our ETL tool in the command line interface. Here we see great opportunities to generalize the process and combine the workflow in one web service.\\
 Further analysis might refer to other time intervals. In the attached files we created a script to aggregate the daily data up to months.
 We experiemented with Flask, a Python library for web development \cite{Flask} and tried to provide a graphical interface to merge the information.
@@ -560,37 +560,40 @@ classification %ok
 
 \begin{appendices}
 
-
-\section{Distribution of Incoming Connections per AS}
-
+\begin{section}{Distribution of Incoming Connections per AS}
 \begin{figure}[htbp]
 \centerline{\includegraphics[scale=0.4]{Graphics/AsToDistribution.png}}
 \caption{Distribution of Incoming Connections per AS}
 \label{fig}
 \end{figure}
+\end{section}
 
+\vspace{1cm}
 
-
-\section{Geographical Locations of ASes}
-
+\begin{section}{Geographical Locations of ASes}
 \begin{figure}[htbp]
 \centerline{\includegraphics[scale=0.2]{Graphics/ASesNurPunkte.png}}
 \caption{Geographical Locations of ASes}
 \label{fig}
 \end{figure}
+\end{section}
+\vspace{3.5cm}
 
 
-
-\section{Time development from 2007 - 2017: Number of receiving AS nodes}
-
+\begin{section}{Time development from 2007 - 2017: Number of receiving AS nodes}
 \begin{figure}[htbp]
 \centerline{\includegraphics[scale=0.4]{Graphics/ASToAll.png}}
 \caption{Time development from 2007 - 2017: Number of receiving AS nodes}
 \label{fig}
 \end{figure}
+\end{section}
 
-\section{Csv2CoriaDB.py}
-\begin{lstlisting}[float=*]
+%\vspace{14cm}
+\begin{section}{Csv2CoriaDB.py}
+
+Please see next page. \\
+
+\begin{lstlisting}[float=*]	
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
@@ -639,6 +642,7 @@ def Csv2CoriaDB(Filename):
 
 	print(Filename + "uploaded to Coria database")
 \end{lstlisting}
+\end{section}
 
 \end{appendices}
 
