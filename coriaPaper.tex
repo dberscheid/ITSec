@@ -10,6 +10,7 @@
 \usepackage{textcomp}
 \usepackage{nameref}
 \usepackage{url}
+\usepackage{float}
 
 %carltest Push
 \usepackage{textcomp}
@@ -148,17 +149,17 @@ AS rank defines the importance of a node in its global routing system, often usi
 
 
 \subsection{Internet Robustness}
-The Internet is assambled based on the hierarchy as shown in figure 3. Much research has already been conducted on the robustness of the Internet. Baumann and Fabian \cite{howRobust} state the following: While the Internet is resistant with respect to random failures of nodes, a targeted attack such as a degree attack can have a serious impact. The latter stands for an attack that focuses on the successive deletion of nodes with the highest node degree. It was also pointed out that a targeted removal of only ten percent of the nodes of the network can lead to more than 32 000 disjoint components. Further research suggests that due to its evolution the Internet network  is ``robust yet fragile''\cite{RYF}, meaning that random failures of nodes leave the network unaffected, whereas it is vulnerable to targeted attacks on its key components. Acoordingly, the Internet is often reffered to as ``scale-free'' with a ``hub-like'' core structure, which leads to the described characteristics \cite{RYF}. \\ Faloutsos et al. \cite{powerlawCitation} state in their research that the Internet network is following a so called power-law distribution. Power-laws describe skewed distributions of graph properties, such as node degree or betweenness centrality. It can be used for estimating further characteristics of networks or an analysis of robustness. Note though that they base their research on data from November 1997 and December 1998. J. Ruiz and G. Barnett also make statement about the imbalancedness of the Internet \cite{owningInternet}. Their results indicate that the United States is the most central nation in the network, with American corporations accounting for almost 40\% of international links between nodes. Moreover they state that there exists a center of the network consisting of 16 companies, each causing more than 1\% of international Internet connections. Amongst others are the well known companies like Google, Facebook or Amazon. \\ \linebreak
+The Internet is assambled based on the hierarchy as shown in figure 3. Much research has already been conducted on the robustness of the Internet. Baumann and Fabian \cite{howRobust} state the following: While the Internet is resistant with respect to random failures of nodes, a targeted attack such as a degree attack can have a serious impact. The latter stands for an attack that focuses on the successive deletion of nodes with the highest node degree. It was also pointed out that a targeted removal of only ten percent of the nodes of the network can lead to more than 32 000 disjoint components. Further research suggests that due to its evolution the Internet network  is ``robust yet fragile''\cite{RYF}, meaning that random failures of nodes leave the network unaffected, whereas it is vulnerable to targeted attacks on its key components. Acoordingly, the Internet is often reffered to as ``scale-free'' with a ``hub-like'' core structure, which leads to the described characteristics \cite{RYF}. \\ \linebreak Faloutsos et al. \cite{powerlawCitation} state in their research that the Internet network is following a so called power-law distribution. Power-laws describe skewed distributions of graph properties, such as node degree or betweenness centrality. It can be used for estimating further characteristics of networks or an analysis of robustness. Note though that they base their research on data from November 1997 and December 1998. J. Ruiz and G. Barnett also make statement about the imbalancedness of the Internet \cite{owningInternet}. Their results indicate that the United States is the most central nation in the network, with American corporations accounting for almost 40\% of international links between nodes. Moreover they state that there exists a center of the network consisting of 16 companies, each causing more than 1\% of international Internet connections. Amongst others are the well known companies like Google, Facebook or Amazon. \\ \linebreak
 Research of \cite{geoResearch} and \cite{geoVul} modeled the Internet's large scale topology - amongst others the geographic locations of routers. In that regard, they published the geographic locations of routers and found a major concentration in North America and Europe, which represent western economies that are highly developed in terms of wealth and technological endowments, and less activity on other, less developed continents.\\  \linebreak
  
 
 
 \subsection{ETL Process}
-The data warehousing concept of \textit{Extraction, Transformation, Loading} (ETL) became a rising standard for companies in the 1970s. Back then organizations began to integrate information from different sources into their own databases \cite{carl1}.\break The integration process states the advantage that disparate sources and hereby diverse formation of data can be brought into a unified database. With an adjustable ETL process one is able to adapt and import new datasources without 
+The data warehousing concept of \textit{Extraction, Transformation, Loading} (ETL) became a rising standard for companies in the 1970s. Back then organizations began to integrate information from different sources into their own databases \cite{carl1}.\break The integration process states the advantage that disparate sources and therefore diverse formation of data can be brought into a unified database. With an adjustable ETL process one is able to adapt and import new datasources without 
 changing the essential main system or framework. This segregation of data import and processing makes the whole system more stable, flexible, provides improved maintance and makes it easier for developers to change and extend functionalities \cite{carl2}. Fig.6 describes this process in general. At the beginning data are extracted from various sources. The extraction must be customized to the characteristics of the respective data provider. These can differ in the file and data format as well as in the interface. For instance, common interfaces are protocols such as \textit{http} or \textit{ftp}, source-specific APIs or stream data.
 In the transformation part demanded information are converted into the neccessary database format. As well calculations can be applied, duplicates will be erased, units converted or further algorithms can be applied. 
-The last stage is contained in the upload or import into the data warehouse, from where to information can bendrawn from multiple stakeholder . An important requirement in the loading phase states the efficiency: data must be sent within a short duration. Dependent on the size of data, parallelization or hardware adjustments may help in all three sections. (\url{https://link.springer.com/chapter/10.1007/978-3-642-32584-7_6})
-\linebreak %Quelle 
+The last stage is contained in the upload or import into the data warehouse, from where to information can bendrawn from multiple stakeholder. An important requirement in the loading phase states the efficiency: data must be sent within a short duration. Dependent on the size of data, parallelization or hardware adjustments may help in all three sections \cite{etlRef}. 
+\linebreak
 
 
 
@@ -176,8 +177,8 @@ The last stage is contained in the upload or import into the data warehouse, fro
 \section{Data}
 As a data source for this work, we exclusively focus on Caida. Caida is an abbreviation and stands for Center for Applied Internet Data Analysis. Located in San Diego, CA in the United States, the center studies networks and its infrastructure up to a large scale. For their investigation on theoretical and practical aspects of the Internet they monitor, collect, analyze and provide network data \cite{Caida}. \\  \linebreak
 
-Regarding the data granularity our primary focus lies on AS level data. Within this domain, we investigate five type of datasets. \textit{AS-Rank} offers a data base giving information about specific autonomous systems, like its rank, relationship to other ASes or customer cone  \cite{Rank} . \textit{AS Classification} represents a dataset including information on the business types of Autonomous Systems \cite{Classification}. Through machine-learning inference, Caida is able to offer this knowledge  \cite{Classification}, \cite{dataInference}. A large collection of datasets named \textit{Pv4 Routed 24 AS Links} is used in detail to investigate the topology on the Internet, its structure regarding streams of traffic, and ratios of sending and receiving autonomous systems  \cite{IPv4Data}. This collection of data forms the center of our investigation. From 2007 to 2018 data is collected, by three \textit{teams}. Caida uses independent teams to collect data in order to offer a way to validate the data and its data inference. The teams probe every routed /24 in the IPv4 address space.
-We investigate the dataset \textit{AS Relationships} in order to find out about Provider-to-Customer relationships as well as Peer-to-Peer relationships \cite{CaidaRelationshipsData}.  Lastly, we take into account geographic information of the Autonomous Systems to draw conlclusions on regions with high imapact on the Internet network and less involved ones  \cite{CaidaGeoData}. For the purpose of investigating the characteristics of ASes itself and their network, we analyzed recent data of December 2017.  As for the time series analysis, we used data from 2007 until 2017. \\
+Regarding the data granularity our primary focus lies on AS level data. Within this domain, we investigate five type of datasets. \textit{AS-Rank} offers a data base giving information about specific autonomous systems, like its rank, relationship to other ASes or customer cone  \cite{Rank} . \textit{AS Classification} represents a data set including information on the business types of Autonomous Systems \cite{Classification}. Through machine-learning inference, Caida is able to offer this knowledge  \cite{Classification}, \cite{dataInference}. A large collection of datasets named \textit{Pv4 Routed 24 AS Links} is used in detail to investigate the topology on the Internet, its structure regarding streams of traffic, and ratios of sending and receiving autonomous systems  \cite{IPv4Data}. This collection of data forms the center of our investigation. From 2007 to 2018 data is collected, by three \textit{teams}. Caida uses independent teams to collect data in order to offer a way to validate the data and its data inference. The teams probe every routed /24 in the IPv4 address space.
+We investigate the data set \textit{AS Relationships} in order to find out about Provider-to-Customer relationships as well as Peer-to-Peer relationships \cite{CaidaRelationshipsData}.  Lastly, we take into account geographic information of the Autonomous Systems to draw conlclusions on regions with high imapact on the Internet network and less involved ones  \cite{CaidaGeoData}. For the purpose of investigating the characteristics of ASes itself and their network, we analyzed recent data of December 2017.  As for the time series analysis, we used data from 2007 until 2017. \\
 
 
 \section{Results}
@@ -197,7 +198,7 @@ As depicted in the theoretical part, autonomous systems have relationships as th
 
 
 
-We furthermore built graphs describing the distributional characteristics of autonomous systems. Fig. 9 shows the distribution of autonomous systems and how many outgoing connections the single nodes have. Approximately 5.500 sending nodes are containted within that data set. We ranked them on the x-axis. With the number of connections an AS is sending to on the y-axis, we obtain a very left centered distribution. A very small number of nodes in the network are sending traffic to a high number of other nodes. It follows, what is called a power-law distribution  \cite{powerlawCitation}.
+We furthermore built graphs describing the distributional characteristics of autonomous systems. Fig. 9 shows the distribution of autonomous systems and how many outgoing connections the single nodes have. Approximately 5.500 sending nodes are containted within that dataset. We ranked them on the x-axis. With the number of connections an AS is sending to on the y-axis, we obtain a very left centered distribution. A very small number of nodes in the network are sending traffic to a high number of other nodes. It follows, what is called a power-law distribution  \cite{powerlawCitation}.
 
 \vspace{0.5cm}
 \begin{figure}[htbp]
@@ -216,7 +217,7 @@ We furthermore built graphs describing the distributional characteristics of aut
 %> sum(sumAsTo$count[1:490]) / sum(sumAsTo$count)
 %[1] 0.1678801
 
-Simultaneousely, we drew the distribution of incomming connections per Autonomous System (Appendix A) and received a similar result. With approximately 250.000 nodes, receiving traffic, only very few nodes are receiving traffic from a high number of nodes, again following the properties of a power-law distribution. The top ten percent of highest ranked nodes, are receiving approximately 52\% of the overall traffic in this network. The top five percent make up 36\% and the top one percent even 17\% of overall trafic. The quantiles are almost identical to those of the previous distribution. Such results hint to the Pareto Principle stating that a small number of participants have a large impact on the overall activity and the large majority only accounts for a small influence. This principle has already been proven to be a good estimate for applications in business and economics. Our results suggest that this principle is also feasible for Caida data on AS-level.  \\ 
+Simultaneousely, we drew the distribution of incomming connections per Autonomous System (\textit{Appendix A}) and received a similar result. With approximately 250.000 nodes, receiving traffic, only very few nodes are receiving traffic from a high number of nodes, again following the properties of a power-law distribution. The top ten percent of highest ranked nodes, are receiving approximately 52\% of the overall traffic in this network. The top five percent make up 36\% and the top one percent even 17\% of overall trafic. The quantiles are almost identical to those of the previous distribution. Such results hint to the Pareto Principle stating that a small number of participants have a large impact on the overall activity and the large majority only accounts for a small influence. This principle has already been proven to be a good estimate for applications in business and economics. Our results suggest that this principle is also feasible for Caida data on AS-level.  \\ 
 
 %top 1 percent
 %> sum(sumAsTo$count[1:520]) / sum(sumAsTo$count)
@@ -246,23 +247,23 @@ An important finding regarding connectivity risks of the network is, how vulnera
 
 Next, we analyzed the geographic locations of autonomous systems and their flow of traffic. Fig. 9 symbolizes autonomous systems as organge points on a word map. We can see a high concentration of ASes in North America and Europe. The concentration of ASes is less dense in areas like South America, Africa or Asia. Insights that we can draw from that representaion are that more autonomous systems are situated in highly developed economies  than they are in less developed regions. This result corresponds to previous research conducted by \cite{geoResearch}. While we need to keep in mind that we are only analyzing one data set - with challenging data collection on top of that, we can assume this result still to be a representative sample of the overall network \cite{CaidaDataCollection}. The results confirm the assumption that most traffic is taking place between parties of richer and more developed economies. Conclusion for these findings may be that the internet is a main driver of any economic growth as well as the leading instrument of communication.
 
-These results confirm the research from 2002 by \cite{geoResearch} and lead to the conclusion that the geographically speaking the Internet network did not develop much further. Accordingly, one can state that developed areas increased their power and wealth, whereas in the last 15 years the development of less wealthy areas is only marginal. Even though we are looking at the level of Autonomous Systems and \cite{geoResearch} looked directly at the router-level, the comparison remains valid. \\
-
 
 \vspace{0.5cm}
-\begin{figure}[htbp]
+\begin{figure}[h]
 \centerline{\includegraphics[width=\columnwidth]{Graphics/connectedASes.png}}
 \caption{Location of ASes and respective Streams of Traffic}
 \label{fig}
 \end{figure}
 \vspace{0.5cm}
 
-In addition to the analysis of a single point in time, we investigated the timely development of the network. Figure 10 shows the number of traffic-sending autonomous systems from the beginning of 2007 until the end of 2017. Within these 10 years, there is a clear upward trend. In 2015 this upward trend vanishes and and reaches a constant level of approximately 5.500 sending AS nodes within the network. (Note the consistency of results with respect to  the `Distribution of number of sending ASes` in the appendix) Striking in that graph are the multiple outliers appearing throught the time series. A qualitative research about exeptional events happening on these dates that might have been the reason for a downtime of multiple nodes did not lead to reasonable results. As a consequence, we assume the outliers to be caused by monitoring and data collection problems of CAIDA \cite{CaidaDataCollection}. Events like updating the monitoring system can cause such a down time. 
 
-With respect to Appendix .....  you can see a simultaneous development for the amount of nodes, receiving traffic - on a level of approx. 250.000 nodes of course. 
+These results confirm the research from 2002 by \cite{geoResearch} and lead to the conclusion that the geographically speaking the Internet network did not develop much further. Accordingly, one can state that developed areas increased their power and wealth, whereas in the last 15 years the development of less wealthy areas is only marginal. Even though we are looking at the level of Autonomous Systems and \cite{geoResearch} looked directly at the router-level, the comparison remains valid. \\
+
+
+In addition to the analysis of a single point in time, we investigated the timely development of the network. Figure 10 shows the number of traffic-sending autonomous systems from the beginning of 2007 until the end of 2017. Within these 10 years, there is a clear upward trend. In 2015 this upward trend vanishes and and reaches a constant level of approximately 5.500 sending AS nodes within the network. \\
 
 \vspace{0.5cm}
-\begin{figure}[htbp]
+\begin{figure}[h]
 \centerline{\includegraphics[scale=0.4]{Graphics/ASFromAll.png}}
 \caption{Time development from 2007 - 2017: Number of sending AS nodes}
 \label{fig}
@@ -270,45 +271,50 @@ With respect to Appendix .....  you can see a simultaneous development for the a
 \vspace{0.5cm}
 
 
+Conclusions that we can draw from this results are either that we are observing a saturation of network size in technological highly developed areas in combination with no significant increase of Internet accesses in poorer economies, or that the stagnation is of technical nature. The later suggests that simply the expansion of Caida monitoring tools might have stagnated. (Note the consistency of results with respect to  the `Distribution of number of sending ASes` in the appendix) Striking in that graph are the multiple outliers appearing throught the time series. A qualitative research about exeptional events happening on these dates that might have been the reason for a downtime of multiple nodes did not lead to reasonable results. As a consequence, we assume the outliers to be caused by monitoring and data collection problems of CAIDA \cite{CaidaDataCollection}. Events like updating the monitoring system can cause such a down time. \\
 
-\subsection{ETL Process in Coriav3}
-
-This paper is based on the framework of Sebastian Gross\cite{Coria3}. At the current state Coria does not does not provide the functionality of an automated ETL process for any data source. 
-The extraction part is handled manually by downloading the desired files and, if neccessary, unzipping the text-formatted file that for instance can be an edge list. \break
+With respect to \textit{Appendix C} you can see a simultaneous development for the amount of nodes, receiving traffic - on a level of approx. 250.000 nodes of course. \\ 
 
 
-The user can now upload the file using the Coria web interface. This can be done through the upload module, following this link: \url{http://141.20.103.31:8080/Coria/#!/datasets/upload}\footnote{If Coria is implemented on an other system the IP changes}. The upload module itself already provides Caida specific upload functions that can handle Caida's file format \cite{Coria3}. Furthermore a "Standard tab seperated Importer" allows users to import edge lists from other data sources. At this time Coria only accepts and deploys solely undirected and unweighted graphs. Users therefore need to be able to adjust or transform their files into the demanded format. The current transformation part in the web framework consists of adjustments that has to be done by the user.\linebreak
+
+\begin{subsection}{ETL Process in Coriav3}
+
+This paper is based on the framework of Sebastian Gross\cite{Coria3}. At the current state Coria does not provide the functionality of an automated ETL process for any data source, as fig. \ref{fig:ETLinCoriav3} shows. 
+The extraction part is handled manually by downloading the desired files and, if neccessary, unzipping the text-formatted file that for instance can be an edge list. \\ \linebreak
+
 
 \vspace{0.3cm}
 \begin{figure}[htbp]
 \centerline{\includegraphics[width=\columnwidth]{Graphics/CoriaETL_current.png}}
-\caption{Coriav3: Current ETL Process}
+\caption{Coriav3: Manual ETL Process}
 \label{fig:ETLinCoriav3}
 \end{figure}
 \vspace{0.3cm}
 
-
+The user is now able to upload the file using the Coria web interface. This can be done through the upload module, following this link: \begin{center} \url{http://141.20.103.31:8080/Coria/#!/datasets/upload}\footnote{If Coria is implemented on an other system the IP changes} \end{center} The upload module itself already provides Caida specific upload functions that can handle Caida's file format \cite{Coria3}. Furthermore a "Standard tab seperated Importer" allows users to import edge lists from other data sources. At the moment Coria only accepts and deploys solely undirected and unweighted graphs. Users therefore need to be able to adjust or transform their files into the demanded format. The current transformation part in the web framework consists of adjustments that has to be done by the user itself.\linebreak
 
 After manually preprocessing the dataset, the web framework allows the user to upload the edge list and then analyze and apply metrics to the data.
-Coria already provides an module that can upload data into a MySQL or Redis database. Unexperienced users do not need to be familiar with database management systems. Regarding the upload, loading in the Coria ETL process is already automated. \break
-As stated before the performance requirements, uploading files parallel is at the moment not possible. Applying a small penetration test using two clients each uploading two files at the same time, Coria was not able to handle any of the four files. The fact may influence the contributed ETL process as it is running in the background and using the same interface(see: ~\nameref{ssec:contribution}).   \linebreak
+Coria already provides an module that can upload data into a MySQL or Redis database. Unexperienced users do not need to be familiar with database management systems. Regarding the upload, loading in the Coria ETL process is already automated. \\ \linebreak
+As stated before the performance requirements, uploading files parallel is not possible at the moment. Applying a small penetration test using two clients each uploading two files at the same time, Coria was not able to handle any of the four files. A possible reason for that may be contributed ETL process, as it is running in the background and using the same interface(see: ~\nameref{ssec:contribution}).   \linebreak
 
+\end{subsection}
 
+\begin{subsection}{Contribution: Automated ETL process} \label{ssec:contribution}
 
-\subsection{Contribution: Automated ETL process} \label{ssec:contribution}
+Figure \ref{fig:etl2} visualizes the new developed ETL Process, written in Python 2.7. In general, the server periodically queries for new data sets on the Cadia data server. If there are no new data available on the servers the query will try in the next period again. 
+In case that there is new data available, every new file will be downloaded. After fetching a new file, it will be transformed into an edge list and then be uploaded to the Coria database. \\ 
 
+To be more specific, we ensured that the automated ETL process and all of its components trigger every day, we created a function \textit{timer.py}. The timer program is meant to operate permanently and check wether Coria's webservice and the MySQL database are functioning. An 24 hour interval is deemed to be adequate as Caida\textquotesingle s data files provides an snapshot of one day. \\ 
 
-
-\begin{figure}
+\vspace{0.5cm}
+\begin{figure}[H]
 \centerline{\includegraphics[width=\columnwidth]{Graphics/ETL2.png}}
 \caption{Contributed ETL Process}
 \label{fig:etl2}
-\end{figure}
+\end{figure}\vspace{0.5cm}
 
 
-Figure \ref{fig:ETLinCoriav3} visualizes the new developed ETL Process, written in Python 2.7. In general, the server periodically queries for new data sets on the Cadia data server. If there are no new data available on the servers the query will try in the next period again. 
-In case that there is new data available, every new file will be downloaded. After fetching a new file, it will be transformed into an edge list and then be uploaded to the Coria database.
-\linebreak
+One aspect that we are not in control of, is the frequency and regularity of file uploads by Caida teams. Figure \ref{fig:UploadOverTime} presents a rather unsystematically pattern of uploads. As one can observe in the histogram there are some days with more than 20 uploaded files per day. As well one can also identify periods in summer and around new years eve with none or only a few uploads that can be assumed as holidays. Bearing this in mind, an automated ETL Process can only produce a data input as stable as its data source allows it to do so.
 
 \vspace{0.2cm}
 \begin{figure}[htbp]
@@ -319,14 +325,11 @@ In case that there is new data available, every new file will be downloaded. Aft
 \vspace{0.5cm}
 
 
-To be more specific, we ensured that the automated ETL process and all of its components trigger every day, we created a function \textit{timer.py}. The timer program is meant to operate permanently and check wether Coria's webservice and the MySQL database are functioning. An 24 hour interval is deemed to be adequate as Caida\textquotesingle s data files provides an snapshot of one day. %carls? was ist das für ein character char13...?
+ 
+For other sources or data sets than Caida the interval can be customized by changing the sleep timer in units of seconds (Listing~\ref{lst:timer}: \lstinline{Frequency = 60 * 60 * 24}).\linebreak
 
-One aspect that we are not in control of, is the frequency and regularity of file uploads by Caida teams. Figure \ref{fig:UploadOverTime} presents a rather unsystematically pattern of uploads. As one can observe in the histogram there are some days with more than 20 uploaded files per day. As well one can also identify periods in summer and around new years eve with none or only a few uploads that can be assumed as holidays. Bearing this in mind, an automated ETL Process can only produce a data input as stable as its data source allows it to do so.
-%@DavBer: Was meint der letzte Satz? 
-For other sources or data sets the interval can be customized by changing the sleep timer in units of seconds (Listing~\ref{lst:timer}: \lstinline{Frequency = 60 * 60 * 24}).\linebreak
-
-
-\lstinputlisting[language=Python, caption={timer.py}, label={lst:timer}, firstline=2, captionpos=b,  xleftmargin=.02\textwidth, linewidth = 0.95\columnwidth]{CodeFiles/CoriaETL/timer.py}
+\vspace{0.3cm}
+\lstinputlisting[language=Python, caption={timer.py}, label={lst:timer}, firstline=2, captionpos=b,  xleftmargin=.02\textwidth, linewidth = 0.95\columnwidth]{CodeFiles/CoriaETL/timer.py} \vspace{0.3cm}
 
 
 
@@ -335,38 +338,24 @@ From our coding experience with infinite Python loops chances are high for creat
 Therefore the timer function contains the \textit{continue}-operator in combination with exception handling: If one of the functions creates an error, it can be assured that one day later the ETL porcess will be triggered again without having any person restarting the process or bug fixing. \linebreak
 
 \vspace{0.2cm}
-\lstinputlisting[language=Python, caption={main.py}, label={lst:main}, linerange={1-5,8-12},captionpos=b, xleftmargin=.02\textwidth, linewidth = 0.95\columnwidth]{CodeFiles/CoriaETL/main.py}
+\lstinputlisting[language=Python, caption={main.py}, label={lst:main}, linerange={1-5,8-12},captionpos=b, label = main, xleftmargin=.02\textwidth, linewidth = 0.95\columnwidth]{CodeFiles/CoriaETL/main.py}
 \vspace{0.5cm}
 
-%@Davber: Kann man in url Bold texten?
-The folder structure of Caida's AS Rank files is determined as follows: \textit{\url{http://data.caida.org/datasets/topology/ark/ipv4/as-links/_YEAR_/}}. Therefore the \textit{main} program requests the current year and the year before. The year before has to come into consideration for the case of a new year: Files from December are always uploaded from the teams in the following year. For instance the information from 21 December 2017 was uploaded almost 3 weeks later on 10 January 2018.
 
-Next, at the beginning of the while loop \textit{main.py} creates a connection to data source. As the current year is 2018, the loop starts with calling the webpage of 2017:\textit{...datasets/topology/ark/ipv4/as-links/2017/}. After the connection was established, the module \textit{lxml.html} fetches all links of the website and sets a list out of these.
+The folder structure of Caida's AS Rank files is determined as follows:  \textit{\url{http://data.caida.org/datasets/topology/ark/ipv4/as-links/_YEAR_/}}. Therefore the \textit{main} program, as listing \ref{main} shows, requests the current year and the year before. The year before has to come into consideration for the case of a new year: Files from December are always uploaded from the teams in the following year. For instance the information from 21 December 2017 was uploaded almost 3 weeks later on 10 January 2018. \\ 
 
+Listing \ref{lst:main_linkextract} presents in a next step, that at the beginning of the while loop, \textit{main.py} creates a connection to data source. As the current year is 2018, the loop starts with calling the webpage of 2017:\textit{...datasets/topology/ark/ipv4/as-links/2017/}. After the connection was established, the module \textit{lxml.html} fetches all links of the website and sets a list out of these. \\ 
 
+\vspace{0.3cm}
 \lstinputlisting[language=Python, caption={main.py - Link Extraction}, label={lst:main_linkextract}, firstline=17, lastline=27, captionpos=b,  xleftmargin=.02\textwidth, linewidth = 0.95\columnwidth]{CodeFiles/CoriaETL/main.py}
+\vspace{0.3cm}
 
-
-Afterwards a for loop extracts for every link the name of the file. This is due to the fact that the functions \textit{CsvCreate} and \textit{Csv2CoriaDB} need the file name as input parameters. The file names used in the ETL automation and in Caida data source are consistent. The following condition searches in every extracted link for the string "cycle-as". The following if condition checks wether the file was already downloaded. All file that has been processed are stored in the folder \textit{CoriaETL/Data/Original/}. If a file already exists on the Coria server it should already be transformed into an edge list as well as been imported into the MySQL database. For the case that a file does not exist, the \textit{else}-part of the function be executed. First, the data is being downloaded and saved as an unzipped text file. 
+Afterwards a for loop extracts for every link the name of the file. This is due to the fact that the functions \textit{CsvCreate} and \textit{Csv2CoriaDB} need the file name as input parameters. The file names used in the ETL automation and in Caida data source are consistent. The following condition in listing \ref{cycle} searches in every extracted link for the string \textit{cycle-as}. The if condition checks wether the file was already downloaded. All file that has been processed are stored in the folder \textit{CoriaETL/Data/Original/}. If a file already exists on the Coria server it should already be transformed into an edge list as well as been imported into the MySQL database. For the case that a file does not exist, the \textit{else}-part of the function will be executed. First, the data is being downloaded and saved as an unzipped text file. 
 Then the main program will call the function that transforms the data into an edge list, which will then be passed to the database. 
-The while loop \ref{lst:main_linkextract} will continue until the last file of the current year is processed.
-\linebreak
+The while loop in listing \ref{lst:main_linkextract} will continue until the last file of the current year is processed.  \\
 
-
-% \vspace{0.5cm}
-
-% \begin{lstlisting}[language=Python, caption={main.py - Filename Extraction},captionpos=b, xleftmargin=.02\textwidth, linewidth = 0.95\columnwidth]
-% for j in Liste:
-% 	j2= j.rsplit('/')[-1]
-% 	j3= j2.split('.gz')[0]
-d
-% \end{lstlisting}
-% \vspace{0.5cm}
-
-
-
-\begin{lstlisting}[ language=Python,caption={main.py - File Processing Part},captionpos=b , float=tp,
-  floatplacement=tbp] 
+\vspace{0.5cm}
+\begin{lstlisting}[ language=Python,caption={main.py - File Processing Part},captionpos=b ,  label={cycle}] %float=tp, 
 
 if "cycle-as" in j:
 	if os.path.isfile("Data/Original/"+j3):
@@ -386,35 +375,34 @@ if "cycle-as" in j:
 		Csv2CoriaDB(j3)
 
 	YearBefore+=1 
-
 \end{lstlisting}
-
-\lstinputlisting[language=Python, caption={CsvCreate.py}, label={lst:csvcreate}, linerange={1-5,8-12},captionpos=b, xleftmargin=.02\textwidth, linewidth = 0.95\columnwidth]{CodeFiles/CoriaETL/CsvCreate.py}
+\vspace{0.5cm}
 
 \textit{CsvCreate} creates an edge list from the original file on the Coria server.
 For example, the original ASrank list 'cycle-aslinks.l7.t1.c000027.20070913.txt'(folder: Data/Original/), containing the data description and additional data, will be converted into the pure edge list '20070913.txt(folder: Data/Csv/)' With the Python built-in modules \textit{re — Regular expression operations} 
-the program extracts the starting and destination nodes of every line beginning with a "D" and adds them to the edge list. These cases are referring to \textit{direct} connections between nodes \cite{IPv4Data}. The edge list will be saved in the format \textit{YYYYMMDD.csv}, i.e. \textit{20180216.csv}
-\linebreak
+the program extracts the starting and destination nodes of every line beginning with a "D" and adds them to the edge list. These cases are referring to \textit{direct} connections between nodes \cite{IPv4Data}. The edge list will be saved in the format \textit{YYYYMMDD.csv}, i.e. \textit{20180216.csv} \\
 
 
 
+\vspace{0.3cm}
+\lstinputlisting[language=Python, caption={CsvCreate.py}, label={lst:csvcreate}, linerange={1-5,8-12},captionpos=b, xleftmargin=.02\textwidth, linewidth = 0.95\columnwidth]{CodeFiles/CoriaETL/CsvCreate.py} \vspace{0.5cm}
 
-Finally \textit{Csv2CoriaDB} is the last component of the automated data import. The initial idea was to directly work with the MySQL database and import the edge list with the Python SQL module, but the Coria framework inserts not only the data set itself, but it also inserts entries for every edge, node and attribute, as illustrated in figure \ref{fig:SQL_schema}. Thus, we decided to write a script that emulates the process of uploading to the Coria web framework through \textit{Selenium} \cite{selenium}. Selenium is a language-open software framework for testing and automation in web applications.\linebreak
 
-The automated import process makes use of \textit{Chromedriver} as Webdriver API, while other browsers such as Mozilla Firefox or Mac Safari can still be applied. For our specific task Chrome outperformed other browsers. It is important that at the initial installation process of the automated ETL framework Google Chrome has to be installed as well as the Chromedriver path needs to be added to the environent variables.
 
-Exactly like the csv creator the database import takes the file name as input parameter.
+Finally \textit{Csv2CoriaDB} is the last component of the automated data import, which can be found in \textit{Appendix D}. The initial idea was to directly work with the MySQL database and import the edge list with the Python SQL module, but the Coria framework inserts not only the data set itself, but it also inserts entries for every edge, node and attribute, as illustrated in fig. \ref{fig:SQL_schema}. Thus, we decided to write a script that emulates the process of uploading to the Coria web framework through \textit{Selenium} \cite{selenium}. Selenium is a language-open software framework for testing and automation in web applications. \\ \linebreak
+
+The automated import process makes use of \textit{Chromedriver} as Webdriver API, while other browsers such as Mozilla Firefox or Mac Safari can still be applied. For our specific task Chrome outperformed other browsers. It is important that at the initial installation process of the automated ETL framework Google Chrome has to be installed as well as the Chromedriver path needs to be added to the environent variables. Exactly like the csv creator the database import takes the file name as input parameter.
 Afterwards the webdriver requests the Coria upload page. The Selenium method \textit{find\_element\_by\_xpath} enables the webdriver to fulfill the requested fields.
 At first Selnium selects the upload method \textit{tab-separated-importer}, then it sends the name of the imported data set, which is always the date in the format \textit{YYYYMMDD}.
-From then on the path of the the file is inserted into the \textit{Select Dataset File} section. 
-Finally the script simulates a upload button: \url{"driver.find_element_by_xpath('//*[@id="import"]/button').click()"}. \\
+From then on the path of the the file is inserted into the \textit{Select data set File} section. 
+Finally the script simulates a upload button: \url{driver.find_element_by_xpath('//*[@id="import"]/button').click()"}. \\ \linebreak
 
 Webdrivers provide a great variety on options. Therefore we decided to run the chromedriver \textit{--headless} (line 10). This ensures that chrome will not open a window. Instead the chromedriver will run in the background and the upload process will not disturb someone that is working on the server. At the end of every chromedriver session the webdriver must be closed (line 45). If this is not applied the loop will create an great amount of process in the background until the server is overloaded.
 \linebreak
 
-The decision of handling Caida data in a threefold manner has several intentions. First of all, the original Caida provides much more information than Coria is able to analyze and represent at the moment. For instance, the Coria framework processes undirected and unweighted graphs, while the Caida monitoring includes data about the direction of a connection. Furthermore, Caida data files contain indirect paths including the number and which hops where used. Regarding the risk analysis, the indirect path may influence the score. For other networks the amount of data transferred should be considered. For further developments Coria should include weighted edge lists: Opening a website cannot be assumed the same value, for example, as working in Big Data analytics. But at this moment, both connection are evaluate the same influence on Coria interpretation. Beyong that, backing up Caida data lowers the risk of loss, if Caida service failures.
-Second, the transformation into an edge list allows to verify the results from Caida with other graph tools. As alreays presented in \cite{Coria3} NetworkX and furhter libraries include interfaces for edge list loading. Functionality that at the moment cannot be provided, can easily be used with other tools as the edge lists are already created.
-Lastly, of course the automted import to the Coria database helps using the web framework without caring about data acquisition and adjustment. 
+The decision of handling Caida data in a threefold manner has several intentions. First of all, the original Caida provides much more information than Coria is able to analyze and represent at the moment. For instance, the Coria framework processes undirected and unweighted graphs, while the Caida monitoring includes data about the direction of a connection. Furthermore, Caida data files contain indirect paths including the number of hops that were used in between two nodes. Regarding the risk analysis, the indirect path may influence the score. For other networks the amount of data transferred should be considered. For further developments Coria should include weighted edge lists: Opening a website cannot be assumed the same value, for example, as working with Big Data. But at this moment, both connection are evaluated as the identical by Coria. Beyond that, backing up Caida data lowers the risk of loss, if Caida services should fail to be online.
+Second, the transformation into an edge list allows to verify the results from Caida with other graph tools. As already presented in \cite{Coria3} NetworkX and furhter libraries include interfaces for edge list loading. Functionality that at the moment cannot be provided, can easily be used with other tools as the edge lists are already created.
+Lastly, the automted import to the Coria database helps using the web framework without caring about data acquisition and adjustment. 
 
 
 \vspace{0.5cm}
@@ -425,8 +413,10 @@ Lastly, of course the automted import to the Coria database helps using the web 
 \end{figure}
 \vspace{0.5cm}
 
+\end{subsection}
+
 \subsection{Initial ETL Implementation}
-Caida AS rank data can be tracked back until the year 2007. Garuanteering that a new Coria Server can also work with historic data \textit{InitialDataSetup.py} is provided. Before running the automated ETL process that continuously verifies the presence of newly uploaded data, it is suggested to run the initialisation of the data import once. It should be considered that it takes some hours to compute all historic data. As of today (March 2018), 2160 files have to be processed and imported into the database. We tested the initial data setup, which took a total time of  9:55 hours, testing the script on a virtual server with Windows 2012 R2 with a Common KVM processor 2,53Ghz and 8 GB R.  
+Caida AS rank data can be tracked back until the year 2007. In order to guarantee that a new Coria server can also work with historic data \textit{InitialDataSetup.py} is provided. Before running the automated ETL process that continuously verifies the presence of newly uploaded data, it is suggested to run the initialisation of the data import once. It should be considered that it takes some hours to compute all historic data. As of today (March 2018), 2160 files have to be processed and imported into the database. We tested the initial data setup, which took a total time of approximately 10 hours, testing the script on a virtual server with Windows 2012 R2 with a Common KVM processor 2,53Ghz and 8 GB R.  
 
 
 
@@ -434,21 +424,21 @@ Caida AS rank data can be tracked back until the year 2007. Garuanteering that a
 \section{Conclusion}
 \subsection{Summary}
 
-The web application Coria allows the analysis of connectivity risks of various network graphs. Through visualizations and a unified risk score it offers comprehensive results. Focussing on the level of Autonomous Systems, our data analysis revealed a power-law distribution when it comes to the influence of ASes within the Internet network - a few highly important nodes and many less important ones. Moreover the geographical investigation of its locations showed the high concentration and flow of traffic of ASes in more developed economies, with only sparse density in less developed economies. With regard to the evolution of the Internet network, we exhibited a linearly growing trend of AS nodes until 2015, thenceforward the size of the network stayed constant until today. We assume 2 factor for this stagnation: As ASes represent corporations and organizations, from 2007 until 2015 nearly every actor has already migrated onto the internet infrastructure. Another explanation can be that the expansion of Caida monitoring tools has stagnated.
+The web application Coria allows the analysis of connectivity risks of various network graphs. Through visualizations and a unified risk score it offers comprehensive results. Focussing on the level of autonomous systems, our data analysis revealed a power-law distribution when it comes to the influence of ASes within the Internet network - a few highly important nodes and many less important ones. Moreover the geographical investigation of its locations showed the high concentration and flow of traffic of ASes in more developed economies, with only sparse density in less developed economies. With regard to the evolution of the Internet network, we exhibited a linearly growing trend of AS nodes until 2015, followed by a constant level for the size of the network until today. We assume two factors for this stagnation: As ASes represent corporations and organizations, from 2007 until 2015 nearly every actor has already migrated onto the internet infrastructure, referring to economical highly developed areas. Simultaneousely, Internet connections in technologically less evolved areas did not increase much more compared to 2015.  Another explanation can be that simply the expansion of Caida monitoring tools has stagnated.
 
-Regarding the software-development aspect, we developed an ETL tool in Python 2.7 that provides modules for an automated ETL process. Hereby we developed components that are capable of checking for new data, downloading it and providing validation functionalities - without any manual interference. Moreover these files then are being imported into the Coria framework, which enables the possibility of using the lattest data for the analysis of connectivity risks. Besides that, we installed and implemented CoriaV3 on a server. The framework is running stable and all functionalities can be used. \\
+Regarding the software-development aspect, we developed an ETL tool in Python 2.7 that provides modules for an automated ETL process. Hereby we developed components that are capable of checking for new data, downloading it and providing validation functionalities - without any manual interference. Moreover these files then are being imported into the Coria framework, which enables the possibility of using the lattest data for the analysis of connectivity risks. In addition, we installed and implemented CoriaV3 on a server. The framework is running stable and all functionalities can be used. \\
  
 \subsection{Limitations and Further Work}
-One limitation of this work is caused by our data source Caida. The data that we used, i.e. types of Autonomous Systems or their relationship was partly gathered through statistical inference. Its machine learning classifier provided a positive predicted value of 70\% \cite{Classification}, which still leaves misclassified observations within the data and limits our results to some extent. Nevertheless Caida states a serious source for internet infrastructure, which is why we chose it in the first place. To the best of our knowledge, there is no superior data source available.  \\ 
-The short period of developing and testing the automation is not sufficient for evaluating the long term peformance. Does the Python code work for several months or years? As we stated in \ref{ssec:contribution} errors or changes on the servers that had not occured yet, may influence the steadiness. \\
+One limitation of this work is caused by our data source Caida. The data that we used, i.e. types of autonomous systems or their relationship was partly gathered through statistical inference. Its machine learning classifier provided a positive predicted value of 70\% \cite{Classification}, which still leaves misclassified observations within the data and limits our results to some extent. Nevertheless Caida states a serious source for data on Internet infrastructure, which is why we chose it in the first place. To the best of our knowledge, there is no superior data source available.  \\  \linebreak
+The short period of developing and testing the automation in the scope of a seminar thesis is not sufficient for evaluating the long term peformance. Does the Python code work for several months or years? As we stated in \ref{ssec:contribution} errors or changes on the servers that had not occured yet, may influence the steadiness. \\
 
 Further work that can follow could be to apply the automated ETL process to more data sources. For Instance, RIPE Network Coordination Center \cite{RipeNCC} as another source of the internet infrastructure, may be adopted. Apart from network infrastructures, any graph can be applied to Coria: The riskiness of physical traffic data, such as public transportation and vehicles, may improve city infrastructures or predict congestion. Even in social network data Coria may give insights: risk analysis may be applied for influencer detection and customer behavior evaluation.\\
 
-Sebastian Gross build with CoriaV3 the foundation of graph analysis and visualization. Nevertheless, additional tools in the framework might increase demand and improve usability. Features that we found to be helpful are realtime analytics and reporting tools. Caida serves snapshots of one day, but telecommunication companies are in need of control of their infrastructure anytime and, especially, be informed in in cases of failure.
+Sebastian Gross build with CoriaV3 the foundation of graph analysis and visualization. Nevertheless, additional tools in the framework might increase demand and improve usability. Features that we found to be helpful are realtime analytics and automated reporting functionalities. Caida serves snapshots of one day, but telecommunication companies are in need of control of their infrastructure anytime and, especially, be informed in in cases of failure. \\
 
 %\break
-As well the contributed programs can go further: An important point, is a missing graphical interfaces. The aspect of user convenience might deter them from working with our ETL tool in the command line interface. Here we see great opportunities to generalize the process and combine the workflow in one web service.\\
-Further analysis might refer to other time intervals. In the attached files we created a script to aggregate the daily data up to months.
+Also, the contributed programs can go further: An important point, is a missing graphical interfaces. The aspect of user convenience might deter them from working with our ETL tool in the command line interface. Here we see great opportunities to generalize the process and combine the workflow in one web service.\\ \linebreak 
+Further analysis might refer to other time intervals. In the attached files we created a script to aggregate the daily data up to months. 
 We experiemented with Flask, a Python library for web development \cite{Flask} and tried to provide a graphical interface to merge the information.
 
 
@@ -515,6 +505,8 @@ Communication}, vol. 21:1, pp. 38-57, November 2014. doi:
 
 \bibitem{carl2} butunclebob (n.d.), [Online]. Available: \url{http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod}. %ok
 
+\bibitem{etlRef}P. Jovanovic, O. Romero, A. Simitsis, A. Abelló, `` Integrating ETL Processes from Information Requirements,'' in \textit{International Conference on Data Warehousing and Knowledge Discovery}, vol. 7448, 2012. doi:https://doi.org/10.1007/978-3-642-32584-7\_6
+
 \bibitem{Caida}Caida, University of California San Diego, [Online]. Available: https://www.caida.org/home %ok
 %22
 \bibitem{Classification}Caida, University of California San Diego, ``AS Classification,'' [Online]. Available: http://www.caida.org/data/as-
@@ -543,12 +535,10 @@ classification %ok
 
 \bibitem{RipeNCC}Ripe NCC, (n.d.), [Online]. Available: https://www.ripe.net/manage-ips-and-asns/db %ok
 
-
 \bibitem{PythonDocumentation}Python Software Foundation, ``6. Built-in Exceptions,'' [Online]. Available: http://www.python.org/2.7/library/exceptions.html %ok
 
 \bibitem{powerLaw} Y. Bar-Yam, ``Concepts: Power Law," New England Complex Systems Institute, August 2015. %ok
 %30
-
 
 \bibitem{CaidaRelationships}X. Dimitropoulos, G. Riley, ``Modeling Autonomous System Relationships,'' in \textit{Principles of Advanced and Distributed Simulation (PADS)}, pp. 143--149, May 2006. %ok
 %31
@@ -563,6 +553,9 @@ classification %ok
 
 
 \bibitem{Flask}Flask Webdevelopment, 2018. [Online]. Available: http://flask.pocoo.org/
+
+
+
 \end{thebibliography}
 %\pagebreak
 
