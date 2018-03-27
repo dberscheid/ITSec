@@ -88,7 +88,7 @@ In 2016 for example the Dyn cyberattack, which involved multiple distributed den
 \subsection{Evolution of Coria}
 The Coria project started in the scope of a master thesis by Mathias Ehlert \cite{Ehlert}. With the objective of building a webframwork that is capable of analyzing connectivity risks of networks, Coria 1.0 was developed. Through the access of large amount of network data, either publically available or individually provided, Coria was able to calculate a variety of metrics, such as  
 centrality measures or node degree measures, which then formed an unified risk score for respective connectivity risks of respective nodes. In addition, Coria offered a solution of to investigate networks visually through graph visualisations. \\ \linebreak 
- The webapplication Coria 1.0 was written in Python and Ruby. It used NetworkX for its metrics and redis for database purposes. After Coria 1.5 presented a improved performance and the use of Graphtool instead of NetworkX for its metrics, Tom Kober developed Coria 2.0 - now using Neo4j to store and manage data. This version furthermore consisted of a native architecture of graph storage and processing\cite{Coria2}. Coria 3.0 by Sebastian Gross benefits from modular based improvements. It offers different levels of granularity of networks that can be investigated. \linebreak
+ The webapplication Coria 1.0 was written in Python and Ruby. It used NetworkX for its metrics and redis for database purposes. After Coria 1.5 presented a improved performance and the use of Graphtool instead of NetworkX for its metrics, Tom Kober developed Coria 2.0 - now using Neo4j to store and manage data \cite{BA}. This version furthermore consisted of a native architecture of graph storage and processing\cite{Coria2}. Coria 3.0 by Sebastian Gross benefits from modular based improvements. It offers different levels of granularity of networks that can be investigated. \linebreak
 
 Fig.1 shows parts of the Coria dashboard and fig. 2 presents an example of a graph visualisation. Version 3 of Coria allows usage of all features via one web interface. Due to the modular approach, there is a clear separation of \textit{extraction, transformation and loading process} (ETL), graph analysis and exports. Amongst its functionality is the usage of different data formats and the ability to calculate different metrics. The framework supports simultaneous execution and calculation of different metrics. Much attention was paid to a development without strong dependencies to specific technologies\cite{Coria3}. \\ \linebreak
  
@@ -149,13 +149,13 @@ AS rank defines the importance of a node in its global routing system, often usi
 
 \subsection{Internet Robustness}
 The Internet is assambled based on the hierarchy as shown in figure 3. Much research has already been conducted on the robustness of the Internet. Baumann and Fabian \cite{howRobust} state the following: While the Internet is resistant with respect to random failures of nodes, a targeted attack such as a degree attack can have a serious impact. The latter stands for an attack that focuses on the successive deletion of nodes with the highest node degree. It was also pointed out that a targeted removal of only ten percent of the nodes of the network can lead to more than 32 000 disjoint components. Further research suggests that due to its evolution the Internet network  is ``robust yet fragile''\cite{RYF}, meaning that random failures of nodes leave the network unaffected, whereas it is vulnerable to targeted attacks on its key components. Acoordingly, the Internet is often reffered to as ``scale-free'' with a ``hub-like'' core structure, which leads to the described characteristics \cite{RYF}. \\ Faloutsos et al. \cite{powerlawCitation} state in their research that the Internet network is following a so called power-law distribution. Power-laws describe skewed distributions of graph properties, such as node degree or betweenness centrality. It can be used for estimating further characteristics of networks or an analysis of robustness. Note though that they base their research on data from November 1997 and December 1998. J. Ruiz and G. Barnett also make statement about the imbalancedness of the Internet \cite{owningInternet}. Their results indicate that the United States is the most central nation in the network, with American corporations accounting for almost 40\% of international links between nodes. Moreover they state that there exists a center of the network consisting of 16 companies, each causing more than 1\% of international Internet connections. Amongst others are the well known companies like Google, Facebook or Amazon. \\ \linebreak
-Research of \cite{geoResearch} in 2002 modeled the Internet's large scale topology - amongst others the geographic locations of routers. In that regard, they published the geographic locations of routers and found a major concentration in North America and Europe, which represent western economies that are highly developed in terms of wealth and technological endowments, and less activity on other, less developed continents.\\  \linebreak
+Research of \cite{geoResearch} and \cite{geoVul} modeled the Internet's large scale topology - amongst others the geographic locations of routers. In that regard, they published the geographic locations of routers and found a major concentration in North America and Europe, which represent western economies that are highly developed in terms of wealth and technological endowments, and less activity on other, less developed continents.\\  \linebreak
  
 
 
 \subsection{ETL Process}
 The data warehousing concept of \textit{Extraction, Transformation, Loading} (ETL) became a rising standard for companies in the 1970s. Back then organizations began to integrate information from different sources into their own databases \cite{carl1}.\break The integration process states the advantage that disparate sources and hereby diverse formation of data can be brought into a unified database. With an adjustable ETL process one is able to adapt and import new datasources without 
-changing the essential main system or framework. This segregation of data import and processing makes the whole system more stable, flexible, provides improved maintance and makes it easier for developers to change and extend functionalities. Fig.6 describes this process in general. At the beginning data are extracted from various sources. The extraction must be customized to the characteristics of the respective data provider. These can differ in the file and data format as well as in the interface. For instance, common interfaces are protocols such as \textit{http} or \textit{ftp}, source-specific APIs or stream data.
+changing the essential main system or framework. This segregation of data import and processing makes the whole system more stable, flexible, provides improved maintance and makes it easier for developers to change and extend functionalities \cite{carl2}. Fig.6 describes this process in general. At the beginning data are extracted from various sources. The extraction must be customized to the characteristics of the respective data provider. These can differ in the file and data format as well as in the interface. For instance, common interfaces are protocols such as \textit{http} or \textit{ftp}, source-specific APIs or stream data.
 In the transformation part demanded information are converted into the neccessary database format. As well calculations can be applied, duplicates will be erased, units converted or further algorithms can be applied. 
 The last stage is contained in the upload or import into the data warehouse, from where to information can bendrawn from multiple stakeholder . An important requirement in the loading phase states the efficiency: data must be sent within a short duration. Dependent on the size of data, parallelization or hardware adjustments may help in all three sections. (\url{https://link.springer.com/chapter/10.1007/978-3-642-32584-7_6})
 \linebreak %Quelle 
@@ -392,7 +392,7 @@ if "cycle-as" in j:
 \lstinputlisting[language=Python, caption={CsvCreate.py}, label={lst:csvcreate}, linerange={1-5,8-12},captionpos=b, xleftmargin=.02\textwidth, linewidth = 0.95\columnwidth]{CodeFiles/CoriaETL/CsvCreate.py}
 
 \textit{CsvCreate} creates an edge list from the original file on the Coria server.
-For example, the original ASrank list 'cycle-aslinks.l7.t1.c000027.20070913.txt'(folder: Data/Original/), containing the data description and additional data, will be converted into the pure edge list '20070913.txt(folder: Data/Csv/)' With the Python built-in modules \textit{re — Regular expression operations} %\cite{PythonDocumentation2}
+For example, the original ASrank list 'cycle-aslinks.l7.t1.c000027.20070913.txt'(folder: Data/Original/), containing the data description and additional data, will be converted into the pure edge list '20070913.txt(folder: Data/Csv/)' With the Python built-in modules \textit{re — Regular expression operations} 
 the program extracts the starting and destination nodes of every line beginning with a "D" and adds them to the edge list. These cases are referring to \textit{direct} connections between nodes \cite{IPv4Data}. The edge list will be saved in the format \textit{YYYYMMDD.csv}, i.e. \textit{20180216.csv}
 \linebreak
 
@@ -475,6 +475,9 @@ We experiemented with Flask, a Python library for web development \cite{Flask} a
 \bibitem{Coria}B. Fabian, A. Baumann, M. Ehlert, V. Ververis, T. Ermakova, `` Coria – Analyzing Internet Connectivity Risks Using Network Graphs,'' in \textit{2017 IEEE International Conference on Communications Paris (IEEE ICC 2017)}, May 2017.  pp. 1-6. doi: 10.1109/ICC.2017.7996828 %ok
 %9
 \bibitem{Ehlert}M. C. Ehlert, "A Software Framework for Analyzing Connectivity Risk of Graph Data," Master of Science, Humboldt-Universität zu Berlin, 2014. %ok
+
+\bibitem{BA}T. Kober, ``Business Intelligence in der Telekommunikation: Konzeption und Umsetzung einer Graphendatenbank mittels Neo4j,'' Bachelor of Science, Hochschule für Telekommunikation Leipzig, December 2016. %ok
+
 %10
 \bibitem{Coria2} D. Kiene-Maksimovic, E. Zinovyeva, J. Park, B. Fabian, ``Coria 2.0: Augmenting a Universal Framework for Connectivity Risk Analysis,'' \textit{SRN Electronic Journal}, October 2017. 10.2139/ssrn.3060327.  %ok
 %11
@@ -501,10 +504,17 @@ Conference on Risks and Security of Internet and Systems (CRiSIS
 Communication}, vol. 21:1, pp. 38-57, November 2014. doi:
 10.1080/13216597.2014.976583. %ok 
 %19
-\bibitem{geoResearch}S. Yook, H. Jeong, A. Barabasi, ``Modeling the Internet's Large-Scale Topology,'' in \textit{Proceedings of the National Academy of Sciences of the United States of America}, November 2002. %ok
+\bibitem{geoResearch}S. Yook, H. Jeong, A. Barabasi, ``Modeling the Internet's Large-Scale Topology,'' in \textit{Proceedings of the National Academy of Sciences of the United States of America}, November 2002.
+
+\bibitem{geoVul}A. Baumann, B. Fabian. ``Towards Measuring the Geographic and Political Resilience of the Internet,'' International Journal of Networking and Virtual Organisations, vol. 13(4), pp. 365–384, December 2013. doi: 10.1504/IJNVO.2013.064465. %ok
+ %ok
+
 %20
 \bibitem{carl1}SAS Institute GmbH, [Online]. Available:\url{https://www.sas.com/en_us/insights/data-management/what-is-etl.html} %ok
 %21
+
+\bibitem{carl2} butunclebob (n.d.), [Online]. Available: \url{http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod}. %ok
+
 \bibitem{Caida}Caida, University of California San Diego, [Online]. Available: https://www.caida.org/home %ok
 %22
 \bibitem{Classification}Caida, University of California San Diego, ``AS Classification,'' [Online]. Available: http://www.caida.org/data/as-
@@ -542,7 +552,7 @@ classification %ok
 
 \bibitem{CaidaRelationships}X. Dimitropoulos, G. Riley, ``Modeling Autonomous System Relationships,'' in \textit{Principles of Advanced and Distributed Simulation (PADS)}, pp. 143--149, May 2006. %ok
 %31
-\bibitem{PythonDocumentation}Python Software Foundation, ``6. Built-in Exceptions,'' [Online]. Available: http://www.python.org/2.7/library/exceptions.html %ok
+
 
 
 \bibitem{RelInference}X. Dimitropoulos, D. Krioukov, G. Riley, K. Claffy, ``Revealing the Autonomous System Taxonomy: The Machine Learning Approach," in \textit{Passive and Active Network Measurement Workshop (PAM)}, March 2006. %ok
@@ -552,29 +562,6 @@ classification %ok
 
 
 
-
-
-\bibitem{graphMetrics}M. Oehlers, B. Fabian, ``Graph Metrics for Internet Robustness: A Survey,'' in \textit{ACM Comput. Surv.}, vol. 1,1, Article 1, January 2018. %ok
-%34
-\bibitem{BAETL}J. Dümig, ``Modelling of an Extraction Transformation Loading (ETL) system for the connectivity risk analyzing framework Coria,'' December 2016. %ok
-%35
-\bibitem{BA}T. Kober, ``Business Intelligence in der Telekommunikation: Konzeption und Umsetzung einer Graphendatenbank mittels Neo4j,'' Bachelor of Science, Hochschule für Telekommunikation Leipzig, December 2016. %ok
-%36
-
-
-
-\bibitem{carl2} butunclebob (n.d.), [Online]. Available: \url{http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod}. %ok
-%37
-
-%38
-\bibitem{geoVul}A. Baumann, B. Fabian. ``Towards Measuring the Geographic and Political Resilience of the Internet,'' International Journal of Networking and Virtual Organisations, vol. 13(4), pp. 365–384, December 2013. doi: 10.1504/IJNVO.2013.064465. %ok
-%39
-
-%40
-
-%41
-
-%42
 \bibitem{Flask}Flask Webdevelopment, 2018. [Online]. Available: http://flask.pocoo.org/
 \end{thebibliography}
 %\pagebreak
