@@ -12,11 +12,10 @@ to do:
  	-> noch hervorheben!? (D)
 -Penetrationtest(D+C)
 
-
-
-
 - aggregierte Funktion (C)
-- Future Work / Outlook (C)
+
+
+
 
 
 
@@ -34,3 +33,5 @@ Done:
 
 - Python Code in Repository legen (C)
 - Python Code hübsch machen (C)
+
+- Future Work / Outlook (C)
