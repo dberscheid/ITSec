@@ -102,10 +102,6 @@ Fig.1 shows parts of the Coria dashboard and fig. 2 presents an example of a gra
 
    
 
-
- 
-
-
 \subsection{Objective}
 The Coria framework is a project on which multiple developers already contributed to, in order to create a platform, which is able to analyze and visualize connectivity risks of graph data\cite{CoriaPaper}. Within this paper and project we would like to further contribute and improve specific aspects of Coria. In the following we present related work regarding Internet topology, the robustness of networks and characteristics of Autonomous Systems. We investigate characteristics of these networks through some descriptive statistical methods and take a look at the development of networks and its components over the last ten years. Furthermore we present a prototype of an automated ETL process, which shall improve and simplify the usage of Coria and ensure latest data being available for analysis. Herby we focus on data on the level of Autonomous Systems. Our emphasis lies on flawless usage of datasets coming from the data source Caida that can be downloaded and imported automatically on a regular basis. In addition we would like to constantly host the latest version of Coria, namely Coria 3 on a server. \\
 
@@ -301,12 +297,20 @@ As stated before the performance requirements, uploading files parallel is at th
 
 \subsection{Contribution: Automated ETL process} \label{ssec:contribution}
 
+
+
+\begin{figure}
+\centerline{\includegraphics[width=\columnwidth]{Graphics/ETL2.png}}
+\caption{Contributed ETL Process}
+\label{fig:etl2}
+\end{figure}
+
+
 Figure \ref{fig:ETLinCoriav3} visualizes the new developed ETL Process, written in Python 2.7. In general, the server periodically queries for new data sets on the Cadia data server. If there are no new data available on the servers the query will try in the next period again. 
 In case that there is new data available, every new file will be downloaded. After fetching a new file, it will be transformed into an edge list and then be uploaded to the Coria database.
 \linebreak
-\linebreak
 
-\vspace{0.5cm}
+\vspace{0.2cm}
 \begin{figure}[htbp]
 \centerline{\includegraphics[scale=0.5]{Graphics/uploadFrequency.png}}
 \caption{Data Uploads by Caida over time}
@@ -385,13 +389,14 @@ if "cycle-as" in j:
 
 \end{lstlisting}
 
+\lstinputlisting[language=Python, caption={CsvCreate.py}, label={lst:csvcreate}, linerange={1-5,8-12},captionpos=b, xleftmargin=.02\textwidth, linewidth = 0.95\columnwidth]{CodeFiles/CoriaETL/CsvCreate.py}
 
 \textit{CsvCreate} creates an edge list from the original file on the Coria server.
 For example, the original ASrank list 'cycle-aslinks.l7.t1.c000027.20070913.txt'(folder: Data/Original/), containing the data description and additional data, will be converted into the pure edge list '20070913.txt(folder: Data/Csv/)' With the Python built-in modules \textit{re — Regular expression operations} %\cite{PythonDocumentation2}
 the program extracts the starting and destination nodes of every line beginning with a "D" and adds them to the edge list. These cases are referring to \textit{direct} connections between nodes \cite{IPv4Data}. The edge list will be saved in the format \textit{YYYYMMDD.csv}, i.e. \textit{20180216.csv}
 \linebreak
 
-\lstinputlisting[language=Python, caption={CsvCreate.py}, label={lst:csvcreate}, linerange={1-5,8-12},captionpos=b, xleftmargin=.02\textwidth, linewidth = 0.95\columnwidth]{CodeFiles/CoriaETL/CsvCreate.py}
+
 
 
 Finally \textit{Csv2CoriaDB} is the last component of the automated data import. The initial idea was to directly work with the MySQL database and import the edge list with the Python SQL module, but the Coria framework inserts not only the data set itself, but it also inserts entries for every edge, node and attribute, as illustrated in figure \ref{fig:SQL_schema}. Thus, we decided to write a script that emulates the process of uploading to the Coria web framework through \textit{Selenium} \cite{selenium}. Selenium is a language-open software framework for testing and automation in web applications.\linebreak
@@ -402,64 +407,14 @@ Exactly like the csv creator the database import takes the file name as input pa
 Afterwards the webdriver requests the Coria upload page. The Selenium method \textit{find\_element\_by\_xpath} enables the webdriver to fulfill the requested fields.
 At first Selnium selects the upload method \textit{tab-separated-importer}, then it sends the name of the imported data set, which is always the date in the format \textit{YYYYMMDD}.
 From then on the path of the the file is inserted into the \textit{Select Dataset File} section. 
-Finally the script simulates a upload button:  \url{"driver.find_element_by_xpath('//*[@id="import"]/button').click()"}. \\
+Finally the script simulates a upload button: \url{"driver.find_element_by_xpath('//*[@id="import"]/button').click()"}. \\
 
 Webdrivers provide a great variety on options. Therefore we decided to run the chromedriver \textit{--headless} (line 10). This ensures that chrome will not open a window. Instead the chromedriver will run in the background and the upload process will not disturb someone that is working on the server. At the end of every chromedriver session the webdriver must be closed (line 45). If this is not applied the loop will create an great amount of process in the background until the server is overloaded.
+\linebreak
 
-
-\begin{lstlisting}[float=*]
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.support.ui import Select,WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-import time,os
-
-chrome_options = Options()  
-chrome_options.add_argument("--headless")  
-
-def Csv2CoriaDB(Filename):
-	Filename= Filename.rsplit('.')[-2]
-	Filename= Filename.split('.txt')[0]
-	#download chromedriver and give Path to chromedriver.exe
-	driver = webdriver.Chrome("C:\Python27\Scripts\chromedriver.exe", chrome_options=chrome_options)
-
-
-	#def CsvUpload:
-	driver.get("http://localhost:8080/Coria/#!/datasets/upload")
-	driver.implicitly_wait(5)
-
-	#select "tab-separated-importer"
-	select = driver.find_element_by_xpath('//*[@id="import.providers"]/option[6]').click()
-
-	#send name
-	
-	element = driver.find_element_by_xpath('//*[@id="import.name"]')
-	element.send_keys(Filename)
-
-	#choose dataset
-	path= os.getcwd()
-	file = str(path + "/Data\Csv\\" + Filename + ".csv")
-
-	#file = 'C:\caida\Data_Csv\20180101.csv'
-	#driver.find_element_by_xpath('//*[@id="file"]'').send_keys(os.getcwd("C:\Users\Carlimero\Downloads\datastructrue.txt")')
-	file_input = driver.find_element_by_xpath('//*[@id="file"]')
-	file_input.send_keys(file)
-	time.sleep(5)
-
-	#submit data
-	driver.find_element_by_xpath('//*[@id="import"]/button').click()
-
-	time.sleep(10)
-	driver.quit()
-
-	print(Filename + "uploaded to Coria database")
-\end{lstlisting}
-
-
-
-
+The decision of handling Caida data in a threefold manner has several intentions. First of all, the original Caida provides much more information than Coria is able to analyze and represent at the moment. For instance, the Coria framework processes undirected and unweighted graphs, while the Caida monitoring includes data about the direction of a connection. Furthermore, Caida data files contain indirect paths including the number and which hops where used. Regarding the risk analysis, the indirect path may influence the score. For other networks the amount of data transferred should be considered. For further developments Coria should include weighted edge lists: Opening a website cannot be assumed the same value, for example, as working in Big Data analytics. But at this moment, both connection are evaluate the same influence on Coria interpretation. Beyong that, backing up Caida data lowers the risk of loss, if Caida service failures.
+Second, the transformation into an edge list allows to verify the results from Caida with other graph tools. As alreays presented in \cite{Coria3} NetworkX and furhter libraries include interfaces for edge list loading. Functionality that at the moment cannot be provided, can easily be used with other tools as the edge lists are already created.
+Lastly, of course the automted import to the Coria database helps using the web framework without caring about data acquisition and adjustment. 
 
 
 \vspace{0.5cm}
@@ -479,20 +434,25 @@ Caida AS rank data can be tracked back until the year 2007. Garuanteering that a
 \section{Conclusion}
 \subsection{Summary}
 
-The webapplication Coria allows the analysis of connectivity risks of various network graphs. Through visualizations and a unified risk score it offers comprehensive results. Fokussing on the level of Autonomous Systems, our data analysis revealed a power-law distribution when it comes to the influence of ASes within the Internet network - a few highly important nodes and many less important ones. Moreover the geographical investigation of its locations showed the high concentration and flow of traffic of ASes in highly developed economies, with only sparse density in less developed economies. With regard to the trend of the Internet network, we exhibited a linearly growing trend of AS nodes until 2015, when the size of the network stayed constant until today.
+The web application Coria allows the analysis of connectivity risks of various network graphs. Through visualizations and a unified risk score it offers comprehensive results. Focussing on the level of Autonomous Systems, our data analysis revealed a power-law distribution when it comes to the influence of ASes within the Internet network - a few highly important nodes and many less important ones. Moreover the geographical investigation of its locations showed the high concentration and flow of traffic of ASes in more developed economies, with only sparse density in less developed economies. With regard to the evolution of the Internet network, we exhibited a linearly growing trend of AS nodes until 2015, thenceforward the size of the network stayed constant until today. We assume 2 factor for this stagnation: As ASes represent corporations and organizations, from 2007 until 2015 nearly every actor has already migrated onto the internet infrastructure. Another explanation can be that the expansion of Caida monitoring tools has stagnated.
 
-Regarding the software-development aspect, we developed an ETL tool in Python 2.7 that provides modules for an automated ETL process. Hereby we developed components that are capable of checking for new data, downloading it and providing validation functionalities - without any manual interference. Moreover these files then are being imported into the Coria framework, which enables the possibility of using the lattest data for the analysis of connectivity risks. \\
+Regarding the software-development aspect, we developed an ETL tool in Python 2.7 that provides modules for an automated ETL process. Hereby we developed components that are capable of checking for new data, downloading it and providing validation functionalities - without any manual interference. Moreover these files then are being imported into the Coria framework, which enables the possibility of using the lattest data for the analysis of connectivity risks. Besides that, we installed and implemented CoriaV3 on a server. The framework is running stable and all functionalities can be used. \\
  
-
 \subsection{Limitations and Further Work}
-One limitation of this work is caused by our data source Caida. The data that we used, i.e. types of Autonomous Systems or their relationship was partly gathered through statistical inference. Its machine learning classifier provided a positive predicted value of 70\% \cite{Classification}, which still leaves misslassified observations within the data and limits our results to some extent. Nevertheless Caida is a serious and trusted source, which is why we chose it in the first place. To the best of our knowledge, there is no superior data source available.  \\ 
+One limitation of this work is caused by our data source Caida. The data that we used, i.e. types of Autonomous Systems or their relationship was partly gathered through statistical inference. Its machine learning classifier provided a positive predicted value of 70\% \cite{Classification}, which still leaves misclassified observations within the data and limits our results to some extent. Nevertheless Caida states a serious source for internet infrastructure, which is why we chose it in the first place. To the best of our knowledge, there is no superior data source available.  \\ 
+The short period of developing and testing the automation is not sufficient for evaluating the long term peformance. Does the Python code work for several months or years? As we stated in \ref{ssec:contribution} errors or changes on the servers that had not occured yet, may influence the steadiness.
 
-other limitations\\ 
-carl? \\
+Further work that can follow could be to apply the automated ETL process to more data sources. For Instance, RIPE Network Coordination Center \cite{RipeNCC} as another source of the internet infrastructure, may be adopted. Apart from network infrastructures, any graph can be applied to Coria: The riskiness of physical traffic data, such as public transportation and vehicles, may improve city infrastructures or predict congestion. Even in social network data Coria may give insights: risk analysis may be applied for influencer detection and customer behavior evaluation.\\
+
+Sebastian Gross build with CoriaV3 the foundation of graph analysis and visualization. Nevertheless, additional tools in the framework might increase demand and improve usability. Features that we found to be helpful are realtime analytics and reporting tools. Caida serves snapshots of one day, but telecommunication companies are in need of control of their infrastructure anytime and, especially, be informed in in cases of failure.
+
+\break
+As well the contributed programs can go further: An important point, is a missing graphical interfaces. The aspect of user convenience might deter them from working with our ETL tool in the command line interface. Here we see great opportunities to generalize the process and combine the workflow in one web service.\\
+Further analysis might refer to other time intervals. In the attached files we created a script to aggregate the daily data up to months.
+We experiemented with Flask, a Python library for web development \cite{Flask} and tried to provide a graphical interface to merge the information.
 
 
-
-Further work that can follow could be to apply the automated ETL process to further data sources, than only Caida. Also, deploying the the Coria framework on a server would be a neccessary improvement. (CARL? Was hat es mit diesem Punkt auf sich? Läuft es nicht schon auf einem Server?) For improvements of internal development activities the creation of an extensive code and installation documentation would be helpful.
+%For improvements of internal development activities the creation of an extensive code and installation documentation would be helpful.
 
 
 
@@ -662,6 +622,60 @@ abstand\\
 \caption{Time development from 2007 - 2017: Number of receiving AS nodes}
 \label{fig}
 \end{figure}
+
+\section{Csv2CoriaDB.py}
+\begin{lstlisting}[float=*]
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.support.ui import Select,WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+import time,os
+
+chrome_options = Options()  
+chrome_options.add_argument("--headless")  
+
+def Csv2CoriaDB(Filename):
+	Filename= Filename.rsplit('.')[-2]
+	Filename= Filename.split('.txt')[0]
+	#download chromedriver and give Path to chromedriver.exe
+	driver = webdriver.Chrome("C:\Python27\Scripts\chromedriver.exe", chrome_options=chrome_options)
+
+
+	#def CsvUpload:
+	driver.get("http://localhost:8080/Coria/#!/datasets/upload")
+	driver.implicitly_wait(5)
+
+	#select "tab-separated-importer"
+	select = driver.find_element_by_xpath('//*[@id="import.providers"]/option[6]').click()
+
+	#send name
+	
+	element = driver.find_element_by_xpath('//*[@id="import.name"]')
+	element.send_keys(Filename)
+
+	#choose dataset
+	path= os.getcwd()
+	file = str(path + "/Data\Csv\\" + Filename + ".csv")
+
+	#file = 'C:\caida\Data_Csv\20180101.csv'
+	#driver.find_element_by_xpath('//*[@id="file"]'').send_keys(os.getcwd("C:\Users\Carlimero\Downloads\datastructrue.txt")')
+	file_input = driver.find_element_by_xpath('//*[@id="file"]')
+	file_input.send_keys(file)
+	time.sleep(5)
+
+	#submit data
+	driver.find_element_by_xpath('//*[@id="import"]/button').click()
+
+	time.sleep(10)
+	driver.quit()
+
+	print(Filename + "uploaded to Coria database")
+\end{lstlisting}
+
 \end{appendices}
+
+
 
 \end{document}
