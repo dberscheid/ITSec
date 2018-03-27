@@ -344,20 +344,20 @@ Next, at the beginning of the while loop \textit{main.py} creates a connection t
 
 
 Afterwards a for loop extracts for every link the name of the file. This is due to the fact that the functions \textit{CsvCreate} and \textit{Csv2CoriaDB} need the file name as input parameters. The file names used in the ETL automation and in Caida data source are consistent. The following condition searches in every extracted link for the string "cycle-as". The following if condition checks wether the file was already downloaded. All file that has been processed are stored in the folder \textit{CoriaETL/Data/Original/}. If a file already exists on the Coria server it should already be transformed into an edge list as well as been imported into the MySQL database. For the case that a file does not exist, the \textit{else}-part of the function be executed. First, the data is being downloaded and saved as an unzipped text file. 
-Then the main program will call the function that transforms the data into an edge list, which then will be given to the database. 
+Then the main program will call the function that transforms the data into an edge list, which will then be passed to the database. 
 The while loop \ref{lst:main_linkextract} will continue until the last file of the current year is processed.
 \linebreak
 
 
-\vspace{0.5cm}
+% \vspace{0.5cm}
 
-\begin{lstlisting}[language=Python, caption={main.py - Filename Extraction},captionpos=b, xleftmargin=.02\textwidth, linewidth = 0.95\columnwidth]
-for j in Liste:
-	j2= j.rsplit('/')[-1]
-	j3= j2.split('.gz')[0]
+% \begin{lstlisting}[language=Python, caption={main.py - Filename Extraction},captionpos=b, xleftmargin=.02\textwidth, linewidth = 0.95\columnwidth]
+% for j in Liste:
+% 	j2= j.rsplit('/')[-1]
+% 	j3= j2.split('.gz')[0]
 
-\end{lstlisting}
-\vspace{0.5cm}
+% \end{lstlisting}
+% \vspace{0.5cm}
 
 
 
@@ -385,22 +385,26 @@ if "cycle-as" in j:
 
 \end{lstlisting}
 
-%%%%morgen weitermachen
+
 \textit{CsvCreate} creates an edge list from the original file on the Coria server.
-For example, the original ASrank list 'cycle-aslinks.l7.t1.c000027.20070913.txt'(folder: Data/Original/), containing the data description and additional data, will be converted into the pure edge list '20070913.txt(folder: Data/Csv/)' With the Python built-in modules \textit{re — Regular expression operations} the program extracts the starting and destination nodes of every line beginning with a "D" and adds them to the edge list. These cases are referring to \textit{direct} connections between nodes \cite{IPv4Data}. The edge list will be saved in the format \textit{YYYYMMDD.csv}, i.e. \textit{20180216.csv}
-% ref:https://docs.python.org/2/library/re.html)
+For example, the original ASrank list 'cycle-aslinks.l7.t1.c000027.20070913.txt'(folder: Data/Original/), containing the data description and additional data, will be converted into the pure edge list '20070913.txt(folder: Data/Csv/)' With the Python built-in modules \textit{re — Regular expression operations} %\cite{PythonDocumentation2}
+the program extracts the starting and destination nodes of every line beginning with a "D" and adds them to the edge list. These cases are referring to \textit{direct} connections between nodes \cite{IPv4Data}. The edge list will be saved in the format \textit{YYYYMMDD.csv}, i.e. \textit{20180216.csv}
 \linebreak
 
-Finally \textit{Csv2CoriaDB} is the last component of the automated data import. The initial idea was to directly work with the MySQL database and import the edge list with the Python SQL module, but the Coria framework inserts not only the data set itself, but it also inserts entries for every edge, node and attribute, as illustrated in figure \ref{fig:SQL_schema}. Thus, we decided to write a script that emulates the process of uploading to the Coria web framework through \textit{Selenium REF}. Selenium is a language-open software framework for testing and automation in web applications.\linebreak
+\lstinputlisting[language=Python, caption={CsvCreate.py}, label={lst:csvcreate}, linerange={1-5,8-12},captionpos=b, xleftmargin=.02\textwidth, linewidth = 0.95\columnwidth]{CodeFiles/CoriaETL/CsvCreate.py}
 
-The automated import process makes use of \textit{Chromedriver} as Webdriver API, while other browsers such as Mozilla Firefox or Mac Safari can still be applied. For our specific task Chrome outperformed other browsers. It is important that at the initial installation process of the automated ETL framework Google Chrome has to be installed as well as the Chromedriver needs to be added to the environent variables.
+
+Finally \textit{Csv2CoriaDB} is the last component of the automated data import. The initial idea was to directly work with the MySQL database and import the edge list with the Python SQL module, but the Coria framework inserts not only the data set itself, but it also inserts entries for every edge, node and attribute, as illustrated in figure \ref{fig:SQL_schema}. Thus, we decided to write a script that emulates the process of uploading to the Coria web framework through \textit{Selenium} \cite{selenium}. Selenium is a language-open software framework for testing and automation in web applications.\linebreak
+
+The automated import process makes use of \textit{Chromedriver} as Webdriver API, while other browsers such as Mozilla Firefox or Mac Safari can still be applied. For our specific task Chrome outperformed other browsers. It is important that at the initial installation process of the automated ETL framework Google Chrome has to be installed as well as the Chromedriver path needs to be added to the environent variables.
 
 Exactly like the csv creator the database import takes the file name as input parameter.
-Afterwards the webdriver requests the Coria upload page. The Selenium method \textit{findelementbyxpath} enables the webdriver to fulfill the requested fields.
+Afterwards the webdriver requests the Coria upload page. The Selenium method \textit{find\_element\_by\_xpath} enables the webdriver to fulfill the requested fields.
 At first Selnium selects the upload method \textit{tab-separated-importer}, then it sends the name of the imported data set, which is always the date in the format \textit{YYYYMMDD}.
-From then on the path of the the file is inserted into the \textit{Select Dataset File} section. Finally the script simulates a upload button:  \url{"driver.find_element_by_xpath('//*[@id="import"]/button').click()"}. \\
+From then on the path of the the file is inserted into the \textit{Select Dataset File} section. 
+Finally the script simulates a upload button:  \url{"driver.find_element_by_xpath('//*[@id="import"]/button').click()"}. \\
 
-Webdrivers provide a great variety on options. Therefore we decided to run the chromedriver \textit{headless} (line 10). This ensures that chrome will not open a window. Instead the chromedriver will run in the background and and the chromedriver will not disturb someone that is working on the server. At the end of every chromedriver session the webdriver must be closed (line 45). If this is not applied the loop will create an great amount of process in the background until the server is overloaded.
+Webdrivers provide a great variety on options. Therefore we decided to run the chromedriver \textit{--headless} (line 10). This ensures that chrome will not open a window. Instead the chromedriver will run in the background and the upload process will not disturb someone that is working on the server. At the end of every chromedriver session the webdriver must be closed (line 45). If this is not applied the loop will create an great amount of process in the background until the server is overloaded.
 
 
 \begin{lstlisting}[float=*]
@@ -549,6 +553,8 @@ classification.
 
 \bibitem{PythonDocumentation}Python Software Foundation., ''6. Built-in Exceptions,'' [Online]. Available: http://www.python.org/2.7/library/exceptions.html.
 
+% \bibitem{PythonDocumentation2}Python Software Foundation., ''7.2. re - Regular expression operations'' [Online]. Available: https://docs.python.org/2/library/re.html#regular-expression-syntax.
+
 \bibitem{IPv4Data}Caida., ``IPv4 Routed /24 AS Links Dataset,'' [Online]. Available: http://www.caida.org/data/active/ipv4\_routed\_topology\_aslinks\_dataset.xml.
 
 \bibitem{CaidaRelationshipsData}Caida., ``AS Relationships,'' [Online]. Available:http://www.caida.org/data/as-relationships/.
@@ -584,6 +590,10 @@ classification.
 \bibitem{BA}T.Kober, ``Business Intelligence in der Telekommunikation: Konzeption und Umsetzung einer Graphendatenbank mittels Neo4j,'' December 2016.
 
 \bibitem{carl2}butunclebob(n.d.). Retrived from \url{http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod}
+
+
+\bibitem{selenium}SeleniumHQ, [Online] Available: https://github.com/SeleniumHQ/selenium.
+
 
 %\bibitem{carl3} S. Gross "Development of a modular software framework for the analysis of network
 %connectivity risks based on network graphs" (Bachelor thesis), 2017
