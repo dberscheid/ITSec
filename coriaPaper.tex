@@ -322,7 +322,7 @@ One aspect that we are not in control of, is the frequency and regularity of fil
 For other sources or data sets the interval can be customized by changing the sleep timer in units of seconds (Listing~\ref{lst:timer}: \lstinline{Frequency = 60 * 60 * 24}).\linebreak
 
 
-\lstinputlisting[language=Python, caption={timer.py}, label={lst:timer}, firstline=2, captionpos=b]{CodeFiles/CoriaETL/timer.py}
+\lstinputlisting[language=Python, caption={timer.py}, label={lst:timer}, firstline=2, captionpos=b,  xleftmargin=.02\textwidth, linewidth = 0.95\columnwidth]{CodeFiles/CoriaETL/timer.py}
 
 
 
@@ -340,7 +340,7 @@ The folder structure of Caida's AS Rank files is determined as follows: \textit{
 Next, at the beginning of the while loop \textit{main.py} creates a connection to data source. As the current year is 2018, the loop starts with calling the webpage of 2017:\textit{...datasets/topology/ark/ipv4/as-links/2017/}. After the connection was established, the module \textit{lxml.html} fetches all links of the website and sets a list out of these.
 
 
-\lstinputlisting[language=Python, caption={main.py - Link Extraction}, label={lst:main_linkextract}, firstline=17, lastline=27, captionpos=b]{CodeFiles/CoriaETL/main.py}
+\lstinputlisting[language=Python, caption={main.py - Link Extraction}, label={lst:main_linkextract}, firstline=17, lastline=27, captionpos=b,  xleftmargin=.02\textwidth, linewidth = 0.95\columnwidth]{CodeFiles/CoriaETL/main.py}
 
 
 Afterwards a for loop extracts for every link the name of the file. This is due to the fact that the functions \textit{CsvCreate} and \textit{Csv2CoriaDB} need the file name as input parameters. The file names used in the ETL automation and in Caida data source are consistent. The following condition searches in every extracted link for the string "cycle-as". The following if condition checks wether the file was already downloaded. All file that has been processed are stored in the folder \textit{CoriaETL/Data/Original/}. If a file already exists on the Coria server it should already be transformed into an edge list as well as been imported into the MySQL database. For the case that a file does not exist, the \textit{else}-part of the function be executed. First, the data is being downloaded and saved as an unzipped text file. 
@@ -361,7 +361,7 @@ The while loop \ref{lst:main_linkextract} will continue until the last file of t
 
 
 
-\begin{lstlisting}[ language=Python,caption={main.py},captionpos=b , float=tp,
+\begin{lstlisting}[ language=Python,caption={main.py - File Processing Part},captionpos=b , float=tp,
   floatplacement=tbp] 
 
 if "cycle-as" in j:
