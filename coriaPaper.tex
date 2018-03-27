@@ -12,7 +12,7 @@
 \usepackage{url}
 \usepackage{float}
 
-%carltest Push
+
 \usepackage{textcomp}
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
@@ -71,7 +71,7 @@ carl.tramburg@gmail.com}
 
 
 \begin{abstract}
-Networks are everywhere in todays digital world and cyber attacks are already part of daily news. With ongoing cyber threats the need for IT security rises - and there is no recovery to be expected. Therefore, this paper poses further results of the \textit{Connetivity Risk Analyzer}, Coria, a framework led by Dr. Fabian and collegues to analyze multiple indicators explaining the risk of connections in a network like the Internet - now introducing a new features: an automated ETL process.
+Networks are everywhere in todays digital world and cyber attacks are already part of daily news. With ongoing cyber threats the need for IT security rises - and there is no recovery to be expected. Therefore, this paper poses further results of the \textit{Connetivity Risk Analyzer}, Coria, a framework led by Dr. Fabian and collegues to analyze multiple indicators explaining the risk of connections in a network like the Internet - now introducing a new feature: an automated ETL process.
 
 \end{abstract}
 
@@ -90,7 +90,7 @@ In 2016 for example the Dyn cyberattack, which involved multiple distributed den
 \subsection{Evolution of Coria}
 The Coria project started in the scope of a master thesis by Mathias Ehlert \cite{Ehlert}. With the objective of building a webframwork that is capable of analyzing connectivity risks of networks, Coria 1.0 was developed. Through the access of large amount of network data, either publically available or individually provided, Coria was able to calculate a variety of metrics, such as  
 centrality measures or node degree measures, which then formed an unified risk score for respective connectivity risks of respective nodes. In addition, Coria offered a solution to investigate networks visually through graph visualisations. \\ \linebreak 
- The webapplication Coria 1.0 was written in Python and Ruby. It used NetworkX for its metrics and redis for database purposes. After Coria 1.5 presented a improved performance and the use of Graphtool instead of NetworkX for its metrics, Tom Kober developed Coria 2.0 - now using Neo4j to store and manage data \cite{BA}. This version furthermore consisted of a native architecture of graph storage and processing\cite{Coria2}. Coria 3.0 by Sebastian Gross benefits from modular based improvements. It offers different levels of granularity of networks that can be investigated. \linebreak
+ The webapplication Coria 1.0 was written in Python and Ruby. It used NetworkX for its metrics and Redis for database purposes. After Coria 1.5 presented a improved performance and the use of Graphtool instead of NetworkX for its metrics, Tom Kober developed Coria 2.0 - now using Neo4j to store and manage data \cite{BA}. This version furthermore consisted of a native architecture of graph storage and processing\cite{Coria2}. Coria 3.0 by Sebastian Gross benefitted from modular based improvements. It offers different levels of granularity of networks that can be investigated. \linebreak
 
 Fig.1 shows parts of the Coria dashboard and fig. 2 presents an example of a graph visualisation. Version 3 of Coria allows usage of all features via one web interface. Due to the modular approach, there is a clear separation of \textit{extraction, transformation and loading process} (ETL), graph analysis and exports. Amongst its functionality is the usage of different data formats and the ability to calculate different metrics. The framework supports simultaneous execution and calculation of different metrics. Much attention was paid to a development without strong dependencies to specific technologies\cite{Coria3}. \\ \linebreak
  
@@ -105,7 +105,7 @@ Fig.1 shows parts of the Coria dashboard and fig. 2 presents an example of a gra
    
 
 \subsection{Objective}
-The Coria framework is a project on which multiple developers already contributed to, in order to create a platform, which is able to analyze and visualize connectivity risks of graph data\cite{Coria} \cite{vulnerabilityBaumannFabian}. Within this paper and project we would like to further contribute and improve specific aspects of Coria. In the following we present related work regarding Internet topology, the robustness of networks and characteristics of Autonomous Systems. We investigate characteristics of these networks through some descriptive statistical methods and take a look at the development of networks and its components over the last ten years. Furthermore we present a prototype of an automated ETL process, which shall improve and simplify the usage of Coria and ensure latest data being available for analysis. Herby we focus on data on the level of Autonomous Systems. Our emphasis lies on flawless usage of datasets coming from the data source Caida that can be downloaded and imported automatically on a regular basis. In addition we would like to constantly host the latest version of Coria, namely Coria 3 on a server. \\
+The Coria framework is a project on which multiple developers already contributed to, in order to create a platform, which is able to analyze and visualize connectivity risks of graph data\cite{Coria}, \cite{vulnerabilityBaumannFabian}. Within this paper and project we would like to further contribute and improve specific aspects of Coria. In the following we present related work regarding Internet topology, the robustness of networks and characteristics of autonomous systems. We investigate characteristics of these networks through some descriptive statistical methods and take a look at the development of networks and its components over the last ten years. Furthermore we present a prototype of an automated ETL process, which shall improve and simplify the usage of Coria and ensure latest data being available for analysis. Herby we focus on data on the level of autonomous systems. Our emphasis lies on flawless usage of datasets coming from the data source Caida that can be downloaded and imported automatically on a regular basis. In addition we would like to constantly host the latest version of Coria, namely Coria 3 on a server. \\
 
 
 \vspace{0.5cm}
@@ -119,7 +119,7 @@ The Coria framework is a project on which multiple developers already contribute
 \section{Theoretical Background} 
 \subsection{Internet Topology}
 
-The topology of the Internet forms a clear hierarchy. As we model it in fig. 3, on the lowest level of the Internet topology are Internet Protocol network interfaces (IPs). Multiple IPs can access the Internet through one router (R). Then, on the next level, Autonomous Systems (AS) represent a set of routers under a single administration. For example a large organization like a university consists of multiple intersections with the Internet through its routers. The top of this hierarchy is formed by Internet Service Providers (ISP). As their name suggests, ISPs provide access and maintain the Internet infrastructure. Note that this represents a simplified and high-level model of Internet topology, i.e. not specifying Points of Presence \cite{ASH}. In the scope of this paper the level of Autonomous Systems is our main object of concern. Two types of relationships between ASes and ISPs are of interest in that regard: Provider-to-Customer (P2C) and Peer-to-Peer (P2P). An Autonomous System, if it functions as a customer in general has only one provider, whereas it usually has many peers. 
+The topology of the Internet forms a clear hierarchy. As we model it in fig. 3, on the lowest level of the Internet topology are Internet Protocol network interfaces (IPs). Multiple IPs can access the Internet through one router (R). Then, on the next level, autonomous systems (AS) represent a set of routers under a single administration. For example a large organization like a university consists of multiple intersections with the Internet through its routers. The top of this hierarchy is formed by Internet Service Providers (ISP). As their name suggests, ISPs provide access and maintain the Internet infrastructure. Note that this represents a simplified and high-level model of Internet topology, i.e. not specifying Points of Presence \cite{ASH}. In the scope of this paper the level of autonomous systems is our main object of concern. Two types of relationships between ASes and ISPs are of interest in that regard: Provider-to-Customer (P2C) and Peer-to-Peer (P2P). An Autonomous System, if it functions as a customer in general has only one provider, whereas it usually has many peers. 
  
 
 \begin{figure}[htbp]
@@ -133,10 +133,10 @@ The topology of the Internet forms a clear hierarchy. As we model it in fig. 3, 
 
 
 
-Fig. 4 provides an example of an AS and its characteristics. Here Kabel Deutschland, a German network operator, represents an AS. Its customer cone specifies  ``a set of ASes it can reach using customer links''\cite{Rank}. As it is two in this case, there are only two nodes reached through customer links, meaning Kabel Deutschland itself and its provider Vodafone\cite{Rank}.  
-%https://www.caida.org/~amogh/papers/asrank-IMC13.pdf
-AS rank defines the importance of a node in its global routing system, often using customer cone information as a measure \cite{Rank}.
-%http://as-rank.caida.org/about#goal
+Fig. 4 provides an example of an AS and its characteristics. Here Kabel Deutschland, a German network operator, represents an AS. Its \textit{customer cone} specifies  ``a set of ASes it can reach using customer links''\cite{Rank}. As it is two in this case, there are only two nodes reached through customer links, meaning Kabel Deutschland itself and its provider Vodafone\cite{Rank}.  
+
+\textit{AS rank} defines the importance of a node in its global routing system, often using customer cone information as a measure \cite{Rank}.
+
 \textit{AS degree} refers to the number of neighbors that a node has in a graph on its own level - here 20\cite{Cone}.  \\
 
 \vspace{0.5cm}
@@ -150,14 +150,14 @@ AS rank defines the importance of a node in its global routing system, often usi
 
 
 \subsection{Internet Robustness}
-The Internet is assambled based on the hierarchy as shown in figure 3. Much research has already been conducted on the robustness of the Internet. Baumann and Fabian \cite{howRobust} state the following: While the Internet is resistant with respect to random failures of nodes, a targeted attack such as a degree attack can have a serious impact. The latter stands for an attack that focuses on the successive deletion of nodes with the highest node degree. It was also pointed out that a targeted removal of only ten percent of the nodes of the network can lead to more than 32 000 disjoint components. Further research suggests that due to its evolution the Internet network  is ``robust yet fragile''\cite{RYF}, meaning that random failures of nodes leave the network unaffected, whereas it is vulnerable to targeted attacks on its key components. Acoordingly, the Internet is often reffered to as ``scale-free'' with a ``hub-like'' core structure, which leads to the described characteristics \cite{RYF}. \\ \linebreak Faloutsos et al. \cite{powerlawCitation} state in their research that the Internet network is following a so called power-law distribution. Power-laws describe skewed distributions of graph properties, such as node degree or betweenness centrality. It can be used for estimating further characteristics of networks or an analysis of robustness. Note though that they base their research on data from November 1997 and December 1998. J. Ruiz and G. Barnett also make statement about the imbalancedness of the Internet \cite{owningInternet}. Their results indicate that the United States is the most central nation in the network, with American corporations accounting for almost 40\% of international links between nodes. Moreover they state that there exists a center of the network consisting of 16 companies, each causing more than 1\% of international Internet connections. Amongst others, there are well known companies like Google, Facebook or Amazon. \\ \linebreak
+The Internet is assambled based on the hierarchy as shown in figure 3. Much research has already been conducted on the robustness of the Internet. Baumann and Fabian \cite{howRobust} state the following: While the Internet is resistant with respect to random failures of nodes, a targeted attack such as a degree attack can have a serious impact. The later stands for an attack that focuses on the successive deletion of nodes with the highest node degree. It was also pointed out that a targeted removal of only ten percent of the nodes of the network can lead to more than 32 000 disjoint components. Further research suggests that due to its evolution the Internet network  is ``robust yet fragile''\cite{RYF}, meaning that random failures of nodes leave the network unaffected, whereas it is vulnerable to targeted attacks on its key components. Acoordingly, the Internet is often reffered to as ``scale-free'' with a ``hub-like'' core structure, which leads to the described characteristics \cite{RYF}. \\ \linebreak Faloutsos et al. \cite{powerlawCitation} state in their research that the Internet network is following a so called power-law distribution. Power-laws describe skewed distributions of graph properties, such as \textit{node degree} or \textit{betweenness centrality}. It can be used for estimating further characteristics of networks or an analysis of robustness. Note though that they base their research on data from November 1997 and December 1998. J. Ruiz and G. Barnett also make statement about the imbalancedness of the Internet \cite{owningInternet}. Their results indicate that the United States is the most central nation in the network, with American corporations accounting for almost 40\% of international links between nodes. Moreover they state that there exists a center of the network consisting of 16 companies, each causing more than 1\% of international Internet connections. Amongst others, there are well known companies like Google, Facebook or Amazon. \\ \linebreak
 Research of \cite{geoResearch} and \cite{geoVul} modeled the Internet's large scale topology - amongst others the geographic locations of routers. In that regard, they published the geographic locations of routers and found a major concentration in North America and Europe, which represent western economies that are highly developed in terms of wealth and technological endowments, and less activity on other, less developed continents.\\  \linebreak
  
 
 
 \subsection{ETL Process}
 The data warehousing concept of \textit{Extraction, Transformation, Loading} (ETL) became a rising standard for companies in the 1970s. Back then organizations began to integrate information from different sources into their own databases \cite{carl1}.\break The integration process states the advantage that disparate sources and therefore diverse formation of data can be brought into a unified database. With an adjustable ETL process one is able to adapt and import new datasources without 
-changing the essential main system or framework. This segregation of data import and processing makes the whole system more stable, flexible, provides improved maintance and makes it easier for developers to change and extend functionalities \cite{carl2}. Fig.6 describes this process in general. At the beginning data are extracted from various sources. The extraction must be customized to the characteristics of the respective data provider. These can differ in the file and data format as well as in the interface. For instance, common interfaces are protocols such as \textit{http} or \textit{ftp}, source-specific APIs or stream data.
+changing the essential main system or framework. This segregation of data import and processing makes the whole system more stable, flexible, provides improved maintance and makes it easier for developers to change and extend functionalities \cite{carl2}. Fig. 5 describes this process in general. At the beginning data are extracted from various sources. The extraction must be customized to the characteristics of the respective data provider. These can differ in the file and data format as well as in the interface. For instance, common interfaces are protocols such as \textit{http} or \textit{ftp}, source-specific APIs or stream data.
 In the transformation part demanded information are converted into the neccessary database format. As well calculations can be applied, duplicates will be erased, units converted or further algorithms can be executed. 
 The last stage is contained in the upload or import into the data warehouse, from where to information can bendrawn from multiple stakeholder. An important requirement in the loading phase states the efficiency: data must be sent within a short duration. Dependent on the size of data, parallelization or hardware adjustments may help in all three sections \cite{etlRef}. 
 \linebreak
@@ -178,16 +178,16 @@ The last stage is contained in the upload or import into the data warehouse, fro
 \section{Data}
 As a data source for this work, we exclusively focus on Caida. Caida is an abbreviation and stands for Center for Applied Internet Data Analysis. Located in San Diego, CA in the United States, the center studies networks and its infrastructure up to a large scale. For their investigation on theoretical and practical aspects of the Internet they monitor, collect, analyze and provide network data \cite{Caida}. \\  \linebreak
 
-Regarding the data granularity our primary focus lies on AS level data. Within this domain, we investigate five type of datasets. \textit{AS-Rank} offers a data base giving information about specific autonomous systems, like its rank, relationship to other ASes or customer cone  \cite{Rank} . \textit{AS Classification} represents a data set including information on the business types of Autonomous Systems \cite{Classification}. Through machine-learning inference, Caida is able to offer this knowledge  \cite{Classification}, \cite{dataInference}. A large collection of datasets named \textit{Pv4 Routed 24 AS Links} is used in detail to investigate the topology on the Internet, its structure regarding streams of traffic, and ratios of sending and receiving autonomous systems  \cite{IPv4Data}. This collection of data forms the center of our investigation. From 2007 to 2018 data is collected, by three \textit{teams}. Caida uses independent teams to collect data in order to offer a way to validate the data and its data inference. The teams probe every routed /24 in the IPv4 address space.
+Regarding the data granularity our primary focus lies on AS-level data. Within this domain, we investigate five type of datasets. \textit{AS-Rank} offers a data base giving information about specific autonomous systems, like its rank, relationship to other ASes or customer cone  \cite{Rank} . \textit{AS Classification} represents a data set including information on the business types of autonomous systems \cite{Classification}. Through machine-learning inference, Caida is able to offer this knowledge  \cite{Classification}, \cite{dataInference}. A large collection of datasets named \textit{Pv4 Routed 24 AS Links} is used in detail to investigate the topology on the Internet, its structure regarding streams of traffic, and ratios of sending and receiving autonomous systems  \cite{IPv4Data}. This collection of data forms the center of our investigation. From 2007 to 2018 data is collected, by three \textit{teams}. Caida uses independent teams to collect data in order to offer a way to validate the data and its data inference. The teams probe every routed /24 in the IPv4 address space.
 We investigate the data set \textit{AS Relationships} in order to find out about Provider-to-Customer relationships as well as Peer-to-Peer relationships \cite{CaidaRelationshipsData}.  Lastly, we take into account geographic information of the Autonomous Systems to draw conlclusions on regions with high imapact on the Internet network and less involved ones  \cite{CaidaGeoData}. For the purpose of investigating the characteristics of ASes itself and their network, we analyzed recent data of December 2017.  As for the time series analysis, we used data from 2007 until 2017. \\
 
 
 \section{Results}
 
 \subsection{Data Analysis}
-First aspect of the data analysis process is the type of autonomous system. Caida distinguished here between three types, as fig. 6 shows as well: The first type are ASes that provide Internet access or function as a transit. They make out 42.2\% of all nodes in the network. Second type are ASes providing content hosting and distribution systems, like Dropbox or Google, with only 4,5\% of all overall nodes. Third category are enterprises meaning organizations, universities or companies that are mostly users. They account for 53.3\%. Insights we are gaining from this aspect is that most of the nodes are representing users of the Internet, which makes intuetively sense. More interesting is the large amount of transits and access points needed to provide the respective infrastructure. This hints to the Internet's high complexity (fig. 7). A deeper analysis can be found in \cite{runningTheWeb}.
+First aspect of the data analysis process is the type of autonomous system. Caida distinguished here between three types, as fig. 6 shows as well: The first type are ASes that provide Internet access or function as a transit. They make out 42.2\% of all nodes in the network. Second type are ASes providing content hosting and distribution systems, like Dropbox or Google, with only 4,5\% of all overall nodes. Third category are enterprises meaning organizations, universities or companies that are mostly users. They account for 53.3\%. Insights we are gaining from this aspect is that most of the nodes are representing users of the Internet, which makes intuetively sense. More interesting is the large amount of transits and access points needed to provide the respective infrastructure. This hints to the Internet's high complexity. A deeper analysis can be found in \cite{runningTheWeb}.\\
 
-\vspace{0.5cm}
+%\vspace{0.5cm}
 \begin{figure}[htbp]
 \centerline{\includegraphics[scale=0.4]{Graphics/typeofAS.PNG}}
 \caption{Ratio of Autonomous Systems regarding their Type }
@@ -195,11 +195,11 @@ First aspect of the data analysis process is the type of autonomous system. Caid
 \end{figure}
 \vspace{0.5cm}
 
-As depicted in the theoretical part, autonomous systems have relationships as they transfer data through the web. We took a look at this characteristic in fig. 8 and noticed quite a balanced ratio of Provider-to-Customer relations and Peer-to-Peer relations. If we translate this into a graph, we imagine a balanced graph, which in terms of network riskiness, is rather robust. 
+As depicted in the theoretical part, autonomous systems have relationships as they transfer data through the web. We took a look at this characteristic in fig. 7 and noticed quite a balanced ratio of Provider-to-Customer relations and Peer-to-Peer relations. If we translate this into a graph, we imagine a balanced graph, which in terms of network riskiness, is rather robust. \\ \linebreak
 
 
 
-We furthermore built graphs describing the distributional characteristics of autonomous systems. Fig. 9 shows the distribution of autonomous systems and how many outgoing connections the single nodes have. Approximately 5.500 sending nodes are containted within that dataset. We ranked them on the x-axis. With the number of connections an AS is sending to on the y-axis, we obtain a very left centered distribution. A very small number of nodes in the network are sending traffic to a high number of other nodes. It follows, what is called a power-law distribution  \cite{powerlawCitation}.
+We furthermore built graphs describing the distributional characteristics of autonomous systems. Fig. 8 shows the distribution of autonomous systems and how many outgoing connections the single nodes have. Approximately 5.500 sending nodes are containted within that dataset. We ranked them on the x-axis. With the number of connections an AS is sending to on the y-axis, we obtain a very left centered distribution. A very small number of nodes in the network are sending traffic to a high number of other nodes. It follows, what is called a power-law distribution  \cite{powerlawCitation}.
 
 \vspace{0.5cm}
 \begin{figure}[htbp]
@@ -209,7 +209,7 @@ We furthermore built graphs describing the distributional characteristics of aut
 \end{figure}
 \vspace{0.5cm}
 
- Calculating the quantiles of the distribution, the top 10 percent of highest ranked nodes (ranked by the number of different outgoing connections) send to almost exactely 50\% of overall trafic of the whole network. The top five percent are responsible for 36\% of all outgoing traffic and the top one percent even accounts for approximately 17\%. \\ \linebreak Note that when we make statements of the whole network, we only refer to the data at hand as the whole network. That is the data collected by Caida. It should also be mentioned that \textit{traffic} in this context is the number of connections and not amount of transferred data. Information on Caida's data collection process can be found in \cite{CaidaDataCollection} . \\ \linebreak
+ Calculating the quantiles of the distribution, the top 10 percent of highest ranked nodes (ranked by the number of different outgoing connections) send to almost exactely 50\% of overall trafic of the whole network. The top five percent are responsible for 36\% of all outgoing traffic and the top one percent even accounts for approximately 17\%. \\ \linebreak Note that when we make statements of the whole network, we only refer to the data at hand as the whole network. That is the data collected by Caida. It should also be mentioned that \textit{traffic} in this context is the number of connections and not amount of transferred data. Information on Caida's data collection process can be found in \cite{CaidaDataCollection} . \\ 
 
 %> sum(sumAsTo$count[1:4900]) / sum(sumAsTo$count)
 %[1] 0.5059264
@@ -218,7 +218,7 @@ We furthermore built graphs describing the distributional characteristics of aut
 %> sum(sumAsTo$count[1:490]) / sum(sumAsTo$count)
 %[1] 0.1678801
 
-Simultaneousely, we drew the distribution of incoming connections per Autonomous System (\textit{Appendix A}) and received a similar result. With approximately 250.000 nodes, receiving traffic, only very few nodes are receiving traffic from a high number of nodes, again following the properties of a power-law distribution. The top ten percent of highest ranked nodes, are receiving approximately 52\% of the overall traffic in this network. The top five percent make up 36\% and the top one percent even 17\% of overall trafic. The quantiles are almost identical to those of the previous distribution. Such results hint to the Pareto Principle stating that a small number of participants have a large impact on the overall activity and the large majority only accounts for a small influence. This principle has already been proven to be a good estimate for applications in business and economics. Our results suggest that this principle is also feasible for Caida data on AS-level.  \\ 
+Simultaneousely, we drew the distribution of incoming connections per autonomous system (\textit{Appendix A}) and received a similar result. With approximately 250.000 nodes, receiving traffic, only very few nodes are receiving traffic from a high number of nodes, again following the properties of a power-law distribution. The top ten percent of highest ranked nodes, are receiving approximately 52\% of the overall traffic in this network. The top five percent make up 36\% and the top one percent even 17\% of overall trafic. The quantiles are almost identical to those of the previous distribution. Such results hint to the Pareto Principle stating that a small number of participants have a large impact on the overall activity and the large majority only accounts for a small influence. This principle has already been proven to be a good estimate for applications in business and economics. Our results suggest that this principle is also feasible for Caida data on AS-level.  \\ 
 
 %top 1 percent
 %> sum(sumAsTo$count[1:520]) / sum(sumAsTo$count)
@@ -235,33 +235,33 @@ Simultaneousely, we drew the distribution of incoming connections per Autonomous
 %> sum(sumAsTo$count[1:5200]) / sum(sumAsTo$count)
 %[1] 0.5174527
 
-An important finding regarding connectivity risks of the network is, how vulnerable this network is. An attack targeting the most active and most influential nodes in the network, achieving a non-functioning of those quickly leads to wide shot-downs of the network. Previous introduced results by \cite{powerlawCitation} and \cite{owningInternet} can therefore be supported.  This again underscores the demand for Coria - a tool to analyze connectivity risks for an safe and ongoing network infrastructure 
+An important finding regarding connectivity risks of the network is, how vulnerable this network is. An attack targeting the most active and most influential nodes in the network, achieving a non-functioning of those quickly leads to wide shot-downs of the network. Previous introduced results by \cite{powerlawCitation} and \cite{owningInternet} can therefore be supported.  This again underscores the demand for Coria - a tool to analyze connectivity risks for an safe and ongoing network infrastructure \\
 
-\vspace{0.5cm}
+%\vspace{0.5cm}
 \begin{figure}[htbp]
 \centerline{\includegraphics[scale=0.4]{Graphics/AsFromDistribution.png}}
 \caption{Distribution of Outgoing Connections per AS}
 \label{fig}
 \end{figure}
-\vspace{0.5cm}
+%\vspace{0.5cm}
 
 
-Next, we analyzed the geographic locations of autonomous systems and their flow of traffic. Fig. 9 symbolizes autonomous systems as organge points on a word map. We can see a high concentration of ASes in North America and Europe. The concentration of ASes is less dense in areas like South America, Africa or Asia. Insights that we can draw from that representaion are that more autonomous systems are situated in highly developed economies  than they are in less developed regions. This result corresponds to previous research conducted by \cite{geoResearch}. While we need to keep in mind that we are only analyzing one data set - with challenging data collection on top of that, we can assume this result still to be a representative sample of the overall network \cite{CaidaDataCollection}. The results confirm the assumption that most traffic is taking place between parties of richer and more developed economies. Conclusion for these findings may be that the internet is a main driver of any economic growth as well as the leading instrument of communication.
+Next, we analyzed the geographic locations of autonomous systems and their flow of traffic. Fig. 9 symbolizes autonomous systems as organge points on a word map. We can see a high concentration of ASes in North America and Europe. The concentration of ASes is less dense in areas like South America, Africa or Asia. Insights that we can draw from that representaion are that more autonomous systems are situated in highly developed economies  than they are in less developed regions. This result corresponds to previous research conducted by \cite{geoResearch}. While we need to keep in mind that we are only analyzing one data set - with challenging data collection on top of that, we can assume this result still to be a representative sample of the overall network \cite{CaidaDataCollection}. The results confirm the assumption that most traffic is taking place between parties of richer and more developed economies. Conclusion for these findings may be that the internet is a main driver of any economic growth as well as the leading instrument of communication. \\
 
 
-\vspace{0.5cm}
+%\vspace{0.3cm}
 \begin{figure}[h]
 \centerline{\includegraphics[width=\columnwidth]{Graphics/connectedASes.png}}
 \caption{Location of ASes and respective Streams of Traffic}
 \label{fig}
 \end{figure}
-\vspace{0.5cm}
+\vspace{0.7cm}
 
 
 These results confirm the research from 2002 by \cite{geoResearch} and lead to the conclusion that geographically speaking the Internet network did not develop much further. Accordingly, one can state that developed areas increased their power and wealth, whereas in the last 15 years the development of less wealthy areas is only marginal. Even though we are looking at the level of autonomous systems and \cite{geoResearch} looked directly at the router-level, the comparison remains valid. \\
 
 
-In addition to the analysis of a single point in time, we investigated the timely development of the network. Figure 10 shows the number of traffic-sending autonomous systems from the beginning of 2007 until the end of 2017. Within these 10 years, there is a clear upward trend. In 2015 this upward trend vanishes and and reaches a constant level of approximately 5.500 sending AS nodes within the network. \\
+In addition to the analysis of a single point in time, we investigated the timely development of the network. Figure 10 shows the number of traffic-sending autonomous systems from the beginning of 2007 until the end of 2017. Within these 10 years, there is a clear upward trend. In 2015 this upward trend vanishes and and reaches a constant level of approximately 5.500 sending AS nodes within the network. The vertical red lines mark a new year, respectiively \\
 
 \vspace{0.5cm}
 \begin{figure}[h]
@@ -272,7 +272,7 @@ In addition to the analysis of a single point in time, we investigated the timel
 \vspace{0.5cm}
 
 
-Conclusions that we can draw from this results are either that we are observing a saturation of network size in technological highly developed areas in combination with no significant increase of Internet accesses in poorer economies, or that the stagnation is of technical nature. The later suggests that simply the expansion of Caida monitoring tools might have stagnated. (Note the consistency of results with respect to  the `Distribution of number of sending ASes` in the appendix) Striking in that graph are the multiple outliers appearing throught the time series. A qualitative research about exeptional events happening on these dates that might have been the reason for a downtime of multiple nodes did not lead to reasonable results. As a consequence, we assume the outliers to be caused by monitoring and data collection problems of CAIDA \cite{CaidaDataCollection}. Events like updating the monitoring system can cause such a down time. \\
+Conclusions that we can draw from this results are either that we are observing a saturation of network size in technological highly developed areas in combination with no significant increase of Internet accesses in poorer economies, or that the stagnation is of technical nature. The later suggests that simply the expansion of Caida monitoring tools might have stagnated. Note the consistency of results with respect to  the \textit{Distribution of number of sending ASes} in the appendix. Striking in that graph are the multiple outliers appearing throught the time series. A qualitative research about exeptional events happening on these dates that might have been the reason for a downtime of multiple nodes did not lead to reasonable results. As a consequence, we assume the outliers to be caused by monitoring and data collection problems of CAIDA \cite{CaidaDataCollection}. Events like updating the monitoring system can cause such a down time. \\
 
 With respect to \textit{Appendix C} you can see a simultaneous development for the amount of nodes, receiving traffic - on a level of approx. 250.000 nodes of course. \\ 
 
@@ -357,7 +357,7 @@ Then the main program will call the function that transforms the data into an ed
 The while loop in listing \ref{lst:main_linkextract} will continue until the last file of the current year is processed.  \\
 
 \vspace{0.5cm}
-\begin{lstlisting}[ language=Python,caption={main.py - File Processing Part},captionpos=b ,  label={cycle}] %float=tp, 
+\begin{lstlisting}[ language=Python,caption={main.py - File Processing Part},captionpos=b ,  label={cycle}] 
 
 if "cycle-as" in j:
 	if os.path.isfile("Data/Original/"+j3):
@@ -381,8 +381,8 @@ if "cycle-as" in j:
 \vspace{0.5cm}
 
 \textit{CsvCreate} creates an edge list from the original file on the Coria server.
-For example, the original ASrank list 'cycle-aslinks.l7.t1.c000027.20070913.txt'(folder: Data/Original/), containing the data description and additional data, will be converted into the pure edge list '20070913.txt(folder: Data/Csv/)' With the Python built-in modules \textit{re — Regular expression operations} 
-the program extracts the starting and destination nodes of every line beginning with a "D" and adds them to the edge list. These cases are referring to \textit{direct} connections between nodes \cite{IPv4Data}. The edge list will be saved in the format \textit{YYYYMMDD.csv}, i.e. \textit{20180216.csv} \\
+For example, the original ASrank list \textit{cycle-aslinks.l7.t1.c000027.20070913.txt} (folder: Data/Original/), containing the data description and additional data, will be converted into the pure edge list \textit{20070913.txt(folder: Data/Csv/)}. With the Python built-in modules \textit{re — Regular expression operations} 
+the program extracts the starting and destination nodes of every line beginning with a \textit{D} and adds them to the edge list. These cases are referring to \textit{direct} connections between nodes \cite{IPv4Data}. The edge list will be saved in the format \textit{YYYYMMDD.csv}, i.e. \textit{20180216.csv} \\
 
 
 
@@ -391,7 +391,7 @@ the program extracts the starting and destination nodes of every line beginning 
 
 
 
-Finally \textit{Csv2CoriaDB} is the last component of the automated data import, which can be found in \textit{Appendix D}. The initial idea was to directly work with the MySQL database and import the edge list with the Python SQL module, but the Coria framework inserts not only the data set itself, but it also inserts entries for every edge, node and attribute, as illustrated in fig. \ref{fig:SQL_schema}. Thus, we decided to write a script that emulates the process of uploading to the Coria web framework through \textit{Selenium} \cite{selenium}. Selenium is a language-open software framework for testing and automation in web applications. \\ \linebreak
+Finally \textit{Csv2CoriaDB} is the last component of the automated data import, which can be found in \textit{Appendix D}. The initial idea was to directly work with the MySQL database and import the edge list with the Python SQL module, but the Coria framework inserts not only the data set itself, but it also inserts entries for every edge, node and attribute, as illustrated in fig. \ref{fig:SQL_schema}. Thus, we decided to write a script that emulates the process of uploading to the Coria web framework through \textit{Selenium} \cite{selenium}. Selenium is a language-open software framework for testing and automation in web applications. \\ 
 
 The automated import process makes use of \textit{Chromedriver} as Webdriver API, while other browsers such as Mozilla Firefox or Mac Safari can still be applied. For our specific task Chrome outperformed other browsers. It is important that at the initial installation process of the automated ETL framework Google Chrome has to be installed as well as the Chromedriver path needs to be added to the environent variables. Exactly like the csv creator the database import takes the file name as input parameter.
 Afterwards the webdriver requests the Coria upload page. The Selenium method \textit{find\_element\_by\_xpath} enables the webdriver to fulfill the requested fields.
@@ -444,86 +444,83 @@ Further analysis might refer to other time intervals. In the attached files we c
 We experiemented with Flask, a Python library for web development \cite{Flask} and tried to provide a graphical interface to merge the information.
 
 
-%For improvements of internal development activities the creation of an extensive code and installation documentation would be helpful.
-
-
 
 \begin{thebibliography}{00}
-%1
+
 \bibitem{threats}D. Magoni, ``Tearing Down the Internet,'' in \textit{ IEEE Journal of Selected Areas in Communications}, vol. 21(6), pp. 949–960, September 2006. %ok
-%2
+
 \bibitem{dyn}K. York, (2016, October). \textit{Dyn’s Statement on the 10/21/2016 DNS DDoS Attack}. 2016. [Online]. Available: https://dyn.com/blog/dyn-statement-on-10212016-ddos-attack/ %ok
-%3
+
 \bibitem{DT}E. Auchard, (2016, November). \textit{Deutsche Telekom attack part of global campaign on routers}. [Online]. Available: https://www.reuters.com/article/us-deutsche-telekom-outages/deutsche-telekom-attack-part-of-global-campaign-on-routers-idUSKBN13O0X4 %ok
-%4
+
 \bibitem{Ponemon}Ponemon Institute LLC, ``Cost of Data Center Outages,'' \textit{Data Center Performance Benchmark Series}, 2016. Available: https://www.vertivco.com/globalassets/documents/reports/2016-cost-of-data-center-outages-11-11\_51190\_1.pdf %ok
-%5
+
 \bibitem{cyberSponsors} E. Macaskill, G. Dance, (2013, November). \textit{Feidling Cage and Greg Chcen}, November 2013. [Online]. Available: \url{https://www.theguardian.com/world/interactive/2013/nov/01/snowden-nsa-files-surveillance-revelations-decoded} %ok
-%6
+
 \bibitem{cyberSponsors2}R. Barton, ``Chinese cyberattack hits Canada's National Research Council,'' \textit{CBC News}, July 2014. [Online]. Available: http://www.cbc.ca/news/politics/chinese-cyberattack-hits-canada-s-national-research-council-1.2721241 %ok
-%7
+
 \bibitem{cyberSponsors3}A. Kharpal, ``North Korea government-backed hackers are trying to steal cryptocurrency from South Korean users,'' \textit{CNBC}, January 2018. [Online]. Available: https://www.cnbc.com/2018/01/17/north-korea-hackers-linked-to-cryptocurrency-cyberattack-on-south-korea.html %ok
-%8
+
 \bibitem{Coria}B. Fabian, A. Baumann, M. Ehlert, V. Ververis, T. Ermakova, `` Coria – Analyzing Internet Connectivity Risks Using Network Graphs,'' in \textit{2017 IEEE International Conference on Communications Paris (IEEE ICC 2017)}, May 2017.  pp. 1-6. doi: 10.1109/ICC.2017.7996828 %ok
-%9
+
 \bibitem{Ehlert}M. C. Ehlert, "A Software Framework for Analyzing Connectivity Risk of Graph Data," Master of Science, Humboldt-Universität zu Berlin, 2014. %ok
 
 \bibitem{BA}T. Kober, ``Business Intelligence in der Telekommunikation: Konzeption und Umsetzung einer Graphendatenbank mittels Neo4j,'' Bachelor of Science, Hochschule für Telekommunikation Leipzig, December 2016. %ok
 
-%10
+
 \bibitem{Coria2} D. Kiene-Maksimovic, E. Zinovyeva, J. Park, B. Fabian, ``Coria 2.0: Augmenting a Universal Framework for Connectivity Risk Analysis,'' \textit{SRN Electronic Journal}, October 2017. 10.2139/ssrn.3060327.  %ok
-%11
+
 \bibitem{Coria3}S. Gross, ``Entwicklung eines modularen Frameworks für die Analyse von Verbindungsrisiken von Netzwerken basierend auf Netzwerkgraphen,'' Bachelor of Science, Hochschule für Telekommunikation Leipzig, Dezember 2017. %ok
-%12
+
 \bibitem{vulnerabilityBaumannFabian}A. Baumann, B. Fabian, ``Vulnerability Against Internet Disruptions – A Graph-based Perspective,''  in \textit{Proceedings of the 10th International Conference on Critical Information Infrastructures Security (CRITIS 2015)}, LNCS, vol. 9578, October 2015.
 
 \bibitem{ASH}B. Fabian, Tilch, Georg, Ermakova, ``A Multilayer Graph Model of the Internet Topology,'' October 2017. 10.5281/zenodo.1038599. %ok
-%13
+
 \bibitem{Rank}Caida, University of California San Diego, ``AS Rank,'' [Online].  Available: http://as-rank.caida.org/ %ok
-%14
+
 \bibitem{Cone}M. Luckie et al., "AS Relationships, Customer Cones, and Validation", \textit{Internet Measurement Conference (IMC)}, October 2013, pp. 243--256. Available: http://dx.doi.org/10.1145/2504730.2504735 %ok
-%15
+
 \bibitem{howRobust}A. Baumann, B. Fabian, “How Robust is the Internet? – Insights
 from Graph Analysis,” in \textit{Proceedings of the 9th International
 Conference on Risks and Security of Internet and Systems (CRiSIS
 2014)}, LNCS 8924, pp. 247-254, August 2017. %ok 
-%16
-\bibitem{RYF}Albert, R. Jeong, H. Barabasi, ``Error and attack tolerance of complex networks,'' in \textit{Nature 406}, pp. 378–382, July 2000. doi:10.1038/35019019. %go 
-%17
+
+\bibitem{RYF}Albert, R. Jeong, H. Barabasi, ``Error and attack tolerance of complex networks,'' in \textit{Nature 406}, pp. 378–382, July 2000. doi:10.1038/35019019.  
+
 \bibitem{powerlawCitation}M. Faloutsos, P. Faloutsos, C. Faloutsos, “On power-law relationships of the Internet topology,”  in \textit{Proc. of ACM SIGCOMM}, pp. 251–262, August 1999. %ok
-%18
+
 \bibitem{owningInternet}J. Ruiz, G. Barnett, ``Who owns the international Internet networks?,''in \textit{The Journal of International
 Communication}, vol. 21:1, pp. 38-57, November 2014. doi:
 10.1080/13216597.2014.976583. %ok 
-%19
+
 \bibitem{geoResearch}S. Yook, H. Jeong, A. Barabasi, ``Modeling the Internet's Large-Scale Topology,'' in \textit{Proceedings of the National Academy of Sciences of the United States of America}, November 2002.
 
 \bibitem{geoVul}A. Baumann, B. Fabian. ``Towards Measuring the Geographic and Political Resilience of the Internet,'' International Journal of Networking and Virtual Organisations, vol. 13(4), pp. 365–384, December 2013. doi: 10.1504/IJNVO.2013.064465. %ok
  %ok
 
-%20
+
 \bibitem{carl1}SAS Institute GmbH, [Online]. Available:\url{https://www.sas.com/en_us/insights/data-management/what-is-etl.html} %ok
-%21
 
 \bibitem{carl2} butunclebob (n.d.), [Online]. Available: \url{http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod}. %ok
 
 \bibitem{etlRef}P. Jovanovic, O. Romero, A. Simitsis, A. Abelló, `` Integrating ETL Processes from Information Requirements,'' in \textit{International Conference on Data Warehousing and Knowledge Discovery}, vol. 7448, 2012. doi:https://doi.org/10.1007/978-3-642-32584-7\_6
 
 \bibitem{Caida}Caida, University of California San Diego, [Online]. Available: https://www.caida.org/home %ok
-%22
+
 \bibitem{Classification}Caida, University of California San Diego, ``AS Classification,'' [Online]. Available: http://www.caida.org/data/as-
 classification %ok
 
 \bibitem{dataInference} M. Huth, B. Fabian, ``Inferring Business Relationships in the Internet Backbone,'' in \textit{International Journal of Networking and Virtual Organisations},vol. 16(4), pp. 315-345, January 2016. %ok
-%23
 
-%24
+
+
 \bibitem{IPv4Data} Caida, University of California San Diego, ``IPv4 Routed /24 AS Links Dataset,'' [Online]. Available: \url{http://www.caida.org/data/active/ipv4\_routed\_topology\_aslinks\_dataset.xml} %ok
-%25
+
 \bibitem{CaidaRelationshipsData}Caida, University of California San Diego, ``AS Relationships,'' [Online]. Available:http://www.caida.org/data/as-relationships/ %ok
-%26
+
+
 \bibitem{CaidaGeoData}Caida, University of California San Diego, ``AS Relationships with geographic annotations,'' [Online]. Available: http://www.caida.org/data/as-relationships-geo/ %ok
-%27
+
 
 
 \bibitem{runningTheWeb} A. Baumann, B. Fabian, ``Who Runs the Internet? Classifying Autonomous Systems into Industries,'' in \textit{Proceedings of the 10th International Conference on Web Information Systems and Technologies (WEBIST)}, April 2014. doi:10.5220/0004936803610368. %ok
@@ -531,8 +528,8 @@ classification %ok
 
 
 \bibitem{CaidaDataCollection} X. Dimitropoulos, D. Krioukov, B. Huffaker, K. claffy, G. Riley, ``Inferring AS Relationships: Dead End or Lively Beginning?", in \textit{Workshop on Efficient and Experimental Algorithms (WEA)}, pp. 113-125, May 2005. %ok
-%28
-%29
+
+
 \bibitem{selenium}SeleniumHQ (n.d), [Online]. Available: https://github.com/SeleniumHQ/selenium. %ok
 
 \bibitem{RipeNCC}Ripe NCC, (n.d.), [Online]. Available: https://www.ripe.net/manage-ips-and-asns/db %ok
@@ -540,17 +537,17 @@ classification %ok
 \bibitem{PythonDocumentation}Python Software Foundation, ``6. Built-in Exceptions,'' [Online]. Available: http://www.python.org/2.7/library/exceptions.html %ok
 
 \bibitem{powerLaw} Y. Bar-Yam, ``Concepts: Power Law," New England Complex Systems Institute, August 2015. %ok
-%30
+
 
 \bibitem{CaidaRelationships}X. Dimitropoulos, G. Riley, ``Modeling Autonomous System Relationships,'' in \textit{Principles of Advanced and Distributed Simulation (PADS)}, pp. 143--149, May 2006. %ok
-%31
+
 
 
 
 \bibitem{RelInference}X. Dimitropoulos, D. Krioukov, G. Riley, K. Claffy, ``Revealing the Autonomous System Taxonomy: The Machine Learning Approach," in \textit{Passive and Active Network Measurement Workshop (PAM)}, March 2006. %ok
-%32
+
 \bibitem{CaidaRel2}X. Dimitropoulos, D. Krioukov, G. Riley, K. Claffy, "Classifying the Types of Autonomous Systems in the Internet,'' in \textit{SIGCOMM}, August 2005. %ok
-%33
+
 
 
 
@@ -559,13 +556,12 @@ classification %ok
 
 
 \end{thebibliography}
-%\pagebreak
 
 
 \begin{appendices}
 
 \begin{section}{Distribution of Incoming Connections per AS}
-\begin{figure}[htbp]
+\begin{figure}[H]
 \centerline{\includegraphics[scale=0.4]{Graphics/AsToDistribution.png}}
 \caption{Distribution of Incoming Connections per AS}
 \label{fig}
@@ -575,7 +571,7 @@ classification %ok
 \vspace{1cm}
 
 \begin{section}{Geographical Locations of ASes}
-\begin{figure}[htbp]
+\begin{figure}[H]
 \centerline{\includegraphics[scale=0.2]{Graphics/ASesNurPunkte.png}}
 \caption{Geographical Locations of ASes}
 \label{fig}
@@ -585,7 +581,7 @@ classification %ok
 
 
 \begin{section}{Time development from 2007 - 2017: Number of receiving AS nodes}
-\begin{figure}[htbp]
+\begin{figure}[H]
 \centerline{\includegraphics[scale=0.4]{Graphics/ASToAll.png}}
 \caption{Time development from 2007 - 2017: Number of receiving AS nodes}
 \label{fig}
@@ -593,6 +589,7 @@ classification %ok
 \end{section}
 
 %\vspace{14cm}
+\newpage
 \begin{section}{Csv2CoriaDB.py}
 
 Please see next page. \\
@@ -615,7 +612,6 @@ def Csv2CoriaDB(Filename):
 	#download chromedriver and give Path to chromedriver.exe
 	driver = webdriver.Chrome("C:\Python27\Scripts\chromedriver.exe", chrome_options=chrome_options)
 
-
 	#def CsvUpload:
 	driver.get("http://localhost:8080/Coria/#!/datasets/upload")
 	driver.implicitly_wait(5)
@@ -633,7 +629,6 @@ def Csv2CoriaDB(Filename):
 	file = str(path + "/Data\Csv\\" + Filename + ".csv")
 
 	#file = 'C:\caida\Data_Csv\20180101.csv'
-	#driver.find_element_by_xpath('//*[@id="file"]'').send_keys(os.getcwd("C:\Users\Carlimero\Downloads\datastructrue.txt")')
 	file_input = driver.find_element_by_xpath('//*[@id="file"]')
 	file_input.send_keys(file)
 	time.sleep(5)
